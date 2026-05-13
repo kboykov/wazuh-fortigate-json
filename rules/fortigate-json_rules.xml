@@ -1,0 +1,1498 @@
+<!--
+  FortiGate FortiOS 8.0.0 - Wazuh Detection Rules
+  Rule ID range : 118100 - 118299
+  Decoder       : Wazuh built-in JSON decoder (name: json)
+  Reference     : FortiOS 8.0.0 Log Message Reference
+                  https://docs.fortinet.com/document/fortigate/8.0.0/fortios-log-message-reference
+
+  FortiGate logs arrive as JSON and are decoded by Wazuh's built-in JSON
+  decoder. All fields are promoted to the top-level decoded event (no
+  data. prefix). Rule 118100 anchors on decoded_as=json and the devid
+  field which always starts with "FG" on FortiGate hardware/VM.
+
+  Severity mapping (FortiGate → Wazuh level):
+    emergency → 15   alert   → 14   critical → 12
+    error     → 8    warning → 6    notice   → 5
+    information → 3  debug   → 2
+-->
+
+<group name="fortigate,">
+
+  <!-- ================================================================
+       BASE RULE – parent for ALL FortiGate JSON events
+       Anchors on the built-in JSON decoder + devid starting with "FG"
+       (FortiGate device IDs: FGT, FGR, FWF, FG6, etc.)
+       ================================================================ -->
+
+  <rule id="118100" level="0">
+    <decoded_as>json</decoded_as>
+    <field name="devid">^FG</field>
+    <description>FortiGate: FortiOS 8.0.0 log event</description>
+    <options>no_full_log</options>
+  </rule>
+
+
+  <!-- ================================================================
+       TRAFFIC LOGS  (data.type = traffic)
+       ================================================================ -->
+
+  <rule id="118101" level="0">
+    <if_sid>118100</if_sid>
+    <field name="type">^traffic$</field>
+    <description>FortiGate: Traffic log</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- Traffic: allowed / accepted -->
+  <rule id="118102" level="3">
+    <if_sid>118101</if_sid>
+    <action>accept|allow</action>
+    <description>FortiGate: Traffic allowed from $(srcip):$(srcport) to $(dstip):$(dstport) [$(service)] policy=$(policyid)</description>
+    <group>firewall_allow,gpg13_4.13,pci_dss_1.3.4,</group>
+  </rule>
+
+  <!-- Traffic: denied / dropped by policy -->
+  <rule id="118103" level="3">
+    <if_sid>118101</if_sid>
+    <action>deny|drop|block|ip-conn</action>
+    <description>FortiGate: Traffic denied from $(srcip):$(srcport) to $(dstip):$(dstport) [$(service)] policy=$(policyid)</description>
+    <group>firewall_drop,gpg13_4.13,pci_dss_1.3.4,</group>
+  </rule>
+
+  <!-- Traffic: connection reset by client or server -->
+  <rule id="118104" level="3">
+    <if_sid>118101</if_sid>
+    <action>client-rst|server-rst</action>
+    <description>FortiGate: Traffic connection reset from $(srcip) to $(dstip) [$(service)]</description>
+    <group>firewall_drop,</group>
+  </rule>
+
+  <!-- Traffic: failed connection attempts  logid=0000000011 -->
+  <rule id="118105" level="5">
+    <if_sid>118101</if_sid>
+    <field name="logid">^0000000011$</field>
+    <description>FortiGate: Failed connection attempts from $(srcip) to $(dstip) [$(service)]</description>
+    <group>firewall_drop,</group>
+  </rule>
+
+  <!-- Traffic: forward statistics  logid=0000000020 -->
+  <rule id="118106" level="0">
+    <if_sid>118101</if_sid>
+    <field name="logid">^0000000020$</field>
+    <description>FortiGate: Forward traffic statistics</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- Traffic: local (destined to FortiGate management plane)  logid=0001000014 -->
+  <rule id="118107" level="0">
+    <if_sid>118101</if_sid>
+    <field name="subtype">^local$</field>
+    <description>FortiGate: Local traffic log</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- Traffic: ZTNA  logid=0005000024 -->
+  <rule id="118108" level="3">
+    <if_sid>118101</if_sid>
+    <field name="logid">^0005000024$</field>
+    <description>FortiGate: ZTNA traffic from $(srcip) to $(dstip)</description>
+  </rule>
+
+
+  <!-- ================================================================
+       UTM LOGS  (data.type = utm)
+       ================================================================ -->
+
+  <rule id="118109" level="0">
+    <if_sid>118100</if_sid>
+    <field name="type">^utm$</field>
+    <description>FortiGate: UTM security event</description>
+    <options>no_full_log</options>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Antivirus  (data.subtype = virus)
+       ────────────────────────────────────────────────────────────── -->
+
+  <rule id="118110" level="0">
+    <if_sid>118109</if_sid>
+    <field name="subtype">^virus$</field>
+    <description>FortiGate: Antivirus event</description>
+    <group>malware,</group>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- AV: virus / malware blocked  logid=0211008192 / action=blocked -->
+  <rule id="118111" level="10">
+    <if_sid>118110</if_sid>
+    <action>blocked|block</action>
+    <description>FortiGate: Malware blocked - $(virus) in $(filename) from $(srcip)</description>
+    <group>malware,pci_dss_5.1,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+  </rule>
+
+  <!-- AV: virus detected but passed (monitor mode)  logid=0211008193 -->
+  <rule id="118112" level="8">
+    <if_sid>118110</if_sid>
+    <action>passed|pass|passthrough</action>
+    <description>FortiGate: Malware detected and allowed (monitor mode) - $(virus) from $(srcip)</description>
+    <group>malware,pci_dss_5.1,gdpr_IV_35.7.d,</group>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+  </rule>
+
+  <!-- AV: FortiSandbox infected verdict  logid=0211009234 / 0211009236 -->
+  <rule id="118113" level="12">
+    <if_sid>118110</if_sid>
+    <field name="logid">^0211009234$|^0211009236$</field>
+    <description>FortiGate: FortiSandbox reports file as infected from $(srcip)</description>
+    <group>malware,pci_dss_5.1,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+  </rule>
+
+  <!-- AV: Outbreak Prevention - infected warning  logid=0204008202 / 0204008204 -->
+  <rule id="118114" level="10">
+    <if_sid>118110</if_sid>
+    <field name="logid">^0204008202$|^0204008204$</field>
+    <description>FortiGate: Outbreak Prevention - file reported infected from $(srcip)</description>
+    <group>malware,pci_dss_5.1,</group>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+  </rule>
+
+  <!-- AV: EMS threat feed match  logid=0208008216 / 0208008218 -->
+  <rule id="118115" level="12">
+    <if_sid>118110</if_sid>
+    <field name="logid">^0208008216$|^0208008218$</field>
+    <description>FortiGate: File matches EMS threat feed from $(srcip)</description>
+    <group>malware,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+  </rule>
+
+  <!-- AV: Content disarm and reconstruction  logid=0205009240 -->
+  <rule id="118116" level="6">
+    <if_sid>118110</if_sid>
+    <field name="logid">^0205009240$</field>
+    <description>FortiGate: Content disarmed by CDR engine from $(srcip) - $(filename)</description>
+    <group>malware,</group>
+  </rule>
+
+  <!-- AV: 0-day malware stream  logid=0210008244 / 0210008246 -->
+  <rule id="118117" level="12">
+    <if_sid>118110</if_sid>
+    <field name="logid">^0210008244$|^0210008246$</field>
+    <description>FortiGate: 0-day malware stream detected from $(srcip)</description>
+    <group>malware,pci_dss_5.1,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+  </rule>
+
+  <!-- AV: oversize file blocked  logid=0213008704 -->
+  <rule id="118118" level="5">
+    <if_sid>118110</if_sid>
+    <field name="logid">^0213008704$</field>
+    <description>FortiGate: Oversized file blocked from $(srcip)</description>
+    <group>malware,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       IPS  (data.subtype = ips)
+       ────────────────────────────────────────────────────────────── -->
+
+  <rule id="118119" level="0">
+    <if_sid>118109</if_sid>
+    <field name="subtype">^ips$</field>
+    <description>FortiGate: IPS event</description>
+    <group>ids,</group>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- IPS: attack signature (alert severity) – logid=0419016384/85/86 -->
+  <rule id="118120" level="12">
+    <if_sid>118119</if_sid>
+    <field name="level">^alert$</field>
+    <description>FortiGate: IPS signature alert - $(attack) from $(srcip) to $(dstip)</description>
+    <group>ids,pci_dss_6.6,pci_dss_11.4,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1046</id>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+
+  <!-- IPS: attack signature (warning / notice) -->
+  <rule id="118121" level="8">
+    <if_sid>118119</if_sid>
+    <field name="level">^warning$|^notice$</field>
+    <description>FortiGate: IPS signature event - $(attack) from $(srcip) to $(dstip)</description>
+    <group>ids,pci_dss_11.4,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+  </rule>
+
+  <!-- IPS: Botnet C&C – blocked (warning)  logid=0422016400 -->
+  <rule id="118122" level="14">
+    <if_sid>118109</if_sid>
+    <field name="logid">^0422016400$</field>
+    <description>FortiGate: Botnet C&amp;C communication blocked from $(srcip) to $(dstip)</description>
+    <group>ids,malware,pci_dss_11.4,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1071</id>
+      <id>T1102</id>
+    </mitre>
+  </rule>
+
+  <!-- IPS: Botnet C&C – detected / monitor (notice)  logid=0422016401 -->
+  <rule id="118123" level="12">
+    <if_sid>118109</if_sid>
+    <field name="logid">^0422016401$</field>
+    <description>FortiGate: Botnet C&amp;C communication detected from $(srcip) to $(dstip)</description>
+    <group>ids,malware,pci_dss_11.4,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+  </rule>
+
+  <!-- IPS: Malicious URL  logid=0421016399 -->
+  <rule id="118124" level="12">
+    <if_sid>118109</if_sid>
+    <field name="logid">^0421016399$</field>
+    <description>FortiGate: Malicious URL access from $(srcip) to $(dstip)</description>
+    <group>ids,malware,pci_dss_11.4,</group>
+    <mitre>
+      <id>T1566.002</id>
+    </mitre>
+  </rule>
+
+  <!-- IPS: L2 / Ethernet protocol attack  logid=0419016402 -->
+  <rule id="118125" level="10">
+    <if_sid>118109</if_sid>
+    <field name="logid">^0419016402$</field>
+    <description>FortiGate: Ethernet/L2 protocol attack from $(srcip)</description>
+    <group>ids,pci_dss_11.4,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Anomaly / DoS  (data.subtype = anomaly)
+       ────────────────────────────────────────────────────────────── -->
+
+  <rule id="118126" level="0">
+    <if_sid>118109</if_sid>
+    <field name="subtype">^anomaly$</field>
+    <description>FortiGate: Anomaly / DoS event</description>
+    <group>ids,</group>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- Anomaly: attack – alert severity  logid=0720018432/33/34 -->
+  <rule id="118127" level="12">
+    <if_sid>118126</if_sid>
+    <field name="level">^alert$</field>
+    <description>FortiGate: DoS/anomaly attack detected from $(srcip) to $(dstip) - $(attack)</description>
+    <group>ids,pci_dss_11.4,gdpr_IV_35.7.d,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1498</id>
+      <id>T1499</id>
+    </mitre>
+  </rule>
+
+  <!-- Anomaly: warning level -->
+  <rule id="118128" level="8">
+    <if_sid>118126</if_sid>
+    <field name="level">^warning$|^notice$</field>
+    <description>FortiGate: DoS/anomaly event from $(srcip) to $(dstip) - $(attack)</description>
+    <group>ids,pci_dss_11.4,</group>
+    <mitre>
+      <id>T1498</id>
+    </mitre>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Web Filter  (data.subtype = webfilter)
+       ────────────────────────────────────────────────────────────── -->
+
+  <rule id="118129" level="0">
+    <if_sid>118109</if_sid>
+    <field name="subtype">^webfilter$</field>
+    <description>FortiGate: Web filter event</description>
+    <group>web,</group>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- Webfilter: URL blocked by URL filter list  logid=0315012544 -->
+  <rule id="118130" level="5">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0315012544$</field>
+    <description>FortiGate: URL blocked by URL filter - $(url) from $(srcip)</description>
+    <group>web,pci_dss_1.3.4,</group>
+  </rule>
+
+  <!-- Webfilter: FortiGuard category blocked  logid=0316013056 -->
+  <rule id="118131" level="5">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0316013056$</field>
+    <description>FortiGate: URL blocked by FortiGuard category [$(catdesc)] from $(srcip) - $(url)</description>
+    <group>web,pci_dss_1.3.4,</group>
+  </rule>
+
+  <!-- Webfilter: FortiGuard risk-level blocked  logid=0316013058 -->
+  <rule id="118132" level="6">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0316013058$</field>
+    <description>FortiGate: URL blocked by FortiGuard risk-level from $(srcip) - $(url)</description>
+    <group>web,pci_dss_1.3.4,</group>
+  </rule>
+
+  <!-- Webfilter: category warning  logid=0316013057 -->
+  <rule id="118133" level="5">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0316013057$</field>
+    <description>FortiGate: Web filter category warning [$(catdesc)] for $(srcip)</description>
+    <group>web,</group>
+  </rule>
+
+  <!-- Webfilter: Malicious Websites category blocked -->
+  <rule id="118134" level="10">
+    <if_sid>118129</if_sid>
+    <field name="catdesc">^Malicious Websites$</field>
+    <description>FortiGate: Malicious website access blocked for $(srcip) - $(url)</description>
+    <group>web,malware,pci_dss_11.4,</group>
+    <mitre>
+      <id>T1566</id>
+    </mitre>
+  </rule>
+
+  <!-- Webfilter: Phishing category blocked -->
+  <rule id="118135" level="12">
+    <if_sid>118129</if_sid>
+    <field name="catdesc">^Phishing$</field>
+    <description>FortiGate: Phishing website access blocked for $(srcip) - $(url)</description>
+    <group>web,malware,pci_dss_11.4,</group>
+    <mitre>
+      <id>T1566.002</id>
+    </mitre>
+  </rule>
+
+  <!-- Webfilter: Hacking category blocked -->
+  <rule id="118136" level="8">
+    <if_sid>118129</if_sid>
+    <field name="catdesc">^Hacking$</field>
+    <description>FortiGate: Hacking website access blocked for $(srcip) - $(url)</description>
+    <group>web,ids,pci_dss_11.4,</group>
+    <mitre>
+      <id>T1593</id>
+    </mitre>
+  </rule>
+
+  <!-- Webfilter: Proxy Avoidance category blocked -->
+  <rule id="118137" level="8">
+    <if_sid>118129</if_sid>
+    <field name="catdesc">^Proxy Avoidance$</field>
+    <description>FortiGate: Proxy avoidance site blocked for $(srcip) - $(url)</description>
+    <group>web,pci_dss_1.3.4,</group>
+    <mitre>
+      <id>T1090</id>
+    </mitre>
+  </rule>
+
+  <!-- Webfilter: Antiphishing – blocked  logid=0346013651/52/53 -->
+  <rule id="118138" level="12">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0346013651$|^0346013652$|^0346013653$</field>
+    <description>FortiGate: Antiphishing blocked request from $(srcip) to $(url)</description>
+    <group>web,malware,pci_dss_11.4,</group>
+    <mitre>
+      <id>T1566</id>
+    </mitre>
+  </rule>
+
+  <!-- Webfilter: Domain fronting detected  logid=0320013318 -->
+  <rule id="118139" level="10">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0320013318$</field>
+    <description>FortiGate: Domain fronting detected from $(srcip)</description>
+    <group>web,ids,</group>
+    <mitre>
+      <id>T1090.004</id>
+    </mitre>
+  </rule>
+
+  <!-- Webfilter: command blocked  logid=0343013603 -->
+  <rule id="118140" level="8">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0343013603$</field>
+    <description>FortiGate: Webfilter command blocked for $(srcip)</description>
+    <group>web,</group>
+  </rule>
+
+  <!-- Webfilter: FortiGuard rating error  logid=0318012800 -->
+  <rule id="118141" level="5">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0318012800$|^0318012801$</field>
+    <description>FortiGate: FortiGuard web filter rating error</description>
+  </rule>
+
+  <!-- Webfilter: quota expired  logid=0339013316 -->
+  <rule id="118142" level="5">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0339013316$</field>
+    <description>FortiGate: Web filter daily quota expired for $(srcip)</description>
+    <group>web,</group>
+  </rule>
+
+  <!-- Webfilter: video filter - blocked  logid=0347013664 / 0348013680 / 0350013712 / 0351013728 -->
+  <rule id="118143" level="5">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0347013664$|^0348013680$|^0350013712$|^0351013728$</field>
+    <description>FortiGate: Video filter content blocked for $(srcip)</description>
+    <group>web,</group>
+  </rule>
+
+  <!-- Webfilter: FortiGuard webfilter unreachable  logid=0100020119 -->
+  <rule id="118144" level="8">
+    <if_sid>118129</if_sid>
+    <field name="logid">^0100020119$</field>
+    <description>FortiGate: FortiGuard web filter service unreachable - URL filtering impaired</description>
+    <group>web,pci_dss_6.3.3,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Application Control  (data.subtype = app-ctrl)
+       ────────────────────────────────────────────────────────────── -->
+
+  <rule id="118145" level="0">
+    <if_sid>118109</if_sid>
+    <field name="subtype">^app-ctrl$</field>
+    <description>FortiGate: Application control event</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- App-ctrl: application blocked  logid=1059028705/06 action=block/reset -->
+  <rule id="118146" level="5">
+    <if_sid>118145</if_sid>
+    <action>block|blocked|reset</action>
+    <description>FortiGate: Application blocked - $(app) [$(appcat)] from $(srcip)</description>
+    <group>web,pci_dss_1.3.4,</group>
+  </rule>
+
+  <!-- App-ctrl: high / critical risk application -->
+  <rule id="118147" level="6">
+    <if_sid>118145</if_sid>
+    <field name="apprisk">^critical$|^high$</field>
+    <description>FortiGate: High-risk application detected - $(app) [risk=$(apprisk)] from $(srcip)</description>
+    <group>web,pci_dss_6.5,</group>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+  </rule>
+
+  <!-- App-ctrl: elevated risk application -->
+  <rule id="118148" level="5">
+    <if_sid>118145</if_sid>
+    <field name="apprisk">^elevated$</field>
+    <description>FortiGate: Elevated-risk application - $(app) from $(srcip)</description>
+    <group>web,</group>
+  </rule>
+
+  <!-- App-ctrl: port enforcement violation  logid=1060028736 -->
+  <rule id="118149" level="8">
+    <if_sid>118145</if_sid>
+    <field name="logid">^1060028736$</field>
+    <description>FortiGate: Application port enforcement violation - $(app) from $(srcip)</description>
+    <group>ids,</group>
+    <mitre>
+      <id>T1571</id>
+    </mitre>
+  </rule>
+
+  <!-- App-ctrl: protocol enforcement violation  logid=1061028737 -->
+  <rule id="118150" level="8">
+    <if_sid>118145</if_sid>
+    <field name="logid">^1061028737$</field>
+    <description>FortiGate: Application protocol enforcement violation - $(app) from $(srcip)</description>
+    <group>ids,</group>
+    <mitre>
+      <id>T1071</id>
+    </mitre>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       DLP  (data.subtype = dlp)
+       ────────────────────────────────────────────────────────────── -->
+
+  <rule id="118151" level="0">
+    <if_sid>118109</if_sid>
+    <field name="subtype">^dlp$</field>
+    <description>FortiGate: DLP event</description>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- DLP: data loss detected and blocked  logid=0954024576 -->
+  <rule id="118152" level="12">
+    <if_sid>118151</if_sid>
+    <field name="logid">^0954024576$</field>
+    <description>FortiGate: DLP violation - data loss blocked from $(srcip)</description>
+    <group>pci_dss_10.5.5,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_SI.4,</group>
+    <mitre>
+      <id>T1048</id>
+    </mitre>
+  </rule>
+
+  <!-- DLP: data loss detected (notice)  logid=0954024577 -->
+  <rule id="118153" level="10">
+    <if_sid>118151</if_sid>
+    <field name="logid">^0954024577$</field>
+    <description>FortiGate: DLP violation - data loss detected from $(srcip)</description>
+    <group>pci_dss_10.5.5,gdpr_IV_35.7.d,nist_800_53_SI.4,</group>
+    <mitre>
+      <id>T1048</id>
+    </mitre>
+  </rule>
+
+  <!-- DLP: fingerprint document source error  logid=0955024579 -->
+  <rule id="118154" level="5">
+    <if_sid>118151</if_sid>
+    <field name="logid">^0955024579$</field>
+    <description>FortiGate: DLP fingerprint source error</description>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       WAF  (data.subtype = waf)
+       ────────────────────────────────────────────────────────────── -->
+
+  <rule id="118155" level="0">
+    <if_sid>118109</if_sid>
+    <field name="subtype">^waf$</field>
+    <description>FortiGate: WAF event</description>
+    <group>web,</group>
+    <options>no_full_log</options>
+  </rule>
+
+  <!-- WAF: request blocked  logid=1200030248/51/53/55/57/61 action=block/erase/reset -->
+  <rule id="118156" level="10">
+    <if_sid>118155</if_sid>
+    <action>block|blocked|reset|erase</action>
+    <description>FortiGate: WAF blocked request from $(srcip) to $(hostname) [$(msg)]</description>
+    <group>web,ids,pci_dss_6.6,gdpr_IV_35.7.d,nist_800_53_SI.10,</group>
+    <mitre>
+      <id>T1190</id>
+      <id>T1059</id>
+    </mitre>
+  </rule>
+
+  <!-- WAF: signature match - blocked  logid=1200030248 -->
+  <rule id="118157" level="10">
+    <if_sid>118155</if_sid>
+    <field name="logid">^1200030248$</field>
+    <description>FortiGate: WAF signature blocked from $(srcip) to $(hostname)</description>
+    <group>web,ids,pci_dss_6.6,</group>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+
+  <!-- WAF: custom signature blocked  logid=1201030251 -->
+  <rule id="118158" level="10">
+    <if_sid>118155</if_sid>
+    <field name="logid">^1201030251$</field>
+    <description>FortiGate: WAF custom signature blocked from $(srcip)</description>
+    <group>web,ids,pci_dss_6.6,</group>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+
+  <!-- WAF: address list blocked  logid=1204030255 -->
+  <rule id="118159" level="10">
+    <if_sid>118155</if_sid>
+    <field name="logid">^1204030255$</field>
+    <description>FortiGate: WAF address list blocked $(srcip)</description>
+    <group>web,ids,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Email Filter  (data.subtype = spam / emailfilter)
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- Spam / MIME spam notification  logid=0513020480 -->
+  <rule id="118160" level="5">
+    <if_sid>118109</if_sid>
+    <field name="logid">^0513020480$|^0514020482$</field>
+    <description>FortiGate: Spam or banned-word detected from $(srcip)</description>
+    <group>pci_dss_5.1,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       CASB  (data.subtype = casb)
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- CASB: activity blocked  logid=2500010000 -->
+  <rule id="118161" level="6">
+    <if_sid>118109</if_sid>
+    <field name="logid">^2500010000$</field>
+    <description>FortiGate: CASB cloud access blocked for $(srcip)</description>
+  </rule>
+
+
+  <!-- ================================================================
+       EVENT LOGS  (data.type = event)
+       ================================================================ -->
+
+  <rule id="118162" level="0">
+    <if_sid>118100</if_sid>
+    <field name="type">^event$</field>
+    <description>FortiGate: System event log</description>
+    <options>no_full_log</options>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Admin Authentication  (subtype = system, logid 32xxx)
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- Admin login successful  logid=0100032001 -->
+  <rule id="118163" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032001$</field>
+    <description>FortiGate: Admin login successful - user=$(user) src=$(srcip) ui=$(ui)</description>
+    <group>authentication_success,pci_dss_10.2.5,gpg13_7.1,gdpr_IV_32.2,hipaa_164.312.b,nist_800_53_AU.14,</group>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+  </rule>
+
+  <!-- Admin login failed  logid=0100032002 -->
+  <rule id="118164" level="5">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032002$</field>
+    <description>FortiGate: Admin login FAILED - user=$(user) src=$(srcip) ui=$(ui)</description>
+    <group>authentication_failed,pci_dss_10.2.4,gpg13_7.1,gdpr_IV_32.2,hipaa_164.312.b,nist_800_53_AC.7,</group>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- Admin account locked / login disabled  logid=0100032021 -->
+  <rule id="118165" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032021$</field>
+    <description>FortiGate: Admin account locked - user=$(user) src=$(srcip)</description>
+    <group>authentication_failed,pci_dss_8.1.6,pci_dss_10.2.4,nist_800_53_AC.7,</group>
+    <mitre>
+      <id>T1110</id>
+    </mitre>
+  </rule>
+
+  <!-- Admin logout (normal)  logid=0100032003 -->
+  <rule id="118166" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032003$</field>
+    <description>FortiGate: Admin logout - user=$(user) from $(srcip)</description>
+    <group>authentication_success,pci_dss_10.2.5,</group>
+  </rule>
+
+  <!-- Admin disconnected (session dropped)  logid=0100032561 -->
+  <rule id="118167" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032561$</field>
+    <description>FortiGate: Admin disconnected - user=$(user) from $(srcip)</description>
+    <group>authentication_success,</group>
+  </rule>
+
+  <!-- Admin password expired  logid=0100032024 -->
+  <rule id="118168" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032024$</field>
+    <description>FortiGate: Admin password expired - user=$(user)</description>
+    <group>pci_dss_8.1.5,nist_800_53_IA.5,</group>
+  </rule>
+
+  <!-- Admin entered / left VDOM  logid=0100032005/06/07 -->
+  <rule id="118169" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032005$|^0100032006$|^0100032007$</field>
+    <description>FortiGate: Admin VDOM access change - user=$(user)</description>
+    <group>authentication_success,</group>
+  </rule>
+
+  <!-- FortiToken push failed  logid=0100032161 -->
+  <rule id="118170" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032161$</field>
+    <description>FortiGate: FortiToken mobile push failed for user=$(user)</description>
+    <group>authentication_failed,pci_dss_8.3,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Configuration Changes
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- Configuration changed (CLI)  logid=0100032102 -->
+  <rule id="118171" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032102$</field>
+    <description>FortiGate: Configuration changed by $(user)</description>
+    <group>audit_command,pci_dss_10.2.6,gpg13_7.1,gdpr_IV_30.1.g,hipaa_164.312.b,nist_800_53_CM.3,</group>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+  </rule>
+
+  <!-- Configuration changed (GUI)  logid=0100032104 -->
+  <rule id="118172" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032104$</field>
+    <description>FortiGate: Configuration changed via GUI by $(user)</description>
+    <group>audit_command,pci_dss_10.2.6,gdpr_IV_30.1.g,nist_800_53_CM.3,</group>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+  </rule>
+
+  <!-- Configuration changed (info/detail)  logid=0100032099 -->
+  <rule id="118173" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032099$</field>
+    <description>FortiGate: Configuration change detail logged</description>
+    <group>audit_command,</group>
+  </rule>
+
+  <!-- Global setting changed  logid=0100032222 -->
+  <rule id="118174" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032222$</field>
+    <description>FortiGate: Global setting changed by $(user)</description>
+    <group>audit_command,pci_dss_10.2.6,nist_800_53_CM.3,</group>
+    <mitre>
+      <id>T1562.001</id>
+    </mitre>
+  </rule>
+
+  <!-- Configuration backed up  logid=0100032142 / 32143 -->
+  <rule id="118175" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032142$|^0100032143$</field>
+    <description>FortiGate: System configuration backed up by $(user)</description>
+    <group>audit_command,pci_dss_10.2.6,</group>
+  </rule>
+
+  <!-- Configuration restored  logid=0100032203 / 32565 / 32566 -->
+  <rule id="118176" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032203$|^0100032565$|^0100032566$</field>
+    <description>FortiGate: Configuration restored by $(user)</description>
+    <group>audit_command,pci_dss_10.2.6,nist_800_53_CM.3,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       System Lifecycle
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- System started  logid=0100032009 -->
+  <rule id="118177" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032009$</field>
+    <description>FortiGate: System started / booted</description>
+    <group>pci_dss_10.6.1,gpg13_10.3,</group>
+  </rule>
+
+  <!-- System shutdown  logid=0100032200 -->
+  <rule id="118178" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032200$</field>
+    <description>FortiGate: System shutdown</description>
+    <group>pci_dss_10.6.1,nist_800_53_AU.9,</group>
+    <mitre>
+      <id>T1529</id>
+    </mitre>
+  </rule>
+
+  <!-- Device rebooted  logid=0100032138 -->
+  <rule id="118179" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032138$</field>
+    <description>FortiGate: Device rebooted</description>
+    <group>pci_dss_10.6.1,nist_800_53_AU.9,</group>
+    <mitre>
+      <id>T1529</id>
+    </mitre>
+  </rule>
+
+  <!-- Scheduled daily reboot  logid=0100032545 -->
+  <rule id="118180" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032545$</field>
+    <description>FortiGate: Scheduled daily reboot initiated</description>
+  </rule>
+
+  <!-- Factory reset  logid=0100032252 -->
+  <rule id="118181" level="12">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032252$</field>
+    <description>FortiGate: Factory settings RESET performed!</description>
+    <group>audit_command,pci_dss_10.2.6,nist_800_53_CM.3,</group>
+    <mitre>
+      <id>T1485</id>
+    </mitre>
+  </rule>
+
+  <!-- Firmware image updated  logid=0100032215 -->
+  <rule id="118182" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032215$</field>
+    <description>FortiGate: Firmware image updated</description>
+    <group>pci_dss_1.1,nist_800_53_CM.3,</group>
+  </rule>
+
+  <!-- Image load failed  logid=0100032226 / 32228 / 32229 / 32230 -->
+  <rule id="118183" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032226$|^0100032228$|^0100032229$|^0100032230$</field>
+    <description>FortiGate: Firmware image failed to load</description>
+    <group>pci_dss_1.1,</group>
+  </rule>
+
+  <!-- Invalid / tampered firmware  logid=0100032190 / 32191 / 32192 -->
+  <rule id="118184" level="15">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032190$|^0100032191$|^0100032192$</field>
+    <description>FortiGate: Invalid or tampered firmware image detected!</description>
+    <group>pci_dss_1.1,nist_800_53_SI.7,</group>
+    <mitre>
+      <id>T1542.001</id>
+    </mitre>
+  </rule>
+
+  <!-- Application crashed  logid=0100032546 -->
+  <rule id="118185" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032546$</field>
+    <description>FortiGate: Application process crashed</description>
+    <group>system_error,pci_dss_10.6.1,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       VPN Events  (subtype = vpn)
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- IPsec VPN tunnel up  logid=0101023101 -->
+  <rule id="118186" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0101023101$</field>
+    <description>FortiGate: IPsec VPN tunnel established</description>
+    <group>vpn,pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- IPsec VPN tunnel down  logid=0101023102 -->
+  <rule id="118187" level="5">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0101023102$</field>
+    <description>FortiGate: IPsec VPN tunnel disconnected</description>
+    <group>vpn,pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- IPsec VPN statistics  logid=0101023103 -->
+  <rule id="118188" level="0">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0101023103$</field>
+    <description>FortiGate: IPsec VPN tunnel statistics</description>
+    <group>vpn,</group>
+    <options>no_full_log</options>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       System Health / Resources
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- Memory conserve mode entered  logid=0100022011 -->
+  <rule id="118189" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022011$</field>
+    <description>FortiGate: Memory conserve mode entered - system under high load</description>
+    <group>system_error,pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- Memory conserve mode exited  logid=0100022012 -->
+  <rule id="118190" level="5">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022012$</field>
+    <description>FortiGate: Memory conserve mode exited</description>
+    <group>system_error,</group>
+  </rule>
+
+  <!-- Extreme low memory mode entered  logid=0100022022 -->
+  <rule id="118191" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022022$</field>
+    <description>FortiGate: Extreme low memory mode - critical system condition!</description>
+    <group>system_error,pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- IPS session scan paused (fail-open)  logid=0100022700 -->
+  <rule id="118192" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022700$</field>
+    <description>FortiGate: IPS session scan paused - fail-open mode active (traffic unscanned!)</description>
+    <group>system_error,pci_dss_10.6.1,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1562</id>
+    </mitre>
+  </rule>
+
+  <!-- IPS session scan resumed  logid=0100022701 -->
+  <rule id="118193" level="5">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022701$</field>
+    <description>FortiGate: IPS session scan resumed - normal inspection restored</description>
+    <group>system_error,</group>
+  </rule>
+
+  <!-- Interface link status changed  logid=0100020090 -->
+  <rule id="118194" level="5">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020090$</field>
+    <description>FortiGate: Interface link status changed</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- Interface status changed (admin down/up)  logid=0100020099 -->
+  <rule id="118195" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020099$</field>
+    <description>FortiGate: Interface status changed (admin action)</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- Kernel error  logid=0100020010 -->
+  <rule id="118196" level="12">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020010$</field>
+    <description>FortiGate: Kernel error detected</description>
+    <group>system_error,pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- Socket pool exhausted  logid=0100020007 -->
+  <rule id="118197" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020007$</field>
+    <description>FortiGate: Socket pool exhausted - possible DoS condition</description>
+    <group>system_error,pci_dss_10.6.1,</group>
+    <mitre>
+      <id>T1499</id>
+    </mitre>
+  </rule>
+
+  <!-- IP pool PBA block/IP exhausted  logid=0100022013 / 22014 -->
+  <rule id="118198" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022013$|^0100022014$</field>
+    <description>FortiGate: IP pool NAT addresses exhausted</description>
+    <group>system_error,</group>
+  </rule>
+
+  <!-- Power supply failed  logid=0100022105 -->
+  <rule id="118199" level="15">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022105$</field>
+    <description>FortiGate: Power supply FAILURE detected!</description>
+  </rule>
+
+  <!-- Power supply redundancy lost  logid=0100022117 -->
+  <rule id="118200" level="12">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022117$</field>
+    <description>FortiGate: Power supply redundancy lost</description>
+  </rule>
+
+  <!-- Temperature too high  logid=0100022109 -->
+  <rule id="118201" level="12">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022109$</field>
+    <description>FortiGate: Hardware temperature too high!</description>
+  </rule>
+
+  <!-- Fan anomaly  logid=0100022108 -->
+  <rule id="118202" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022108$</field>
+    <description>FortiGate: Fan anomaly detected</description>
+  </rule>
+
+  <!-- Disk unavailable  logid=0100020209 -->
+  <rule id="118203" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020209$</field>
+    <description>FortiGate: Disk unavailable</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- Log disk failure imminent  logid=0100022102 -->
+  <rule id="118204" level="15">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022102$</field>
+    <description>FortiGate: Log disk failure imminent!</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- SSD spare blocks low  logid=0100022110 -->
+  <rule id="118205" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022110$</field>
+    <description>FortiGate: SSD spare blocks critically low</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- Disk log full  logid=0100032010 / 32015 -->
+  <rule id="118206" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100032010$|^0100032015$</field>
+    <description>FortiGate: Log disk full - logging may be impaired</description>
+    <group>pci_dss_10.7,</group>
+  </rule>
+
+  <!-- Disk log corrupted  logid=0100020213 -->
+  <rule id="118207" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020213$</field>
+    <description>FortiGate: Log file on disk is corrupted</description>
+    <group>pci_dss_10.7,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Routing Events
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- BGP neighbor status changed  logid=0103020300 -->
+  <rule id="118208" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0103020300$</field>
+    <description>FortiGate: BGP neighbor status changed</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- OSPF neighbor status changed  logid=0103020302 -->
+  <rule id="118209" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0103020302$</field>
+    <description>FortiGate: OSPF neighbor status changed</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- Routing information changed  logid=0100022921 -->
+  <rule id="118210" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022921$</field>
+    <description>FortiGate: Routing table information changed</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- Routing log critical  logid=0103020305 -->
+  <rule id="118211" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0103020305$</field>
+    <description>FortiGate: Critical routing event</description>
+    <group>system_error,pci_dss_10.6.1,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       SD-WAN Events  (subtype = sdwan)
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- SD-WAN link quality status change  logid=0113022923 -->
+  <rule id="118212" level="5">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0113022923$</field>
+    <description>FortiGate: SD-WAN link quality status changed</description>
+  </rule>
+
+  <!-- SD-WAN quality degraded (warning)  logid=0113022930 -->
+  <rule id="118213" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0113022930$</field>
+    <description>FortiGate: SD-WAN quality degraded - SLA breach possible</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- SD-WAN fail detect  logid=0113022939 -->
+  <rule id="118214" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0113022939$</field>
+    <description>FortiGate: SD-WAN fail-detect triggered</description>
+    <group>pci_dss_10.6.1,</group>
+  </rule>
+
+  <!-- SD-WAN neighbor status  logid=0113022926 -->
+  <rule id="118215" level="5">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0113022926$</field>
+    <description>FortiGate: SD-WAN neighbor status changed</description>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       License Events
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- AV license expiring  logid=0100020103 -->
+  <rule id="118216" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020103$</field>
+    <description>FortiGate: Antivirus license expiring soon</description>
+    <group>pci_dss_6.3.3,</group>
+  </rule>
+
+  <!-- IPS license expiring  logid=0100020104 -->
+  <rule id="118217" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020104$</field>
+    <description>FortiGate: IPS license expiring soon</description>
+    <group>pci_dss_6.3.3,</group>
+  </rule>
+
+  <!-- Web filter license expiring  logid=0100020101 -->
+  <rule id="118218" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020101$</field>
+    <description>FortiGate: Web filter license expiring soon</description>
+  </rule>
+
+  <!-- AV license EXPIRED  logid=0100020117 -->
+  <rule id="118219" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020117$</field>
+    <description>FortiGate: Antivirus license EXPIRED - AV protection inactive!</description>
+    <group>pci_dss_6.3.3,</group>
+  </rule>
+
+  <!-- Web filter license EXPIRED  logid=0100020109 -->
+  <rule id="118220" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020109$</field>
+    <description>FortiGate: Web filter license EXPIRED - URL filtering inactive!</description>
+  </rule>
+
+  <!-- VM license EXPIRED  logid=0100022808 -->
+  <rule id="118221" level="12">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022808$</field>
+    <description>FortiGate: VM license EXPIRED!</description>
+  </rule>
+
+  <!-- License status changed  logid=0100022804 -->
+  <rule id="118222" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022804$</field>
+    <description>FortiGate: License status changed</description>
+    <group>pci_dss_6.3.3,</group>
+  </rule>
+
+  <!-- Duplicate license  logid=0100022806 -->
+  <rule id="118223" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022806$</field>
+    <description>FortiGate: Duplicate license detected!</description>
+    <group>pci_dss_6.3.3,</group>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+  </rule>
+
+  <!-- Certificate expiring  logid=0100022207 -->
+  <rule id="118224" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022207$</field>
+    <description>FortiGate: SSL/TLS certificate expiring soon</description>
+    <group>pci_dss_4.1,</group>
+  </rule>
+
+  <!-- CRL expired  logid=0100022206 -->
+  <rule id="118225" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022206$</field>
+    <description>FortiGate: CRL (Certificate Revocation List) expired</description>
+    <group>pci_dss_4.1,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       FortiAnalyzer / Log Device Connectivity
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- FortiAnalyzer connection up  logid=0100022901 -->
+  <rule id="118226" level="3">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022901$</field>
+    <description>FortiGate: FortiAnalyzer connection established</description>
+    <group>pci_dss_10.5.1,</group>
+  </rule>
+
+  <!-- FortiAnalyzer connection down  logid=0100022902 -->
+  <rule id="118227" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022902$</field>
+    <description>FortiGate: FortiAnalyzer connection LOST - centralized logging disrupted</description>
+    <group>pci_dss_10.5.1,</group>
+  </rule>
+
+  <!-- FortiAnalyzer connection failed  logid=0100022903 -->
+  <rule id="118228" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022903$</field>
+    <description>FortiGate: FortiAnalyzer connection FAILED - centralized logging unavailable</description>
+    <group>pci_dss_10.5.1,</group>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       Security Module Integrity Events  (subtype = ftnt-sec-mod)
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- Write permission violation  logid=0119020230 -->
+  <rule id="118229" level="15">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0119020230$</field>
+    <description>FortiGate: SECURITY VIOLATION - write permission violation detected!</description>
+    <group>audit_command,pci_dss_10.6.1,nist_800_53_SI.7,</group>
+    <mitre>
+      <id>T1542</id>
+      <id>T1014</id>
+    </mitre>
+  </rule>
+
+  <!-- Hard link creation violation  logid=0119020231 -->
+  <rule id="118230" level="15">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0119020231$</field>
+    <description>FortiGate: SECURITY VIOLATION - hard link creation violation detected!</description>
+    <group>nist_800_53_SI.7,</group>
+    <mitre>
+      <id>T1542</id>
+    </mitre>
+  </rule>
+
+  <!-- Kernel / firmware load violation  logid=0119020232 -->
+  <rule id="118231" level="15">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0119020232$</field>
+    <description>FortiGate: SECURITY VIOLATION - kernel/firmware load violation detected!</description>
+    <group>nist_800_53_SI.7,</group>
+    <mitre>
+      <id>T1014</id>
+      <id>T1542.001</id>
+    </mitre>
+  </rule>
+
+  <!-- Executable hash missing (integrity failure)  logid=0119020233 -->
+  <rule id="118232" level="15">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0119020233$</field>
+    <description>FortiGate: INTEGRITY FAILURE - executable hash missing!</description>
+    <group>nist_800_53_SI.7,</group>
+    <mitre>
+      <id>T1542</id>
+    </mitre>
+  </rule>
+
+  <!-- Executable hash mismatch (integrity failure)  logid=0119020234 -->
+  <rule id="118233" level="15">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0119020234$</field>
+    <description>FortiGate: INTEGRITY FAILURE - executable hash mismatch!</description>
+    <group>nist_800_53_SI.7,</group>
+    <mitre>
+      <id>T1542</id>
+    </mitre>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       DHCP Events
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- DHCP lease pool full  logid=0100026006 -->
+  <rule id="118234" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100026006$</field>
+    <description>FortiGate: DHCP lease pool full - new clients cannot receive addresses</description>
+    <group>system_error,</group>
+  </rule>
+
+  <!-- DHCP lease usage high  logid=0100026005 -->
+  <rule id="118235" level="5">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100026005$</field>
+    <description>FortiGate: DHCP lease pool usage high</description>
+  </rule>
+
+
+  <!-- ──────────────────────────────────────────────────────────────
+       CSF / Security Fabric Events
+       ────────────────────────────────────────────────────────────── -->
+
+  <!-- Security Fabric loop  logid=0100022032 -->
+  <rule id="118236" level="10">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022032$</field>
+    <description>FortiGate: Security Fabric loop configuration detected</description>
+    <group>system_error,</group>
+  </rule>
+
+  <!-- Security Fabric upstream SN changed  logid=0100022035 -->
+  <rule id="118237" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022035$</field>
+    <description>FortiGate: Security Fabric upstream serial number changed - possible substitution!</description>
+    <group>pci_dss_10.6.1,</group>
+    <mitre>
+      <id>T1557</id>
+    </mitre>
+  </rule>
+
+  <!-- Locally-generated traffic to IoC  logid=0100020214 -->
+  <rule id="118238" level="14">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020214$</field>
+    <description>FortiGate: Locally-generated traffic to IoC (threat-intel) address detected!</description>
+    <group>ids,malware,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1071</id>
+      <id>T1102</id>
+    </mitre>
+  </rule>
+
+  <!-- Authentication error (FNBAM)  logid=0100022113 -->
+  <rule id="118239" level="8">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100022113$</field>
+    <description>FortiGate: FNBAM authentication error (external auth server issue)</description>
+    <group>authentication_failed,pci_dss_8.3,</group>
+  </rule>
+
+  <!-- Log upload error  logid=0100020107 -->
+  <rule id="118240" level="6">
+    <if_sid>118162</if_sid>
+    <field name="logid">^0100020107$</field>
+    <description>FortiGate: Log upload error - log forwarding disrupted</description>
+    <group>pci_dss_10.5.1,</group>
+  </rule>
+
+
+  <!-- ================================================================
+       COMPOSITE / FREQUENCY-BASED CORRELATION RULES
+       ================================================================ -->
+
+  <!-- Admin brute force: 5+ failures in 60 s from same IP -->
+  <rule id="118250" level="12" frequency="5" timeframe="60">
+    <if_matched_sid>118164</if_matched_sid>
+    <same_field>srcip</same_field>
+    <description>FortiGate: Admin brute-force attack detected - multiple failures from $(srcip)</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_8.1.6,gdpr_IV_32.2,hipaa_164.312.b,nist_800_53_AC.7,</group>
+    <mitre>
+      <id>T1110.001</id>
+    </mitre>
+  </rule>
+
+  <!-- Admin brute force escalation: 10+ failures in 120 s -->
+  <rule id="118251" level="14" frequency="10" timeframe="120">
+    <if_matched_sid>118164</if_matched_sid>
+    <same_field>srcip</same_field>
+    <description>FortiGate: Admin brute-force (high frequency) from $(srcip) - account lockout expected</description>
+    <group>authentication_failed,pci_dss_10.2.4,pci_dss_8.1.6,nist_800_53_AC.7,</group>
+    <mitre>
+      <id>T1110.001</id>
+    </mitre>
+  </rule>
+
+  <!-- Multiple firewall denies from same source: possible port scan / attack -->
+  <rule id="118252" level="10" frequency="15" timeframe="60">
+    <if_matched_sid>118103</if_matched_sid>
+    <same_field>srcip</same_field>
+    <description>FortiGate: Multiple firewall denies from $(srcip) - possible port scan or attack</description>
+    <group>firewall_drop,ids,pci_dss_11.4,nist_800_53_SI.4,</group>
+    <mitre>
+      <id>T1046</id>
+    </mitre>
+  </rule>
+
+  <!-- Multiple IPS alerts from same source: active attack campaign -->
+  <rule id="118253" level="12" frequency="5" timeframe="120">
+    <if_matched_sid>118120</if_matched_sid>
+    <same_field>srcip</same_field>
+    <description>FortiGate: Multiple IPS alerts from $(srcip) - sustained attack in progress</description>
+    <group>ids,pci_dss_11.4,nist_800_53_SI.4,</group>
+    <mitre>
+      <id>T1046</id>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+
+  <!-- Multiple malware detections from same source: infected host -->
+  <rule id="118254" level="12" frequency="3" timeframe="120">
+    <if_matched_sid>118111</if_matched_sid>
+    <same_field>srcip</same_field>
+    <description>FortiGate: Multiple malware detections from $(srcip) - host likely compromised</description>
+    <group>malware,pci_dss_5.1,nist_800_53_SI.3,</group>
+    <mitre>
+      <id>T1204.002</id>
+    </mitre>
+  </rule>
+
+  <!-- Failed connection flood from same source: possible scan or DoS -->
+  <rule id="118255" level="10" frequency="20" timeframe="60">
+    <if_matched_sid>118105</if_matched_sid>
+    <same_field>srcip</same_field>
+    <description>FortiGate: Failed connection flood from $(srcip) - possible scan or DoS attack</description>
+    <group>ids,pci_dss_11.4,nist_800_53_SI.4,</group>
+    <mitre>
+      <id>T1046</id>
+      <id>T1499</id>
+    </mitre>
+  </rule>
+
+  <!-- Multiple DLP violations from same source: data exfiltration attempt -->
+  <rule id="118256" level="14" frequency="3" timeframe="300">
+    <if_matched_sid>118152</if_matched_sid>
+    <same_field>srcip</same_field>
+    <description>FortiGate: Multiple DLP violations from $(srcip) - possible data exfiltration campaign</description>
+    <group>pci_dss_10.5.5,gdpr_IV_35.7.d,hipaa_164.312.b,nist_800_53_SI.4,</group>
+    <mitre>
+      <id>T1048</id>
+    </mitre>
+  </rule>
+
+  <!-- Multiple WAF blocks from same IP: web attack -->
+  <rule id="118257" level="12" frequency="5" timeframe="60">
+    <if_matched_sid>118156</if_matched_sid>
+    <same_field>srcip</same_field>
+    <description>FortiGate: Multiple WAF blocks from $(srcip) - web application attack in progress</description>
+    <group>web,ids,pci_dss_6.6,nist_800_53_SI.10,</group>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+
+</group>

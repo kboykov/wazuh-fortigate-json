@@ -1,0 +1,8 @@
+<decoder name="fortigate_parent">
+    <program_name>devname</program_name>
+</decoder>
+
+<decoder name="fortigate_child">
+    <parent>fortigate_parent</parent>
+    <plugin_decoder offset="after_parent">JSON_Decoder</plugin_decoder>
+</decoder>
