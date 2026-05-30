@@ -1,0 +1,1466 @@
+0720018432|Alert|Anomaly|anomaly|LOGID_ATTCK_ANOMALY_TCP_UDP|Attack detected by UDP/TCP anomaly
+0720018433|Alert|Anomaly|anomaly|LOGID_ATTCK_ANOMALY_ICMP|Attack detected by ICMP anomaly
+0720018434|Alert|Anomaly|anomaly|LOGID_ATTCK_ANOMALY_OTHERS|Attack detected by other anomaly
+1059028672|Information|APP-CTRL|signature|LOGID_APP_CTRL_IM_BASIC|Application control IM-basic
+1059028673|Information|APP-CTRL|signature|LOGID_APP_CTRL_IM_BASIC_WITH_STATUS|Application control IM
+1059028674|Information|APP-CTRL|signature|LOGID_APP_CTRL_IM_BASIC_WITH_COUNT|Application control IM (chat message count)
+1059028675|Information|APP-CTRL|signature|LOGID_APP_CTRL_IM_FILE|Application control IM (file)
+1059028676|Information|APP-CTRL|signature|LOGID_APP_CTRL_IM_CHAT|Application control IM (chat)
+1059028677|Information|APP-CTRL|signature|LOGID_APP_CTRL_IM_CHAT_BLOCK|Application control IM (chat blocked)
+1059028678|Information|APP-CTRL|signature|LOGID_APP_CTRL_IM_BLOCK|Application control IM (blocked)
+1059028704|Information|APP-CTRL|signature|LOGID_APP_CTRL_IPS_PASS|Application control (IPS) (pass)
+1059028705|Warning|APP-CTRL|signature|LOGID_APP_CTRL_IPS_BLOCK|Application control (IPS) (block)
+1059028706|Warning|APP-CTRL|signature|LOGID_APP_CTRL_IPS_RESET|Application control (IPS) (reset)
+1059028720|Information|APP-CTRL|signature|LOGID_APP_CTRL_SSH_PASS|Application control IM (SSH) (pass)
+1059028721|Warning|APP-CTRL|signature|LOGID_APP_CTRL_SSH_BLOCK|Application control IM (SSH) (block)
+1060028736|Warning|APP-CTRL|port-violation|LOGID_APP_CTRL_PORT_ENF|Application control port enforcement
+1061028737|Warning|APP-CTRL|protocol-violation|LOGID_APP_CTRL_PROTO_ENF|Application control protocol enforcement
+1059028738|Warning|APP-CTRL|signature|LOGID_APP_CTRL_DETECT_L2|Ethernet protocols detection
+2500010000|Warning|casb|casb|LOG_ID_CASB_ACCESS_BLOCKED|Web content banned activity found
+2500010001|Information|casb|casb|LOG_ID_CASB_ACCESS_BYPASS|Web content activity found
+2500010002|Information|casb|casb|LOG_ID_CASB_ACCESS_MONITOR|Web content activity found
+2600065290|Information|Debug|debug|LOG_ID_DEBUG_PRINT|(null)
+0954024576|Warning|DLP|dlp|LOG_ID_DLP_WARN|Data loss detected by specified DLP sensor rule
+0954024577|Notice|DLP|dlp|LOG_ID_DLP_NOTIF|Data loss detected by specified DLP sensor rule
+0955024578|Notice|DLP|dlp-docsource|LOG_ID_DLP_DOC_SOURCE|DLP fingerprint document source notice
+0955024579|Warning|DLP|dlp-docsource|LOG_ID_DLP_DOC_SOURCE_ERROR|DLP fingerprint document source error
+0956024580|Notice|DLP|dlp-error|LOG_ID_DLP_FORTIDATA_ERROR_NOTIF|DLP error (notice)
+0956024581|Warning|DLP|dlp-error|LOG_ID_DLP_FORTIDATA_ERROR_WARNING|DLP error (warning)
+1500054000|Information|DNS|dns-query|LOG_ID_DNS_QUERY|DNS query message
+1501054200|Error|DNS|dns-response|LOG_ID_DNS_RESOLV_ERROR|DNS resolution error message
+1501054400|Warning|DNS|dns-response|LOG_ID_DNS_URL_FILTER_BLOCK|Domain blocked because it is in the domain-filter list
+1501054401|Information|DNS|dns-response|LOG_ID_DNS_URL_FILTER_ALLOW|Domain allowed because it is in the domain-filter list
+1501054600|Warning|DNS|dns-response|LOG_ID_DNS_BOTNET_IP|Domain blocked by DNS botnet C&amp;C (IP)
+1501054601|Warning|DNS|dns-response|LOG_ID_DNS_BOTNET_DOMAIN|Domain blocked by DNS botnet C&amp;C (Domain)
+1501054800|Warning|DNS|dns-response|LOG_ID_DNS_FTGD_WARNING|FortiGuard rating error warning
+1501054801|Error|DNS|dns-response|LOG_ID_DNS_FTGD_ERROR|FortiGuard rating error occurred
+1501054802|Notice|DNS|dns-response|LOG_ID_DNS_FTGD_CAT_ALLOW|Domain is monitored
+1501054803|Warning|DNS|dns-response|LOG_ID_DNS_FTGD_CAT_BLOCK|Domain belongs to a denied category in policy
+1501054804|Notice|DNS|dns-response|LOG_ID_DNS_SAFE_SEARCH|DNS Safe Search enforced
+1501054805|Information|DNS|dns-response|LOG_ID_DNS_LOCAL|DNS local query
+1501054806|Notice|DNS|dns-response|LOG_ID_DNS_SVCPARAM_ECH|ECHconfig removal
+1501054807|Notice|DNS|dns-response|LOG_ID_DNS_NXDOMAIN_PASS|Domain is non-existent
+0513020480|Notice|EmailFilter|spam|LOGID_ANTISPAM_EMAIL_NOTIF|SPAM notification
+0512020481|Information|EmailFilter|email|LOGID_EMAIL_GENERAL_NOTIF|Email message
+0514020482|Notice|EmailFilter|bannedword|LOGID_ANTISPAM_EMAIL_BWORD_NOTIF|Banned word notification
+0553020509|Notice|EmailFilter|ftgd_err|LOGID_ANTISPAM_FTGD_ERR|FortiGuard error message
+0520020510|Information|EmailFilter|webmail|LOGID_ANTISPAM_EMAIL_WEBMAIL_NOTIF|Webmail message
+0100020002|Notice|Event|system|LOG_ID_DOMAIN_UNRESOLVABLE|Domain name of alert email sender unresolvable
+0100020003|Notice|Event|system|LOG_ID_MAIL_SENT_FAIL|Alert email send status failed
+0100020004|Critical|Event|system|LOG_ID_POLICY_TOO_BIG|Policy too big for installation
+0100020005|Information|Event|system|LOG_ID_PPP_LINK_UP|Modem PPP link up
+0100020006|Information|Event|system|LOG_ID_PPP_LINK_DOWN|Modem PPP link down
+0100020007|Critical|Event|system|LOG_ID_SOCKET_EXHAUSTED|Socket is exhausted
+0100020008|Critical|Event|system|LOG_ID_POLICY6_TOO_BIG|IPv6 policy too big for installation
+0100020010|Critical|Event|system|LOG_ID_KERNEL_ERROR|Kernel error
+0100020016|Information|Event|system|LOG_ID_MODEM_EXCEED_REDIAL_COUNT|Modem exceeded redial limit
+0100020017|Information|Event|system|LOG_ID_MODEM_FAIL_TO_OPEN|Modem failed to open
+0100020020|Warning|Event|system|LOG_ID_MODEM_USB_DETECTED|USB modem detected
+0100020021|Information|Event|system|LOG_ID_MAIL_RESENT|Alert email resent
+0100020022|Warning|Event|system|LOG_ID_MODEM_USB_REMOVED|USB modem removed
+0100020023|Information|Event|system|LOG_ID_MODEM_USBLTE_DETECTED|USB LTE modem detected
+0100020024|Information|Event|system|LOG_ID_MODEM_USBLTE_REMOVED|USB LTE modem removed
+0100020025|Notice|Event|system|LOG_ID_REPORTD_REPORT_SUCCESS|Report generated successfully
+0100020026|Error|Event|system|LOG_ID_REPORTD_REPORT_FAILURE|Report generation failed
+0100020028|Warning|Event|system|LOG_ID_REPORT_RECREATE_DB|Report database recreated
+0100020031|Critical|Event|system|LOG_ID_RAD_OUT_OF_MEM|RADVD out of memory
+0100020032|Critical|Event|system|LOG_ID_RAD_NOT_FOUND|RADVD interface not found
+0100020033|Information|Event|system|LOG_ID_RAD_MOBILE_IPV6|RADVD mobile IPv6 extensions used
+0100020034|Critical|Event|system|LOG_ID_RAD_IPV6_OUT_OF_RANGE|RADVD mobile IPv6 MinRtrAdvInterval out of range
+0100020035|Critical|Event|system|LOG_ID_RAD_MIN_OUT_OF_RANGE|RADVD MinRtrAdvInterval out of range
+0100020036|Critical|Event|system|LOG_ID_RAD_MAX_OUT_OF_RANGE|RADVD mobile IPv6 MaxRtrAdvInterval out of range
+0100020037|Critical|Event|system|LOG_ID_RAD_MAX_ADV_OUT_OF_RANGE|RADVD MaxRtrAdvInterval out of range
+0100020039|Critical|Event|system|LOG_ID_RAD_MTU_TOO_SMALL|RADVD AdvLinkMTU too small
+0100020040|Critical|Event|system|LOG_ID_RAD_TIME_TOO_SMALL|RADVD AdvReachableTime too small
+0100020041|Critical|Event|system|LOG_ID_RAD_HOP_OUT_OF_RANGE|RADVD AdvCurHopLimit too big
+0100020042|Critical|Event|system|LOG_ID_RAD_DFT_HOP_OUT_OF_RANGE|RADVD AdvCurHopLimit out of range
+0100020043|Critical|Event|system|LOG_ID_RAD_AGENT_OUT_OF_RANGE|RADVD HomeAgentLifetime out of range
+0100020044|Critical|Event|system|LOG_ID_RAD_AGENT_FLAG_NOT_SET|RADVD AdvHomeAgentFlag not set
+0100020045|Critical|Event|system|LOG_ID_RAD_PREFIX_TOO_LONG|RADVD invalid prefix length
+0100020046|Critical|Event|system|LOG_ID_RAD_PREF_TIME_TOO_SMALL|RADVD AdvValidLifetime less than AdvPreferredLifetime
+0100020061|Critical|Event|system|LOG_ID_RAD_INV_ICMPV6_TYPE|RADVD received unwanted ICMPv6 packet
+0100020062|Warning|Event|system|LOG_ID_RAD_INV_ICMPV6_RA_LEN|RADVD received ICMPv6 RA packet with invalid length
+0100020063|Warning|Event|system|LOG_ID_RAD_ICMPV6_NO_SRC_ADDR|RADVD received ICMPv6 RA packet with non-link local source address
+0100020064|Warning|Event|system|LOG_ID_RAD_INV_ICMPV6_RS_LEN|RADVD received ICMPv6 RS packet with invalid length
+0100020065|Warning|Event|system|LOG_ID_RAD_INV_ICMPV6_CODE|RADVD received ICMPv6 RS/RA packet with invalid code
+0100020066|Warning|Event|system|LOG_ID_RAD_INV_ICMPV6_HOP|RADVD received ICMPv6 RS/RA packet with invalid hop limit
+0100020067|Warning|Event|system|LOG_ID_RAD_MISMATCH_HOP|RADVD local AdvCurHopLimit disagrees with remote site
+0100020068|Warning|Event|system|LOG_ID_RAD_MISMATCH_MGR_FLAG|RADVD local AdvManagedFlag disagrees with remote site
+0100020069|Warning|Event|system|LOG_ID_RAD_MISMATCH_OTH_FLAG|RADVD local AdvOtherConfigFlag disagrees with remote site
+0100020070|Warning|Event|system|LOG_ID_RAD_MISMATCH_TIME|RADVD local AdvReachableTime disagrees with remote site
+0100020071|Warning|Event|system|LOG_ID_RAD_MISMATCH_TIMER|RADVD local AdvRetransTimer disagrees with remote site
+0100020072|Critical|Event|system|LOG_ID_RAD_EXTRA_DATA|RADVD extra data in RA packet found
+0100020073|Critical|Event|system|LOG_ID_RAD_NO_OPT_DATA|RADVD RA packet option length zero
+0100020074|Critical|Event|system|LOG_ID_RAD_INV_OPT_LEN|RADVD RA packet option length greater than total length
+0100020075|Warning|Event|system|LOG_ID_RAD_MISMATCH_MTU|RADVD local AdvLinkMTU disagrees with remote site
+0100020077|Warning|Event|system|LOG_ID_RAD_MISMATCH_PREF_TIME|Interface AdvPreferredLifetime on our interface does not agree with a remote site
+0100020078|Critical|Event|system|LOG_ID_RAD_INV_OPT|RADVD found invalid option in RA packet from remote site
+0100020080|Critical|Event|system|LOG_ID_RAD_FAIL_TO_RCV|RADVD receive message failed
+0100020081|Critical|Event|system|LOG_ID_RAD_INV_HOP|RADVD received invalid IPv6 hop limit
+0100020082|Critical|Event|system|LOG_ID_RAD_INV_PKTINFO|RADVD received invalid IPv6 packet info
+0100020083|Warning|Event|system|LOG_ID_RAD_FAIL_TO_CHECK|RADVD all-routers membership check failed
+0100020084|Warning|Event|system|LOG_ID_RAD_FAIL_TO_SEND|RADVD send message failed
+0100020085|Information|Event|system|LOG_ID_SESSION_CLASH|Session clashed
+0100020090|Notice|Event|system|LOG_ID_INTF_LINK_STA_CHG|Interface link status changed
+0100020099|Warning|Event|system|LOG_ID_INTF_STA_CHG|Interface status changed
+0100020100|Critical|Event|system|LOG_ID_WEB_CAT_UPDATED|FortiGuard web filter category list updated
+0100020101|Warning|Event|system|LOG_ID_WEB_LIC_EXPIRE|FortiGuard web filter license expiring
+0100020102|Warning|Event|system|LOG_ID_SPAM_LIC_EXPIRE|FortiGuard antispam license expiring
+0100020103|Warning|Event|system|LOG_ID_AV_LIC_EXPIRE|FortiGuard antivirus license expiring
+0100020104|Warning|Event|system|LOG_ID_IPS_LIC_EXPIRE|FortiGuard IPS license expiring
+0100020107|Warning|Event|system|LOG_ID_LOG_UPLOAD_ERR|Log upload error
+0100020108|Notice|Event|system|LOG_ID_LOG_UPLOAD_DONE|Log upload completed
+0100020109|Critical|Event|system|LOG_ID_WEB_LIC_EXPIRED|FortiGuard web filter license expired
+0100020113|Error|Event|system|LOG_ID_IPSA_DOWNLOAD_FAIL|IPSA database download failed
+0100020114|Error|Event|system|LOG_ID_IPSA_SELFTEST_FAIL|IPSA disabled: self test failed
+0100020115|Error|Event|system|LOG_ID_IPSA_STATUSUPD_FAIL|IPSA driver update failed
+0100020116|Critical|Event|system|LOG_ID_SPAM_LIC_EXPIRED|FortiGuard antispam license expired
+0100020117|Critical|Event|system|LOG_ID_AV_LIC_EXPIRED|FortiGuard antivirus license expired
+0100020118|Warning|Event|system|LOG_ID_WEBF_STATUS_REACH|FortiGuard webfilter reachable
+0100020119|Warning|Event|system|LOG_ID_WEBF_STATUS_UNREACH|FortiGuard webfilter unreachable
+0100020120|Warning|Event|system|LOG_ID_FMGC_LIC_EXPIRE|FortiManager Cloud license expiring
+0100020121|Warning|Event|system|LOG_ID_FAZC_LIC_EXPIRE|FortiAnalyzer Cloud license expiring
+0100020122|Warning|Event|system|LOG_ID_SWNO_LIC_EXPIRE|SD-WAN Overlay Controller license expiring
+0100020123|Warning|Event|system|LOG_ID_SWNM_LIC_EXPIRE|SD-WAN Monitoring license expiring
+0100020124|Warning|Event|system|LOG_ID_VMLS_LIC_EXPIRE|VM-S license expiring
+0100020125|Warning|Event|system|LOG_ID_SFAS_LIC_EXPIRE|Security Rating license expiring
+0100020126|Warning|Event|system|LOG_ID_IPMC_LIC_EXPIRE|IPAM Controller license expiring
+0100020127|Warning|Event|system|LOG_ID_IOTH_LIC_EXPIRE|IoT device identification license expiring
+0100020128|Warning|Event|system|LOG_ID_FSAC_LIC_EXPIRE|FortiSandbox Cloud license expiring
+0100020129|Warning|Event|system|LOG_ID_AFAC_LIC_EXPIRE|FortiAnalyzer Cloud premium license expiring
+0100020130|Warning|Event|system|LOG_ID_EMSC_ACC_LIC_EXPIRE|FortiClient EMS Cloud license expiring
+0100020131|Warning|Event|system|LOG_ID_FMGC_ACC_LIC_EXPIRE|FortiManager Cloud Account Level license expiring
+0100020132|Warning|Event|system|LOG_ID_FSAP_ACC_LIC_EXPIRE|FortiSandbox Cloud Account Level license expiring
+0100020133|Warning|Event|system|LOG_ID_FIREWALL_POLICY_EXPIRE|Firewall policy expiring
+0100020134|Critical|Event|system|LOG_ID_FIREWALL_POLICY_EXPIRED|Firewall policy expired
+0100020135|Warning|Event|system|LOG_ID_FAIS_LIC_EXPIRE|FortiGuard AI-Based Sandbox Service license expiring
+0100020136|Warning|Event|system|LOG_ID_DLP_LIC_EXPIRE|FortiGuard Data loss prevention (DLP) server license expiring
+0100020137|Warning|Event|system|LOG_ID_FGSA_LIC_EXPIRE|Attack Surface Security Rating Service license expiring
+0100020138|Warning|Event|system|LOG_ID_SWOS_LIC_EXPIRE|FortiGuard SD-WAN Overlay as a Service license expiring
+0100020139|Warning|Event|system|LOG_ID_FGCS_ACC_LIC_EXPIRE|FortiGSLB Cloud Account Level license expiring
+0100020140|Warning|Event|system|LOG_ID_FSPA_LIC_EXPIRE|FortiSASE Secure Private Access license expiring
+0100020141|Warning|Event|system|LOG_ID_FSFG_LIC_EXPIRE|FortiSASE LAN Extension license expiring
+0100020142|Warning|Event|system|LOG_ID_SSFL_LIC_EXPIRE|Sovereign SASE FortiGate license expiring
+0100020150|Notice|Event|system|LOG_ID_DEV_VUNL_FTGD_LOOKUP|Device vulnerability lookup on FortiGuard
+0100020200|Notice|Event|system|LOG_ID_FIPS_SELF_TEST|FIPS CC self-test initiated
+0100020201|Notice|Event|system|LOG_ID_FIPS_SELF_ALL_TEST|FIPS ALL CC self-tests initiated
+0100020202|Warning|Event|system|LOG_ID_DISK_FORMAT_ERROR|Disk partitioning or formatting Error
+0100020203|Information|Event|system|LOG_ID_DAEMON_SHUTDOWN|Daemon shutdown
+0100020204|Information|Event|system|LOG_ID_DAEMON_START|Daemon started
+0100020205|Critical|Event|system|LOG_ID_DISK_FORMAT_REQ|Format disk requested
+0100020206|Warning|Event|system|LOG_ID_DISK_SCAN_REQ|Scan disk requested
+0100020207|Warning|Event|system|LOG_ID_RAD_MISMATCH_VALID_TIME|RADVD local AdvValidLifetime disagrees with remote site
+0100020208|Information|Event|system|LOG_ID_ZOMBIE_DAEMON_CLEANUP|Zombie daemon cleanup
+0100020209|Critical|Event|system|LOG_ID_DISK_UNAVAIL|Disk unavailable
+0100020210|Information|Event|system|LOG_ID_DISK_TRIM_START|SSD TRIM started
+0100020211|Information|Event|system|LOG_ID_DISK_TRIM_END|SSD TRIM finished
+0100020212|Alert|Event|system|LOG_ID_DISK_SCAN_NEEDED|Disk scan is needed
+0100020213|Warning|Event|system|LOG_ID_DISK_LOG_CORRUPTED|Log file on disk is corrupted
+0100020214|Warning|Event|system|LOG_ID_LOCAL_OUT_IOC|Locally generated traffic goes to IoC location
+0100020220|Information|Event|system|LOGID_EVENT_SHAPER_OUTBOUND_MAXED_OUT|Outbound bandwidth rate exceeded
+0100020221|Information|Event|system|LOGID_EVENT_SHAPER_INBOUND_MAXED_OUT|Inbound bandwidth rate exceeded
+0119020230|Alert|Event|ftnt-sec-mod|LOG_ID_SYS_SECURITY_WRITE_VIOLATION|Write Permission Violation
+0119020231|Alert|Event|ftnt-sec-mod|LOG_ID_SYS_SECURITY_HARDLINK_VIOLATION|Hard Link Creation Violation
+0119020232|Alert|Event|ftnt-sec-mod|LOG_ID_SYS_SECURITY_LOAD_MODULE_VIOLATION|Load Kernel/Kernel Module/Firmware Violation
+0119020233|Alert|Event|ftnt-sec-mod|LOG_ID_SYS_SECURITY_FILE_HASH_MISSING|Integrity check of Running/loading Executable File failed without Integrity measure
+0119020234|Alert|Event|ftnt-sec-mod|LOG_ID_SYS_SECURITY_FILE_HASH_MISMATCH|Integrity check of Running/loading Executable File failed with mismatched measure
+0103020300|Warning|Event|router|LOG_ID_BGP_NB_STAT_CHG|BGP neighbor status changed
+0103020301|Information|Event|router|LOG_ID_VZ_LOG_INFO|Routing log information
+0103020302|Warning|Event|router|LOG_ID_OSPF_NB_STAT_CHG|OSPF neighbor status changed
+0103020303|Warning|Event|router|LOG_ID_OSPF6_NB_STAT_CHG|OSPF6 neighbor status changed
+0103020304|Warning|Event|router|LOG_ID_VZ_LOG_WARNING|Routing log warning
+0103020305|Critical|Event|router|LOG_ID_VZ_LOG_CRITICAL|Routing log critical event
+0103020306|Error|Event|router|LOG_ID_VZ_LOG_ERROR|Routing log error
+0103020401|Notice|Event|router|LOG_ID_ROUTER_CLEAR|Router cleared
+0103020402|Warning|Event|router|LOG_ID_EVPN|EVPN warning
+0100022000|Warning|Event|system|LOG_ID_INV_PKT_LEN|Packet length mismatch
+0100022001|Warning|Event|system|LOG_ID_UNSUPPORTED_PROT_VER|Protocol version unsupported
+0100022002|Warning|Event|system|LOG_ID_INV_REQ_TYPE|Request type not supported
+0100022003|Warning|Event|system|LOG_ID_FAIL_SET_SIG_HANDLER|Signal handler setup failed
+0100022004|Warning|Event|system|LOG_ID_FAIL_CREATE_SOCKET|Socket creation failed
+0100022005|Warning|Event|system|LOG_ID_FAIL_CREATE_SOCKET_RETRY|Socket creation retry failed
+0100022006|Warning|Event|system|LOG_ID_FAIL_REG_CMDB_EVENT|Registration for CMDB events failed
+0100022009|Warning|Event|system|LOG_ID_FAIL_FIND_AV_PROFILE|AntiVirus profile not found
+0100022010|Error|Event|system|LOG_ID_SENDTO_FAIL|URL filter packet send failure
+0100022011|Critical|Event|system|LOG_ID_ENTER_MEM_CONSERVE_MODE|Memory conserve mode entered
+0100022012|Critical|Event|system|LOG_ID_LEAVE_MEM_CONSERVE_MODE|Memory conserve mode exited
+0100022013|Alert|Event|system|LOG_ID_IPPOOLPBA_BLOCK_EXHAUSTED|IP pool PBA block exhausted
+0100022014|Alert|Event|system|LOG_ID_IPPOOLPBA_NATIP_EXHAUSTED|IP pool PBA NAT IP exhausted
+0100022015|Notice|Event|system|LOG_ID_IPPOOLPBA_CREATE|IP pool PBA created
+0100022016|Notice|Event|system|LOG_ID_IPPOOLPBA_DEALLOCATE|Deallocate IP pool PBA
+0100022017|Notice|Event|system|LOG_ID_EXCEED_GLOB_RES_LIMIT|Global resource limit exceeded
+0100022018|Notice|Event|system|LOG_ID_EXCEED_VD_RES_LIMIT|VDOM resource limit exceeded
+0100022019|Notice|Event|system|LOG_ID_LOGRATE_OVER_LIMIT|Log rate limit exceeded
+0100022020|Warning|Event|system|LOG_ID_FAIL_CREATE_HA_SOCKET|HA socket creation failed
+0100022021|Warning|Event|system|LOG_ID_FAIL_CREATE_HA_SOCKET_RETRY|UDP socket creation to relay URL request failed
+0100022022|Critical|Event|system|LOG_ID_ENTER_EXTREME_LOW_MEM_MODE|Extreme low memory mode entered
+0100022023|Critical|Event|system|LOG_ID_LEAVE_EXTREME_LOW_MEM_MODE|Extreme low memory mode exited
+0100022024|Notice|Event|system|LOG_ID_IPPOOLPBA_INTERIM|IP pool PBA interim log
+0100022031|Notice|Event|system|LOG_ID_SUCCESS_CSF_LOG_SYNC_CONFIG_CHANGED|Settings modified by Security Fabric service
+0100022032|Critical|Event|system|LOG_ID_CSF_LOOP_FOUND|Looped configuration in Security Fabric service
+0100022035|Warning|Event|system|LOG_ID_CSF_UPSTREAM_SN_CHANGED|Serial number of upstream is changed
+0100022036|Information|Event|system|LOG_ID_CSF_FGT_CONNECTED|Connection with Security Fabric member established and authorized.
+0100022037|Information|Event|system|LOG_ID_CSF_FGT_DISCONNECTED|Connection with authorized Security Fabric member terminated.
+0100022038|Error|Event|system|LOG_ID_CSF_GLOBAL_SYNC_FAILED|Synchronization of global object failed.
+0100022039|Notice|Event|system|LOG_ID_CSF_GLOBAL_SYNC_REPORT|Synchronization of global object report.
+0100022040|Notice|Event|system|LOG_ID_CSF_DEVICE_JOIN|Device joined the Security Fabric.
+0100022041|Notice|Event|system|LOG_ID_CSF_DEVICE_LEAVE|Device left the Security Fabric.
+0100022042|Notice|Event|system|LOG_ID_CSF_DEVICE_UPDATE|Device in the Security Fabric was updated.
+0100022043|Notice|Event|system|LOG_ID_CSF_NEW_AUTH_REQ|An authorization request was added.
+0100022044|Notice|Event|system|LOG_ID_CSF_UPDATE_AUTH_REQ|An authorization request was updated.
+0100022045|Notice|Event|system|LOG_ID_CSF_REMOVE_AUTH_REQ|An authorization request was removed.
+0100022046|Notice|Event|system|LOG_ID_CSF_ROLE_CHANGE|Device's authorization privilege changed.
+0100022047|Information|Event|system|LOG_ID_CSF_FILE_MEM_USAGE|CSF daemon files memory usage warning.
+0100022048|Notice|Event|system|LOG_ID_CSF_ADVPN_SYNC|Fabric ADVPN configuration synchronized from root.
+0100022049|Debug|Event|system|LOG_ID_CSF_DAEMON_CLOSE|Daemon csfd has closed.
+0100022050|Notice|Event|system|LOG_ID_IPAMD_ADDRESS_ALLOCATED|Address allocated by FortiIPAM and applied to an interface
+0100022051|Warning|Event|system|LOG_ID_IPAMD_ADDRESS_SET_FAILED|Address received from FortiIPAM could not be applied to the interface
+0100022052|Notice|Event|system|LOG_ID_IPAMD_ADDRESS_INVALIDATED|FortiIPAM indicated that the address was no longer allocated to the interface
+0100022053|Information|Event|system|LOG_ID_IPAMD_VALIDATION_COMPLETE|Startup validation of IPAM addresses was completed
+0100022060|Notice|Event|system|LOG_ID_IPAMSD_ADD_ENTRY|Add new entry to IPAM
+0100022061|Notice|Event|system|LOG_ID_IPAMSD_DELETE_ENTRY|Delete entry from IPAM
+0100022062|Notice|Event|system|LOG_ID_IPAMSD_FLAG_CONFLICT|Flag IPAM entry as conflict
+0100022063|Notice|Event|system|LOG_ID_IPAMSD_UNFLAG_CONFLICT|Unflag IPAM entry as conflict
+0100022070|Warning|Event|system|LOG_ID_FORTIGSLB_COMMUNICATION_ERROR|Error communicating with the FortiGSLB cloud server
+0100022071|Notice|Event|system|LOG_ID_FORTIGSLB_CLOUD_CONFIG_UPDATED|Config successfully sent to the FortiGSLB cloud server
+0100022080|Information|Event|system|LOG_ID_PROVISION_LATEST_SUCCEEDED|Provisioning of latest firmware was completed
+0100022081|Warning|Event|system|LOG_ID_PROVISION_LATEST_FAILED|Provisioning of latest firmware failed
+0100022085|Information|Event|system|LOG_ID_DEVICE_UPGRADE_SUCCEEDED|A device upgrade was completed
+0100022086|Warning|Event|system|LOG_ID_DEVICE_UPGRADE_FAILED|A device upgrade failed
+0100022090|Warning|Event|system|LOG_ID_FEDERATED_UPGRADE_CANCELLED|A federated upgrade was cancelled due to the CSF tree not being ready
+0100022091|Information|Event|system|LOG_ID_FEDERATED_UPGRADE_SUCCEEDED|A federated upgrade was completed
+0100022092|Warning|Event|system|LOG_ID_FEDERATED_UPGRADE_FAILED|A federated upgrade failed
+0100022093|Information|Event|system|LOG_ID_FEDERATED_UPGRADE_STEP_COMPLETE|A step in a multi-step federated upgrade was completed
+0100022094|Information|Event|system|LOG_ID_FEDERATED_UPGRADE_ROOT_COMPLETED|A federated upgrade was completed by the root FortiGate
+0100022095|Warning|Event|system|LOG_ID_FEDERATED_UPGRADE_ROOT_NOT_COMPLETED|A federated upgrade could not be completed by the root FortiGate
+0100022096|Information|Event|system|LOG_ID_AUTO_UPG_INSTALLATION_SUCCEEDED|An automatic firmware upgrade was completed
+0100022097|Warning|Event|system|LOG_ID_AUTO_UPG_INSTALLATION_FAILED|An automatic firmware upgrade failed
+0100022100|Warning|Event|system|LOG_ID_QUAR_DROP_TRAN_JOB|Files dropped by quarantine daemon
+0100022101|Warning|Event|system|LOG_ID_QUAR_DROP_TLL_JOB|Files dropped due to poor network connection
+0100022102|Critical|Event|system|LOG_ID_LOG_DISK_FAILURE|Log disk failure imminent
+0100022103|Warning|Event|system|LOG_ID_QUAR_LIMIT_REACHED|Sandbox limit reached
+0100022105|Critical|Event|system|LOG_ID_POWER_FAILURE|Power supply failed
+0100022106|Information|Event|system|LOG_ID_POWER_OPTIONAL_NOT_DETECTED|Optional power supply not detected
+0100022107|Warning|Event|system|LOG_ID_VOLT_ANOM|Voltage anomaly
+0100022108|Warning|Event|system|LOG_ID_FAN_ANOM|Fan anomaly
+0100022109|Warning|Event|system|LOG_ID_TEMP_TOO_HIGH|Temperature too high
+0100022110|Critical|Event|system|LOG_ID_SPARE_BLOCK_LOW|Spare blocks availability low
+0100022111|Error|Event|system|LOG_ID_PSU_ACTION_FPC_DOWN|FPC down due to PSU action
+0100022112|Information|Event|system|LOG_ID_PSU_ACTION_FPC_UP|FPC up due to PSU action
+0100022113|Warning|Event|system|LOG_ID_FNBAM_FAILURE|Authentication error
+0100022114|Warning|Event|system|LOG_ID_POWER_FAILURE_WARNING|Power supply failed warning
+0100022115|Notice|Event|system|LOG_ID_POWER_RESTORE_NOTIF|Power supply restored notification
+0100022116|Warning|Event|system|LOG_ID_POWER_REDUNDANCY_DEGRADE|Power Supply Redundancy Degrade
+0100022117|Critical|Event|system|LOG_ID_POWER_REDUNDANCY_FAILURE|Power Supply Redundancy Lost
+0100022118|Emergency|Event|system|LOG_ID_HW_MONITOR_EMERGENCY|IPMC monitor emergency
+0100022119|Warning|Event|system|LOG_ID_HW_MONITOR_WARNING|IPMC monitor warning
+0100022120|Notice|Event|system|LOG_ID_HW_MONITOR_NOTIF|IPMC monitor notification
+0100022150|Notice|Event|system|LOG_ID_VOLT_NOM|Voltage normal
+0100022151|Notice|Event|system|LOG_ID_FAN_NOM|Fan normal
+0100022152|Warning|Event|system|LOG_ID_TEMP_TOO_LOW|Temperature too low
+0100022153|Notice|Event|system|LOG_ID_TEMP_NORM|Temperature normal
+0100022200|Warning|Event|system|LOG_ID_AUTO_UPT_CERT|Certificate will be auto-updated
+0100022201|Warning|Event|system|LOG_ID_AUTO_GEN_CERT|Certificate will be auto-regenerated
+0100022203|Error|Event|system|LOG_ID_AUTO_GEN_CERT_FAIL|Certificate failed to auto-generate
+0100022204|Information|Event|system|LOG_ID_AUTO_GEN_CERT_PENDING|Certificate pending to auto-generate
+0100022205|Information|Event|system|LOG_ID_AUTO_GEN_CERT_SUCC|Certificate succeed to auto-generate
+0100022206|Warning|Event|system|LOG_ID_CRL_EXPIRED|CRL is expired
+0100022207|Warning|Event|system|LOG_ID_CERT_EXPIRE_WARNING|Certificate will expire soon
+0100022220|Information|Event|system|LOG_ID_EXT_RESOURCE|External resource updated
+0100022221|Warning|Event|system|LOG_ID_EXT_RESOURCE_FAIL|External resource update failed
+0100022222|Notice|Event|system|LOG_ID_EXT_RESOURCE_LOAD|External resource loaded
+0100022223|Debug|Event|system|LOG_ID_EXT_RESOURCE_DEBUG|External resource debug
+0100022224|Warning|Event|system|LOG_ID_EXT_RESOURCE_OVERFLOW|External resource overflow
+0100022700|Critical|Event|system|LOG_ID_IPS_FAIL_OPEN|IPS session scan paused
+0100022701|Critical|Event|system|LOG_ID_IPS_FAIL_OPEN_END|IPS session scan resumed
+0100022750|Notice|Event|system|LOG_ID_METERED_BILLING_ACCEPTED|Metered billing usage event accepted
+0100022751|Critical|Event|system|LOG_ID_METERED_BILLING_FAIL|Metered billing usage event bad reuest
+0100022752|Notice|Event|system|LOG_ID_METERED_BILLING_VALID|Metered billing status is valid
+0100022753|Critical|Event|system|LOG_ID_METERED_BILLING_INVALID|Metered billing status is invalid
+0100022800|Critical|Event|system|LOG_ID_SCAN_SERV_FAIL|Scan services session failed
+0100022802|Critical|Event|system|LOG_ID_ENTER_FD_CONSERVE_MODE|File descriptor conserve mode entered
+0100022803|Critical|Event|system|LOG_ID_LEAVE_FD_CONSERVE_MODE|File descriptor conserve mode exited
+0100022804|Critical|Event|system|LOG_ID_LIC_STATUS_CHG|License status changed
+0100022805|Warning|Event|system|LOG_ID_FAIL_TO_VALIDATE_LIC|License validation failure
+0100022806|Warning|Event|system|LOG_ID_DUP_LIC|Duplicate license detected
+0100022807|Critical|Event|system|LOG_ID_VDOM_LIC|VDOM license status changed
+0100022808|Critical|Event|system|LOG_ID_LIC_EXPIRE|VM license expired
+0100022809|Warning|Event|system|LOG_ID_LIC_WILL_EXPIRE|VM license expiring
+0100022810|Warning|Event|system|LOG_ID_SCANUNIT_ERROR_BLOCK|Scan error - traffic blocked
+0100022811|Notice|Event|system|LOG_ID_SCANUNIT_ERROR_PASS|Scan error - traffic passed
+0100022812|Notice|Event|system|LOG_ID_SCANUNIT_AVENG_RELOAD|Scanunit is reloading AV engine
+0100022813|Notice|Event|system|LOG_ID_SCANUNIT_AVDB_RELOAD|Scanunit reloaded AV Database
+0100022814|Error|Event|system|LOG_ID_SCANUNIT_AVDB_RELOAD_ERROR|Scanunit AV Database reload error
+0100022815|Notice|Event|system|LOG_ID_SCANUNIT_AVDB_LOAD|Scanunit loaded AV Database
+0100022816|Error|Event|system|LOG_ID_SCANUNIT_AVDB_LOAD_ERROR|Scanunit AV Database load error
+0100022817|Warning|Event|system|LOG_ID_SCANUNIT_DLP_SIGNATURE_REMOVE|Scanunit DLP signature update error
+0100022818|Warning|Event|system|LOG_ID_SCANUNIT_DLP_BUILDER_TIMEOUT|Scanunit DLP builder timeout
+0100022819|Warning|Event|system|LOG_ID_SCANUNIT_DLP_BUILDER_PATTERN_SKIP|Scanunit DLP dictionary pattern skipped
+0115022850|Notice|Event|switch-controller|LOG_ID_USER_QUARANTINE_MAC_ADD|User quarantine MAC added
+0115022851|Notice|Event|switch-controller|LOG_ID_USER_QUARANTINE_MAC_DELETE|User quarantine MAC deleted
+0115022852|Notice|Event|switch-controller|LOG_ID_USER_QUARANTINE_MAC_BOUNCE_PORT_HIT|User quarantine MAC bounce port hit
+0115022853|Warning|Event|switch-controller|LOG_ID_USER_QUARANTINE_MAC_BOUNCE_PORT_MISS|User quarantine MAC bounce port miss
+0115022861|Information|Event|switch-controller|LOG_ID_FLPOLD_NAC_ADD|NAC device addition
+0115022862|Information|Event|switch-controller|LOG_ID_FLPOLD_NAC_DELETE|NAC device deletion
+0115022863|Information|Event|switch-controller|LOG_ID_FLPOLD_NAC_MODIFY|NAC device modify
+0115022864|Information|Event|switch-controller|LOG_ID_FLPOLD_DPP_ADD|DPP device addition
+0115022865|Information|Event|switch-controller|LOG_ID_FLPOLD_DPP_DELETE|DPP device deletion
+0115022866|Information|Event|switch-controller|LOG_ID_FLPOLD_DPP_MODIFY|DPP device modify
+0115022867|Information|Event|switch-controller|LOG_ID_FLPOLD_DPP_INTF_TAGS_ADD|DPP interface tags add
+0115022868|Information|Event|switch-controller|LOG_ID_FLPOLD_DPP_INTF_TAGS_DELETE|DPP interface tags delete
+0115022869|Information|Event|switch-controller|LOG_ID_FLPOLD_NAC_DYNAMIC_ADDRESS_ADD|NAC device dynamic address addition
+0115022870|Information|Event|switch-controller|LOG_ID_FLPOLD_NAC_DYNAMIC_ADDRESS_DELETE|NAC device dynamic address deletion
+0115022871|Information|Event|switch-controller|LOG_ID_FLPOLD_NAC_MAC_CACHE_SYNC|NAC MAC cache sync
+0115022872|Warning|Event|switch-controller|LOG_ID_FLPOLD_NAC_MAX_ERROR|NAC device Max Limit Error
+0115022873|Warning|Event|switch-controller|LOG_ID_FLPOLD_DPP_MAX_ERROR|DPP device Max Limit Error
+0115022874|Notice|Event|switch-controller|LOG_ID_FLTUND_NEW_CONN|Switch-controller FortilinkLite new connection
+0115022875|Critical|Event|switch-controller|LOG_ID_FLTUND_CONN_DOWN|Switch-controller FortilinkLite connection down
+0115022876|Information|Event|switch-controller|LOG_ID_FLTUND_RCV_BOOTSTRAP|Switch-controller FortilinkLite received bootstrap
+0115022877|Notice|Event|switch-controller|LOG_ID_FLTUND_CONN_ONLINE|Switch-controller FortilinkLite tunnel online
+0115022878|Critical|Event|switch-controller|LOG_ID_FLTUND_CONN_OFFLINE|Switch-controller FortilinkLite tunnel offline
+0115022890|Notice|Event|switch-controller|LOG_ID_FORTILINKD|Switch-Controller Daemon Log (Notification)
+0115022891|Error|Event|switch-controller|LOG_ID_FLCFGD_SYNC_ERROR|Switch-Controller Switch Sync Error
+0115022892|Information|Event|switch-controller|LOG_ID_FLCFGD_SYNC_COMPLETE|Switch-Controller Switch Sync Complete
+0115022893|Debug|Event|switch-controller|LOG_ID_FLCFGD_SYNC_STATE|Switch-Controller Switch Sync State
+0115022894|Error|Event|switch-controller|LOG_ID_FLCFGD_UPGRADE_ERROR|Switch-Controller Switch Upgrade Error
+0115022895|Information|Event|switch-controller|LOG_ID_FLCFGD_UPGRADE_STATUS|Switch-Controller Switch Upgrade Status
+0115022896|Critical|Event|switch-controller|LOG_ID_FORTILINKD_CRITICAL|Switch-Controller Daemon Log (Critical)
+0115022897|Information|Event|switch-controller|LOG_ID_FORTILINKD_SPLIT_PORT_INFO|Switch-controller split-port related configuration change detected
+0115022900|Information|Event|switch-controller|LOG_ID_CAPUTP_SESSION|CAPUTP session status
+0100022901|Notice|Event|system|LOG_ID_FAZ_CON|FortiAnalyzer connection up
+0100022902|Notice|Event|system|LOG_ID_FAZ_DISCON|FortiAnalyzer connection down
+0100022903|Critical|Event|system|LOG_ID_FAZ_CON_ERR|FortiAnalyzer connection failed
+0115022904|Notice|Event|switch-controller|LOG_ID_CAPUTP_SESSION_NOTIF|CAPUTP session status notification
+0100022905|Notice|Event|system|LOG_ID_LOGDEV_STATUS_CHANGE|Log device status has changed
+0100022906|Warning|Event|system|LOG_ID_SECURITY_LEVEL_CHANGE|Hardware security level is changed
+0100022907|Notice|Event|system|LOG_ID_INPUT_DETECTION|Digital-IO input state change
+0100022908|Notice|Event|system|LOG_ID_OUTPUT_DETECTION|Digital-IO output state change
+0100022912|Notice|Event|system|LOG_ID_FDS_SRV_ERRCON|FortiGate Cloud server connection failed
+0100022913|Notice|Event|system|LOG_ID_FDS_SRV_DISCON|FortiGate Cloud server disconnected
+0100022915|Notice|Event|system|LOG_ID_FDS_SRV_CON|FortiGate Cloud server connected
+0100022916|Notice|Event|system|LOG_ID_FDS_STATUS|FortiGuard Message Service status
+0100022917|Notice|Event|system|LOG_ID_FDS_SMS_QUOTA|SMS quota reached
+0100022918|Notice|Event|system|LOG_ID_FDS_CTRL_STATUS|FortiGuard Message Service controller status
+0100022919|Notice|Event|system|LOG_ID_SVR_LOG_STATUS_CHANGED|Server logging status changed
+0100022920|Notice|Event|system|LOG_ID_SVR_STATUS_CHANGED|Server service status has changed
+0100022921|Critical|Event|system|LOG_ID_EVENT_ROUTE_INFO_CHANGED|Routing information changed
+0100022922|Notice|Event|system|LOG_ID_EVENT_LINK_MONITOR_STATUS|Link monitor status
+0113022923|Notice|Event|sdwan|LOG_ID_EVENT_VWL_LQTY_STATUS|SD-WAN status
+0113022924|Notice|Event|sdwan|LOG_ID_EVENT_VWL_VOLUME_STATUS|SD-WAN volume status
+0113022925|Information|Event|sdwan|LOG_ID_EVENT_VWL_SLA_INFO|SD-WAN SLA information
+0113022926|Notice|Event|sdwan|LOG_ID_EVENT_VWL_NEIGHBOR_STATUS|SD-WAN Neighbor status
+0113022927|Notice|Event|sdwan|LOG_ID_EVENT_VWL_NEIGHBOR_STANDALONE|SD-WAN Neighbor standalone
+0113022928|Notice|Event|sdwan|LOG_ID_EVENT_VWL_NEIGHBOR_PRIMARY|SD-WAN Neighbor primary
+0113022929|Warning|Event|sdwan|LOG_ID_EVENT_VWL_NEIGHBOR_SECONDARY|SD-WAN Neighbor secondary
+0113022930|Warning|Event|sdwan|LOG_ID_EVENT_VWL_LQTY_STATUS_WARNING|SD-WAN status warning
+0113022931|Warning|Event|sdwan|LOG_ID_EVENT_VWL_SLA_INFO_WARNING|SD-WAN SLA information warning
+0100022932|Warning|Event|system|LOG_ID_EVENT_LINK_MONITOR_STATUS_WARNING|Link monitor status warning
+0113022933|Notice|Event|sdwan|LOG_ID_EVENT_VWL_SLA_INFO_NOTIF|SD-WAN SLA notification
+0113022934|Information|Event|sdwan|LOG_ID_EVENT_VWL_LQTY_STATUS_INFO|SD-WAN status information
+0113022935|Debug|Event|sdwan|LOG_ID_EVENT_VWL_LQTY_STATUS_DEBUG|SD-WAN status debug
+0113022936|Information|Event|sdwan|LOG_ID_EVENT_VWL_INET_SVC_PQTY_STATUS_INFO|SD-WAN internet service passive quality information
+0113022937|Information|Event|sdwan|LOG_ID_EVENT_VWL_APP_PERF_METRICS|SD-WAN application performance metrics via FortiMonitor
+0113022938|Information|Event|sdwan|LOG_ID_EVENT_VWL_WAN_SPEEDTEST_RESULT|SD-WAN Bandwidth monitoring result
+0113022939|Notice|Event|sdwan|LOG_ID_EVENT_VWL_FAIL_DETECT|SD-WAN fail detect
+0100022940|Notice|Event|system|LOG_ID_EVENT_LINK_MONITOR_FAIL_DETECT|Link monitor fail detect
+0113022941|Information|Event|sdwan|LOG_ID_EVENT_VWL_PASS_APP_PERF|SD-WAN application performance metrics via kernel
+0100022942|Notice|Event|system|LOG_ID_EVENT_LINK_MONITOR_BUILD_ERR|Link monitor build failed
+0100022949|Notice|Event|system|LOG_ID_FDS_JOIN|FortiGate Cloud auto-join attempted
+0100022950|Notice|Event|system|LOG_ID_FDS_LOGIN_SUCC|FortiGate Cloud activation successful
+0100022951|Notice|Event|system|LOG_ID_FDS_LOGOUT|FortiGate Cloud logout
+0100022952|Warning|Event|system|LOG_ID_FDS_LOGIN_FAIL|FortiGate Cloud activation failed
+0100022954|Notice|Event|system|LOG_ID_INET_SVC_OBSOLETE|Internet Service obsolete
+0100022955|Warning|Event|system|LOG_ID_INET_SVC_NAME_FAILURE|Internet Service name update failed
+0100022956|Notice|Event|system|LOG_ID_INET_SVC_NAME_UPDATE|Internet Service name update
+0100022957|Notice|Event|system|LOG_ID_SANDBOX_CLOUD_ERRCON|FortiSandbox Cloud server connection failed
+0100022970|Information|Event|system|LOG_ID_EVENT_MAC_FLAPPING|MAC flapping
+0101023101|Information|Event|vpn|LOG_ID_IPSEC_TUNNEL_UP|IPsec VPN tunnel up
+0101023102|Information|Event|vpn|LOG_ID_IPSEC_TUNNEL_DOWN|IPsec VPN tunnel down
+0101023103|Information|Event|vpn|LOG_ID_IPSEC_TUNNEL_STAT|IPsec VPN tunnel statistics
+0100026001|Information|Event|system|LOG_ID_DHCP_ACK|DHCP Ack log
+0100026002|Information|Event|system|LOG_ID_DHCP_RELEASE|DHCP Release log
+0100026003|Information|Event|system|LOG_ID_DHCP_STAT|DHCP statistics
+0100026004|Information|Event|system|LOG_ID_DHCP_CLIENT_LEASE|DHCP client lease granted
+0100026005|Warning|Event|system|LOG_ID_DHCP_LEASE_USAGE_HIGH|DHCP lease usage high
+0100026006|Warning|Event|system|LOG_ID_DHCP_LEASE_USAGE_FULL|DHCP lease usage full
+0100026007|Information|Event|system|LOG_ID_DHCP_BLOCKED_MAC|DHCP client blocked log
+0100026008|Information|Event|system|LOG_ID_DHCP_DDNS_ADD|DHCP DDNS add query
+0100026009|Information|Event|system|LOG_ID_DHCP_DDNS_DELETE|DHCP DDNS delete query
+0100026010|Information|Event|system|LOG_ID_DHCP_DDNS_COMPLETED|DHCP DDNS query completed
+0100026011|Information|Event|system|LOG_ID_DHCPV6_REPLY|DHCPv6 Ack log
+0100026012|Information|Event|system|LOG_ID_DHCPV6_RELEASE|DHCPv6 Release log
+0103027001|Information|Event|router|LOG_ID_VRRP_STATE_CHG|VRRP state changed
+0100029001|Information|Event|system|LOG_ID_PPPD_MSG|PPP status
+0100029002|Notice|Event|system|LOG_ID_PPPD_AUTH_SUC|PPP authentication successful
+0100029003|Notice|Event|system|LOG_ID_PPPD_AUTH_FAIL|PPP authentication failed
+0100029004|Error|Event|system|LOG_ID_PPPD_MSG_ERROR|PPP status error message
+0100029005|Debug|Event|system|LOG_ID_PPPD_MSG_DEBUG|PPP status debug message
+0100029010|Notice|Event|system|LOG_ID_PPPOE_STATUS_REPORT_NOTIF|PPPoE status report
+0100029011|Error|Event|system|LOG_ID_PPPD_FAIL_TO_EXEC|PPP execution failed
+0100029013|Notice|Event|system|LOG_ID_PPPD_START|PPP daemon started
+0100029014|Information|Event|system|LOG_ID_PPPD_EXIT|PPP daemon exited
+0100029015|Error|Event|system|LOG_ID_PPP_RCV_BAD_PEER_IP|PPP received invalid peer IP
+0100029016|Error|Event|system|LOG_ID_PPP_RCV_BAD_LOCAL_IP|PPP received invalid local IP
+0100029021|Warning|Event|system|LOG_ID_EVENT_AUTH_SNMP_QUERY_FAILED|SNMP query failed
+0100029022|Error|Event|system|LOG_ID_DDNS_UPDATE_FAIL|DDNS update failed
+0100032001|Information|Event|system|LOG_ID_ADMIN_LOGIN_SUCC|Admin login successful
+0100032002|Alert|Event|system|LOG_ID_ADMIN_LOGIN_FAIL|Admin login failed
+0100032003|Information|Event|system|LOG_ID_ADMIN_LOGOUT|Admin logout successful
+0100032005|Information|Event|system|LOG_ID_ADMIN_OVERIDE_VDOM|Admin overrode VDOM
+0100032006|Information|Event|system|LOG_ID_ADMIN_ENTER_VDOM|Super admin entered VDOM
+0100032007|Information|Event|system|LOG_ID_ADMIN_LEFT_VDOM|Super admin left VDOM
+0100032008|Warning|Event|system|LOG_ID_VIEW_DISK_LOG_FAIL|Disk log access failed
+0100032009|Information|Event|system|LOG_ID_SYSTEM_START|FortiGate started
+0100032010|Warning|Event|system|LOG_ID_DISK_LOG_FULL|Disk full
+0100032011|Notice|Event|system|LOG_ID_LOG_ROLL|Disk log rolled
+0100032014|Warning|Event|system|LOG_ID_CS_LIC_EXPIRE|Support license expiring
+0100032015|Warning|Event|system|LOG_ID_DISK_LOG_USAGE|Log disk full
+0100032017|Alert|Event|system|LOG_ID_FDS_DAILY_QUOTA_FULL|FortiGate Cloud daily quota full
+0100032021|Alert|Event|system|LOG_ID_ADMIN_LOGIN_DISABLE|Admin login disabled
+0100032022|Notice|Event|system|LOG_ID_VDOM_ENABLED|VDOM enabled
+0100032023|Information|Event|system|LOG_ID_MEM_LOG_FIRST_FULL|Memory log full over first warning level
+0100032024|Notice|Event|system|LOG_ID_ADMIN_PASSWD_EXPIRE|Admin password expired
+0100032025|Warning|Event|system|LOG_ID_SSH_REKEY|SSH server re-key
+0100032027|Notice|Event|system|LOG_ID_VIEW_DISK_LOG_SUCC|Disk logs viewed successfully
+0100032028|Information|Event|system|LOG_ID_LOG_DEL_DIR|Disk log directory deleted
+0100032029|Warning|Event|system|LOG_ID_LOG_DEL_FILE|Disk log file deleted
+0100032030|Notice|Event|system|LOG_ID_SEND_FDS_STAT|FDS statistics sent
+0100032031|Warning|Event|system|LOG_ID_VIEW_MEM_LOG_FAIL|Memory log access failed
+0100032032|Emergency|Event|system|LOG_ID_DISK_DLP_ARCH_FULL|DLP archive full
+0100032033|Emergency|Event|system|LOG_ID_DISK_QUAR_FULL|Quarantine full
+0100032034|Emergency|Event|system|LOG_ID_DISK_REPORT_FULL|Report db data full
+0100032035|Notice|Event|system|LOG_ID_VDOM_DISABLED|VDOM disabled
+0100032036|Emergency|Event|system|LOG_ID_DISK_IPS_ARCH_FULL|IPS archive full
+0100032037|Information|Event|system|LOG_ID_DISK_LOG_FIRST_FULL|Disk log full over first warning
+0100032038|Notice|Event|system|LOG_ID_LOG_ROLL_FORTICRON|Log rotation requested by FortiCron
+0100032039|Notice|Event|system|LOG_ID_VIEW_MEM_LOG_SUCC|Memory logs viewed successfully
+0100032040|Information|Event|system|LOG_ID_REPORT_DELETED|Report deleted
+0100032041|Information|Event|system|LOG_ID_REPORT_DELETED_GUI|Report deleted from GUI
+0100032042|Warning|Event|system|LOG_ID_MEM_LOG_SECOND_FULL|Memory log full over second warning level
+0100032043|Warning|Event|system|LOG_ID_MEM_LOG_FINAL_FULL|Memory log full over final warning level
+0100032044|Notice|Event|system|LOG_ID_LOG_DELETE|Log deleted by user
+0100032045|Warning|Event|system|LOG_ID_MGR_LIC_EXPIRE|FortiGuard management service license expiring
+0100032048|Warning|Event|system|LOG_ID_SCHEDULE_EXPIRE|One time schedule expiring
+0100032049|Warning|Event|system|LOG_ID_FC_EXPIRE|FortiGate Cloud license expiring
+0100032050|Warning|Event|system|LOG_ID_POL_PKT_CAPTURE_FULL|Policy packet capture full
+0100032051|Notice|Event|system|LOG_ID_LOG_UPLOAD|Disk logs upload started
+0100032052|Notice|Event|system|LOG_ID_UPLOAD_RUN_SCRIPT|Upload and run a script
+0100032055|Information|Event|system|LOG_ID_CC_KAT_SUCCESS|KAT tests succeeded
+0100032057|Warning|Event|system|LOG_ID_VIEW_FAZ_LOG_FAIL|FortiAnalyzer log access failed
+0100032058|Notice|Event|system|LOG_ID_VIEW_FAZ_LOG_SUCC|FortiAnalyzer logs viewed successfully
+0100032095|Warning|Event|system|LOG_ID_GUI_CHG_SUB_MODULE|Admin performed an action from GUI
+0100032096|Notice|Event|system|LOG_ID_GUI_DOWNLOAD_LOG|Log file downloaded from GUI
+0100032097|Warning|Event|system|LOG_ID_DELETE_CAPTURE_PKT|Policy packet capture file deleted
+0100032099|Information|Event|system|LOG_ID_CHG_CONFIG_INFO|Configuration changed information
+0100032100|Warning|Event|system|LOG_ID_FORTI_TOKEN_SYNC|FortiToken synchronized
+0100032102|Alert|Event|system|LOG_ID_CHG_CONFIG|Configuration changed
+0100032103|Notice|Event|system|LOG_ID_NEW_FIRMWARE|New firmware available on FortiGuard
+0100032104|Information|Event|system|LOG_ID_CHG_CONFIG_GUI|Configuration changed via GUI
+0100032105|Notice|Event|system|LOG_ID_NTP_SVR_STAUS_CHG_REACHABLE|NTP server status changes to reachable
+0100032106|Notice|Event|system|LOG_ID_NTP_SVR_STAUS_CHG_RESOLVABLE|NTP server status changes to resolvable
+0100032107|Notice|Event|system|LOG_ID_NTP_SVR_STAUS_CHG_UNRESOLVABLE|NTP server status changes to unresolvable
+0100032108|Notice|Event|system|LOG_ID_NTP_SVR_STAUS_CHG_UNREACHABLE|NTP server status changes to unreachable
+0100032109|Critical|Event|system|LOG_ID_UPD_SIGN_AV_DB|Updating virus database
+0100032110|Critical|Event|system|LOG_ID_UPD_SIGN_IPS_DB|IPS database updated
+0100032111|Critical|Event|system|LOG_ID_UPD_SIGN_AVIPS_DB|AV, IPS, GeoIP, SRC-VIS, FortiFlow, URL Allow list, Certificate databases updated
+0100032113|Critical|Event|system|LOG_ID_UPD_SIGN_SRCVIS_DB|SRC-VIS object updated
+0100032114|Critical|Event|system|LOG_ID_UPD_SIGN_GEOIP_DB|GeoIP object updated
+0100032116|Warning|Event|system|LOG_ID_UPD_SIGN_AVPKG_FAILURE|AV package update by SCP failed
+0100032117|Warning|Event|system|LOG_ID_UPD_SIGN_AVPKG_SUCCESS|AV package update by SCP successful
+0100032118|Notice|Event|system|LOG_ID_UPD_ADMIN_AV_DB|AV updated by admin
+0100032119|Error|Event|system|LOG_ID_UPD_SCANUNIT_AV_DB|AV database update requested by scanunit
+0100032129|Notice|Event|system|LOG_ID_ADD_GUEST|Guest user added
+0100032130|Notice|Event|system|LOG_ID_CHG_USER|User changed
+0100032131|Notice|Event|system|LOG_ID_DEL_GUEST|Guest user deleted
+0100032132|Notice|Event|system|LOG_ID_ADD_USER|Local user added
+0100032138|Critical|Event|system|LOG_ID_REBOOT|Device rebooted
+0100032139|Notice|Event|system|LOG_ID_WAKE_ON_LAN|Wake on LAN device
+0100032140|Notice|Event|system|LOG_ID_TIME_USER_SETTING_CHG|Global time setting changed by user
+0100032141|Notice|Event|system|LOG_ID_TIME_NTP_SETTING_CHG|Global time setting changed by NTP
+0100032142|Notice|Event|system|LOG_ID_BACKUP_CONF|System configuration backed up
+0100032143|Warning|Event|system|LOG_ID_BACKUP_CONF_BY_SCP|System configuration backed up by SCP
+0100032144|Error|Event|system|LOG_ID_BACKUP_CONF_ERROR|System configuration backed up error
+0100032145|Alert|Event|system|LOG_ID_BACKUP_CONF_ALERT|System configuration backed up alert
+0100032146|Notice|Event|system|LOG_ID_TIME_PTP_SETTING_CHG|Global time setting changed by PTP
+0100032148|Notice|Event|system|LOG_ID_GET_CRL|CRL update requested
+0100032149|Notice|Event|system|LOG_ID_COMMAND_FAIL|Command failed
+0100032151|Notice|Event|system|LOG_ID_ADD_IP6_LOCAL_POL|IPv6 firewall local in policy added
+0100032152|Notice|Event|system|LOG_ID_CHG_IP6_LOCAL_POL|IPv6 firewall local in policy setting changed
+0100032153|Notice|Event|system|LOG_ID_DEL_IP6_LOCAL_POL|IPv6 firewall local in policy deleted
+0100032155|Notice|Event|system|LOG_ID_ACT_FTOKEN_REQ|FortiToken activation requested
+0100032156|Notice|Event|system|LOG_ID_ACT_FTOKEN_SUCC|FortiToken activation successful
+0100032157|Notice|Event|system|LOG_ID_SYNC_FTOKEN_SUCC|FortiToken re-synchronized
+0100032158|Notice|Event|system|LOG_ID_SYNC_FTOKEN_FAIL|FortiToken re-synchronization failed
+0100032159|Notice|Event|system|LOG_ID_ACT_FTOKEN_FAIL|FortiToken activation failed
+0100032160|Notice|Event|system|LOG_ID_FTM_PUSH_SUCC|FortiToken mobile push message succeeded
+0100032161|Alert|Event|system|LOG_ID_FTM_PUSH_FAIL|FortiToken mobile push message failed
+0100032168|Notice|Event|system|LOG_ID_REACH_VDOM_LIMIT|VDOM limit reached
+0100032169|Alert|Event|system|LOG_ID_ALARM_DLP_DB|DLP database space alarm
+0100032170|Alert|Event|system|LOG_ID_ALARM_MSG|Alarm created
+0100032171|Alert|Event|system|LOG_ID_ALARM_ACK|Alarm acknowledged
+0100032172|Notice|Event|system|LOG_ID_ADD_IP4_LOCAL_POL|IPv4 firewall local in policy added
+0100032173|Notice|Event|system|LOG_ID_CHG_IP4_LOCAL_POL|IPv4 firewall local in policy's setting changed
+0100032174|Notice|Event|system|LOG_ID_DEL_IP4_LOCAL_POL|IPv4 firewall local in policy deleted
+0100032180|Warning|Event|system|LOG_ID_GEOIP_DB_INIT_FAIL|IP Geography DB initialization failed
+0100032190|Critical|Event|system|LOG_ID_UPT_INVALID_IMG|Invalid image loaded
+0100032191|Critical|Event|system|LOG_ID_UPT_INVALID_IMG_CC|Image with invalid CC signature loaded
+0100032192|Critical|Event|system|LOG_ID_UPT_INVALID_IMG_RSA|Image with invalid RSA signature loaded
+0100032193|Critical|Event|system|LOG_ID_UPT_IMG_RSA|Image with valid RSA signature loaded
+0100032194|Critical|Event|system|LOG_ID_UPT_IMG_FAIL|System upgrade failed due to file operation failure
+0100032200|Critical|Event|system|LOG_ID_SHUTDOWN|Device shutdown
+0100032201|Critical|Event|system|LOG_ID_LOAD_IMG_SUCC|Image loaded successfully
+0100032202|Critical|Event|system|LOG_ID_RESTORE_IMG|Image restored
+0100032203|Critical|Event|system|LOG_ID_RESTORE_CONF|Configuration restored
+0100032204|Critical|Event|system|LOG_ID_RESTORE_FGD_SVR|FortiGuard service restored
+0100032205|Critical|Event|system|LOG_ID_RESTORE_VDOM_LIC|VM license restored
+0100032206|Warning|Event|system|LOG_ID_RESTORE_SCRIPT|Script restored from management station
+0100032207|Warning|Event|system|LOG_ID_RETRIEVE_CONF_LIST|Configuration list retrieval failed
+0100032208|Critical|Event|system|LOG_ID_IMP_PKCS12_CERT|PKCS12 certificate imported
+0100032209|Notice|Event|system|LOG_ID_RESTORE_USR_DEF_IPS|IPS custom signatures restored
+0100032210|Notice|Event|system|LOG_ID_BACKUP_IMG_SUCC|Firmware image backed up successfully
+0100032211|Notice|Event|system|LOG_ID_UPLOAD_REVISION|Revision uploaded to flash disk
+0100032212|Notice|Event|system|LOG_ID_DEL_REVISION|Revision deleted
+0100032213|Warning|Event|system|LOG_ID_RESTORE_TEMPLATE|Template restored
+0100032214|Warning|Event|system|LOG_ID_RESTORE_FILE|File restore failed
+0100032215|Critical|Event|system|LOG_ID_UPT_IMG|Image updated
+0100032217|Notice|Event|system|LOG_ID_UPD_IPS|IPS package - Admin update successful
+0100032218|Warning|Event|system|LOG_ID_UPD_DLP|DLP fingerprint database update via SCP failed
+0100032219|Warning|Event|system|LOG_ID_BACKUP_OUTPUT|Error output backup via SCP successful
+0100032220|Warning|Event|system|LOG_ID_BACKUP_COMMAND|Batch mode command output backup via SCP successful
+0100032221|Warning|Event|system|LOG_ID_UPD_VDOM_LIC|VM license installed via SCP
+0100032222|Notice|Event|system|LOG_ID_GLB_SETTING_CHG|Global setting changed
+0100032223|Notice|Event|system|LOG_ID_BACKUP_USER_DEF_IPS|IPS custom signatures backup success
+0100032224|Notice|Event|system|LOG_ID_BACKUP_DISK_LOG|Disk logs backed up
+0100032225|Notice|Event|system|LOG_ID_DEL_ALL_REVISION|Revision database reset due to data corruption
+0100032226|Critical|Event|system|LOG_ID_LOAD_IMG_FAIL|Image failed to load
+0100032227|Warning|Event|system|LOG_ID_UPD_DLP_FAIL|DLP fingerprint database failed to update by SCP
+0100032228|Critical|Event|system|LOG_ID_LOAD_IMG_FAIL_WRONG_IMG|Firmware image loaded incorrect
+0100032229|Critical|Event|system|LOG_ID_LOAD_IMG_FAIL_NO_RSA|Firmware image without valid RSA signature loaded
+0100032230|Critical|Event|system|LOG_ID_LOAD_IMG_FAIL_INVALID_RSA|Firmware image with invalid RSA signature loaded
+0100032231|Notice|Event|system|LOG_ID_RESTORE_FGD_SVR_FAIL|FortiGuard service failed to restore
+0100032232|Notice|Event|system|LOG_ID_RESTORE_VDOM_LIC_FAIL|VM license failed to restore
+0100032233|Notice|Event|system|LOG_ID_BACKUP_IMG_FAIL|Firmware image backup failed
+0100032234|Critical|Event|system|LOG_ID_RESTORE_IMG_INVALID_CC|Image with invalid CC signature restored
+0100032235|Critical|Event|system|LOG_ID_RESTORE_IMG_FORTIGUARD|Image restored from FortiGuard Management
+0100032236|Notice|Event|system|LOG_ID_BACKUP_MEM_LOG|Memory logs backed up
+0100032237|Notice|Event|system|LOG_ID_BACKUP_MEM_LOG_FAIL|Memory logs failed to back up
+0100032238|Notice|Event|system|LOG_ID_BACKUP_DISK_LOG_FAIL|Disk logs failed to back up
+0100032239|Notice|Event|system|LOG_ID_BACKUP_DISK_LOG_USB|Disk logs backed up to USB
+0100032240|Critical|Event|system|LOG_ID_SYS_USB_MODE|System operating in USB mode
+0100032241|Notice|Event|system|LOG_ID_BACKUP_DISK_LOG_USB_FAIL|Disk logs failed to back up to USB
+0100032242|Warning|Event|system|LOG_ID_UPD_VDOM_LIC_FAIL|VM license failed to install via SCP
+0100032243|Warning|Event|system|LOG_ID_UPD_IPS_SCP|IPS package updated via SCP
+0100032244|Warning|Event|system|LOG_ID_UPD_IPS_SCP_FAIL|IPS package failed to update via SCP
+0100032245|Error|Event|system|LOG_ID_BACKUP_USER_DEF_IPS_FAIL|IPS custom signatures backup failed
+0100032246|Critical|Event|system|LOG_ID_RESTORE_USR_DEF_IPS_CRITICAL|IPS custom signatures restored critical
+0100032252|Critical|Event|system|LOG_ID_FACTORY_RESET|Factory settings reset
+0100032253|Critical|Event|system|LOG_ID_FORMAT_RAID|RAID disk formatted
+0100032254|Critical|Event|system|LOG_ID_ENABLE_RAID|RAID enabled
+0100032255|Critical|Event|system|LOG_ID_DISABLE_RAID|RAID disabled
+0100032260|Notice|Event|system|LOG_ID_RESTORE_IMG_FORTIGUARD_NOTIF|Image restored from FortiGuard Management notification
+0100032261|Notice|Event|system|LOG_ID_RESTORE_SCRIPT_NOTIF|Script restored by user
+0100032262|Notice|Event|system|LOG_ID_RESTORE_IMG_CONFIRM|Image restore confirmed by user
+0100032263|Notice|Event|system|LOG_ID_AUTO_UPG_INSTALLATION_SCHEDULED|Automatic firmware image installation is (re)scheduled
+0100032264|Notice|Event|system|LOG_ID_BLE_FIRMWARE_CHECK|Bluetooth firmware check
+0100032265|Notice|Event|system|LOG_ID_BLE_FIRMWARE_UPDATE|Bluetooth firmware update
+0100032270|Information|Event|system|LOG_ID_SSH_HOST_KEY_REGEN|SSH host keys regenerated.
+0100032300|Notice|Event|system|LOG_ID_UPLOAD_RPT_IMG|Report image file uploaded
+0100032301|Notice|Event|system|LOG_ID_ADD_VDOM|VDOM added
+0100032302|Notice|Event|system|LOG_ID_DEL_VDOM|VDOM deleted
+0100032310|Notice|Event|system|LOG_ID_USB_DEVICE_DETECTED|USB device detected
+0100032311|Notice|Event|system|LOG_ID_USB_DEVICE_MOUNTED|USB device mounted
+0100032312|Notice|Event|system|LOG_ID_USB_DEVICE_EJECTED|USB device ejected
+0100032320|Notice|Event|system|LOG_ID_AUTO_UPG_ON_OFF|Status of automatic firmware upgrade has changed
+0100032321|Notice|Event|system|LOG_ID_AUTO_UPG_CHECKING_IMG|Automatic firmware upgrade was checking new images
+0100032325|Notice|Event|system|LOG_ID_AUTO_UPG_INSTALLATION_CANCELLED|Automatic firmware upgrade image installation was cancelled
+0100032326|Notice|Event|system|LOG_ID_AUTO_UPG_INSTALLATION_SCHEDULE_FAILURE|Automatic firmware upgrade failed to schedule image installation
+0100032545|Critical|Event|system|LOG_ID_SYS_RESTART|Scheduled daily reboot started
+0100032546|Warning|Event|system|LOG_ID_APPLICATION_CRASH|Application crashed
+0100032547|Information|Event|system|LOG_ID_AUTOSCRIPT_START|Autoscript start
+0100032548|Information|Event|system|LOG_ID_AUTOSCRIPT_STOP|Autoscript stop
+0100032549|Information|Event|system|LOG_ID_AUTOSCRIPT_STOP_AUTO|Autoscript stop automatically
+0100032550|Information|Event|system|LOG_ID_AUTOSCRIPT_DELETE_RSLT|Autoscript delete result
+0100032551|Information|Event|system|LOG_ID_AUTOSCRIPT_BACKUP_RSLT|Autoscript backup result
+0100032552|Information|Event|system|LOG_ID_AUTOSCRIPT_CHECK_STATUS|Autoscript check status
+0100032553|Information|Event|system|LOG_ID_AUTOSCRIPT_STOP_REACH_LIMIT|Autoscript stop due to limit reached
+0100032554|Notice|Event|system|LOG_ID_UPD_ADMIN_DB|Database updated by admin
+0100032561|Information|Event|system|LOG_ID_ADMIN_LOGOUT_DISCONNECT|Admin disconnected
+0100032562|Critical|Event|system|LOG_ID_STORE_CONF_FAIL_SPACE|Store config failed - not enough flash space
+0100032564|Notice|Event|system|LOG_ID_RESTORE_CONF_FAIL|Configuration failed to restore
+0100032565|Warning|Event|system|LOG_ID_RESTORE_CONF_BY_MGMT|Configuration restored from management station
+0100032566|Critical|Event|system|LOG_ID_RESTORE_CONF_BY_SCP|Configuration restored by SCP
+0100032568|Notice|Event|system|LOG_ID_DEL_REVISION_DB|Revision Database deletion
+0115032569|Critical|Event|switch-controller|LOG_ID_FSW_SWITCH_LOG_EVENT|Switch-Controller
+0100032571|Warning|Event|system|LOG_ID_RESTORE_CONF_FAIL_WARNING|Configuration failed to restore warning
+0115032601|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_LOG_DISCOVER|Switch-Controller discovered
+0115032602|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_LOG_AUTH|Switch-Controller authorized
+0115032603|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_LOG_DEAUTH|Switch-Controller deauthorized
+0115032604|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_LOG_DELETE|Switch-Controller deleted
+0115032605|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_LOG_TUNNEL_UP|Switch-Controller Tunnel Up
+0115032606|Warning|Event|switch-controller|LOG_ID_FGT_SWITCH_LOG_TUNNEL_DOWN|Switch-Controller Tunnel Down
+0115032607|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_PUSH_IMAGE|Image push to FortiSwitch
+0115032608|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_STAGE_IMAGE|Image stage to FortiSwitch
+0115032609|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_DISABLE_DISCOVERY|Disable FortiSwitch Discovery
+0115032610|Warning|Event|switch-controller|LOG_ID_FGT_SWITCH_LOG_WARNING|Switch-Controller warning
+0115032611|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_EXPORT_POOL|Export port to pool
+0115032612|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_EXPORT_VDOM|Export port to vdom
+0115032613|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_REQUEST_PORT|Request port from pool
+0115032614|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_RETURN_PORT|Return port to pool
+0115032615|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_MAC_ADD|FortiSwitch MAC add
+0115032616|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_MAC_DEL|FortiSwitch MAC delete
+0115032617|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_MAC_MOVE|FortiSwitch MAC move
+0115032618|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_EXPORT_POOL_UNDO|Revert export port to pool
+0115032619|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_EXPORT_VDOM_UNDO|Revert export port to vdom
+0115032620|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_ADD_MEMBER|Add switch as member to switch group
+0115032621|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_DEL_MEMBER|Delete switch as member from switch group
+0115032622|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_FORTILINK_CONNECTED|Switch connected via Fortilink
+0115032623|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_LOCATION_CHANGE|Fortilink Switch location change
+0115032624|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_NEW_PEER_DETECT|Fortilink Switch new peer detected
+0115032625|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_IMG_VERIFICATION|Fortilink Switch image verification
+0115032626|Information|Event|switch-controller|LOG_ID_FGT_SWITCH_LOG_DISABLE|Switch-Controller disabled
+0115032693|Critical|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_SWC|FortiSwitch switch controller
+0115032694|Critical|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_POE|FortiSwitch PoE
+0115032695|Critical|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_LINK|FortiSwitch link
+0115032696|Critical|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_STP|FortiSwitch spanning Tree
+0115032697|Critical|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_SWITCH|FortiSwitch switch
+0115032698|Critical|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_ROUTER|FortiSwitch router
+0115032699|Critical|Event|switch-controller|LOG_ID_FGT_SWITCH_GROUP_SYSTEM|FortiSwitch system
+0100032701|Error|Event|system|LOG_ID_FGT_INTF_IP_CONFLICT|Detected IP conflicts on FGT interfaces.
+0100034415|Information|Event|system|LOG_ID_NP6_IPSEC_ENGINE_BUSY|NP6 IPsec engine is busy
+0100034416|Warning|Event|system|LOG_ID_NP6_IPSEC_ENGINE_POSSIBLY_LOCKUP|NP6 IPsec engine is possibly locked up
+0100034417|Critical|Event|system|LOG_ID_NP6_IPSEC_ENGINE_LOCKUP|NP6 IPsec engine is locked up
+0100034418|Warning|Event|system|LOG_ID_NP6_HPE_PACKET_DROP|NP6 HPE is dropping packets
+0100034419|Critical|Event|system|LOG_ID_NP6_HPE_PACKET_FLOOD|NP6 HPE under a packets flood
+0100034420|Warning|Event|system|LOG_ID_NP6XLITE_HPE_PACKET_DROP|NP6XLITE HPE is dropping packets
+0100034421|Critical|Event|system|LOG_ID_NP6XLITE_HPE_PACKET_FLOOD|NP6XLITE HPE under a packets flood
+0100034428|Warning|Event|system|LOG_ID_NP7_HPE_PACKET_DROP|NPU HPE is dropping packets
+0100034430|Critical|Event|system|LOG_ID_NP7_HPE_PACKET_FLOOD|NPU HPE under packet flood
+0108035001|Notice|Event|ha|LOG_ID_HA_SYNC_VIRDB|HA secondary synchronized Virus database
+0108035002|Notice|Event|ha|LOG_ID_HA_SYNC_ETDB|HA secondary synchronized Extended database
+0108035003|Notice|Event|ha|LOG_ID_HA_SYNC_EXDB|HA secondary synchronized Extreme database
+0108035004|Notice|Event|ha|LOG_ID_HA_SYNC_FLDB|HA secondary synchronized FLDB
+0108035005|Notice|Event|ha|LOG_ID_HA_SYNC_IPS|HA secondary synchronized IDS package
+0108035007|Notice|Event|ha|LOG_ID_HA_SYNC_AV|HA secondary synchronized AntiVirus package
+0108035009|Notice|Event|ha|LOG_ID_HA_SYNC_CID|HA secondary synchronized CID package
+0108035011|Error|Event|ha|LOG_ID_HA_SYNC_FAIL|HA secondary synchronization failed
+0108035012|Error|Event|ha|LOG_ID_CONF_SYNC_FAIL|Secondary sync failed
+0108035013|Error|Event|ha|LOG_ID_HA_FAILOVER_FAIL|HA failover failed
+0108035014|Information|Event|ha|LOG_ID_HA_RESET_UPTIME|HA reset uptime
+0108035015|Information|Event|ha|LOG_ID_HA_CLEAR_HISTORY|HA clear history
+0108035016|Notice|Event|ha|LOG_ID_HA_FAILOVER_SUCCESS|HA failover success
+0108035017|Notice|Event|ha|LOG_ID_HA_SYNC_OCRDB|HA secondary synchronized OCR database
+0100035051|Information|Event|system|LOG_ID_PCP_MAPPING_CREATE|Create PCP mapping
+0100035052|Information|Event|system|LOG_ID_PCP_MAPPING_DELETE|Delete PCP mapping
+0100035053|Information|Event|system|LOG_ID_PCP_MAPPING_RENEW|Renew PCP mapping
+0100035100|Notice|Event|system|LOG_ID_PACKET_SNIFFER_START|Packet sniffer started
+0100035101|Notice|Event|system|LOG_ID_PACKET_SNIFFER_STOP|Packet sniffer stopped
+0100036881|Notice|Event|system|LOG_ID_EVENT_SYSTEM_CFG_REVERT|Configuration reverted due to timeout
+0100036882|Notice|Event|system|LOG_ID_EVENT_SYSTEM_CFG_MANUALLY_SAVED|Configuration manually saved
+0100036883|Warning|Event|system|LOG_ID_EVENT_SYSTEM_CLEAR_ACTIVE_SESSION|Clear active sessions
+0101037120|Notice|Event|vpn|MESGID_NEG_GENERIC_P1_NOTIF|Negotiate IPsec phase 1
+0101037121|Error|Event|vpn|MESGID_NEG_GENERIC_P1_ERROR|Negotiate IPsec phase 1
+0101037122|Notice|Event|vpn|MESGID_NEG_GENERIC_P2_NOTIF|Negotiate IPsec phase 2
+0101037123|Error|Event|vpn|MESGID_NEG_GENERIC_P2_ERROR|Negotiate IPsec phase 2
+0101037124|Error|Event|vpn|MESGID_NEG_I_P1_ERROR|IPsec phase 1 error
+0101037125|Error|Event|vpn|MESGID_NEG_I_P2_ERROR|IPsec phase 2 error
+0101037127|Notice|Event|vpn|MESGID_NEG_PROGRESS_P1_NOTIF|Progress IPsec phase 1
+0101037128|Error|Event|vpn|MESGID_NEG_PROGRESS_P1_ERROR|Progress IPsec phase 1
+0101037129|Notice|Event|vpn|MESGID_NEG_PROGRESS_P2_NOTIF|Progress IPsec phase 2
+0101037130|Error|Event|vpn|MESGID_NEG_PROGRESS_P2_ERROR|Progress IPsec phase 2
+0101037131|Error|Event|vpn|MESGID_ESP_ERROR|IPsec ESP
+0101037132|Critical|Event|vpn|MESGID_ESP_CRITICAL|IPsec ESP
+0101037133|Notice|Event|vpn|MESGID_INSTALL_SA|IPsec SA installed
+0101037134|Notice|Event|vpn|MESGID_DELETE_P1_SA|IPsec phase 1 SA deleted
+0101037135|Notice|Event|vpn|MESGID_DELETE_P2_SA|IPsec phase 2 SA deleted
+0101037136|Error|Event|vpn|MESGID_DPD_FAILURE|IPsec DPD failed
+0101037137|Error|Event|vpn|MESGID_CONN_FAILURE|IPsec connection failed
+0101037138|Notice|Event|vpn|MESGID_CONN_UPDOWN|IPsec connection status changed
+0101037139|Notice|Event|vpn|MESGID_P2_UPDOWN|IPsec phase 2 status changed
+0101037141|Notice|Event|vpn|MESGID_CONN_STATS|IPsec tunnel statistics
+0101037142|Notice|Event|vpn|MESGID_TRANSPORT_SWITCH|IPsec auto transport switched
+0101037143|Information|Event|vpn|MESGID_PH1_PEER_PROPOSAL|Phase 1 peer proposal details
+0101037144|Information|Event|vpn|MESGID_PH2_PEER_PROPOSAL|Phase 2 peer proposal details
+0108037889|Notice|Event|ha|MESGID_VC_DELETE|Virtual cluster deleted
+0108037890|Notice|Event|ha|MESGID_VC_MOVE_VDOM|Virtual cluster VDOM moved
+0108037891|Notice|Event|ha|MESGID_VC_ADD_VDOM|Virtual cluster VDOM added
+0108037892|Notice|Event|ha|MESGID_VC_MOVE_MEMB_STATE|Virtual cluster member state moved
+0108037893|Critical|Event|ha|MESGID_VC_DETECT_MEMB_DEAD|Virtual cluster member dead
+0108037894|Critical|Event|ha|MESGID_VC_DETECT_MEMB_JOIN|Virtual cluster member joined
+0108037895|Notice|Event|ha|MESGID_VC_ADD_HADEV|Virtual cluster added HA device interface
+0108037896|Notice|Event|ha|MESGID_VC_DEL_HADEV|Virtual cluster deleted HA device interface
+0108037897|Notice|Event|ha|MESGID_HADEV_READY|HA device interface ready
+0108037898|Warning|Event|ha|MESGID_HADEV_FAIL|HA device interface failed
+0108037899|Notice|Event|ha|MESGID_HADEV_PEERINFO|HA device interface peer information
+0108037900|Notice|Event|ha|MESGID_HBDEV_DELETE|Heartbeat device interface deleted
+0108037901|Critical|Event|ha|MESGID_HBDEV_DOWN|Heartbeat device interface down
+0108037902|Information|Event|ha|MESGID_HBDEV_UP|Heartbeat device interface up
+0108037903|Information|Event|ha|MESGID_SYNC_STATUS|Synchronization status with primary
+0108037904|Notice|Event|ha|MESGID_HA_ACTIVITY|Device set as HA primary
+0108037907|Information|Event|ha|MESGID_VLAN_HB_UP|VLAN heartbeat started
+0108037908|Error|Event|ha|MESGID_VLAN_HB_DOWN|VLAN heartbeat lost
+0108037909|Error|Event|ha|MESGID_VLAN_HB_DOWN_SUM|VLAN heartbeat lost summary
+0108037910|Critical|Event|ha|MESGID_HB_PACKET_LOST|Heartbeat packet lost
+0108037911|Information|Event|ha|MESGID_HA_ACTIVITY_INFO|Device set as HA master information
+0108037912|Notice|Event|ha|MESGID_FGSP_MEMBER_JOIN|FGSP member joined
+0108037913|Critical|Event|ha|MESGID_FGSP_MEMBER_LEAVE|FGSP member left
+0108037914|Critical|Event|ha|MESGID_HBDEV_BACKUP|Heartbeat device backup
+0108037915|Warning|Event|ha|MESGID_SYNC_TIMEOUT|Synchronization timeout with primary
+0102038010|Alert|Event|user|LOG_ID_FIPS_ENCRY_FAIL|FIPS CC encryption failed
+0102038011|Alert|Event|user|LOG_ID_FIPS_DECRY_FAIL|FIPS CC decryption failed
+0102038012|Notice|Event|user|LOG_ID_ENTROPY_TOKEN|Seeding from entropy source
+0102038031|Notice|Event|user|LOG_ID_FSSO_LOGON|FSSO logon successful
+0102038032|Notice|Event|user|LOG_ID_FSSO_LOGOFF|FSSO logout successful
+0102038033|Notice|Event|user|LOG_ID_FSSO_SVR_STATUS|FSSO Active Directory server authentication status
+0100038403|Critical|Event|system|LOGID_EVENT_NOTIF_INSUFFICIENT_RESOURCE|Insufficient system resource notification
+0100038404|Error|Event|system|LOGID_EVENT_NOTIF_HOSTNAME_ERROR|FortiGuard hostname unresolvable
+0100038405|Notice|Event|system|LOGID_NOTIF_CODE_SENDTO_SMS_PHONE|Guest user account login information sent to phone
+0100038406|Notice|Event|system|LOGID_NOTIF_CODE_SENDTO_SMS_TO|Guest user account login information sent as SMS
+0100038407|Notice|Event|system|LOGID_NOTIF_CODE_SENDTO_EMAIL|Guest user account login information sent to email
+0100038408|Information|Event|system|LOGID_EVENT_OFTP_SSL_CONNECTED|SSL connection established
+0100038409|Information|Event|system|LOGID_EVENT_OFTP_SSL_DISCONNECTED|SSL connection closed
+0100038410|Information|Event|system|LOGID_EVENT_OFTP_SSL_FAILED|SSL connection failed
+0100038411|Notice|Event|system|LOGID_EVENT_TWO_F_AUTH_CODE_SENDTO|Two-factor authentication code sent
+0100038412|Notice|Event|system|LOGID_EVENT_TOKEN_CODE_SENDTO|Token activation code sent
+0100038420|Information|Event|system|LOGID_EVENT_HTTPS_CONNECTION_ERROR|HTTPS connection error
+0100038422|Notice|Event|system|LOGID_EVENT_ICBD_UPDATE_SUCCESS|ICB service status update success
+0100038423|Error|Event|system|LOGID_EVENT_ICBD_UPDATE_FAILURE|ICB service status update failure
+0102038656|Notice|Event|user|LOGID_EVENT_RAD_RPT_PROTO_ERROR|RADIUS protocol error summary
+0102038657|Notice|Event|user|LOGID_EVENT_RAD_RPT_PROF_NOT_FOUND|RADIUS profile not found summary
+0102038658|Notice|Event|user|LOGID_EVENT_RAD_RPT_CTX_NOT_FOUND|RADIUS profile CTX not found summary
+0102038659|Notice|Event|user|LOGID_EVENT_RAD_RPT_ACCT_STOP_MISSED|RADIUS accounting stop message missing summary
+0102038660|Notice|Event|user|LOGID_EVENT_RAD_RPT_ACCT_EVENT|RADIUS accounting event summary
+0102038661|Notice|Event|user|LOGID_EVENT_RAD_RPT_OTHER|RADIUS endpoint block event or other event summary
+0102038662|Notice|Event|user|LOGID_EVENT_RAD_STAT_PROTO_ERROR|RADIUS accounting protocol error
+0102038663|Notice|Event|user|LOGID_EVENT_RAD_STAT_PROF_NOT_FOUND|RADIUS accounting profile not found
+0102038665|Notice|Event|user|LOGID_EVENT_RAD_STAT_ACCT_STOP_MISSED|RADIUS accounting stop message missing
+0102038666|Notice|Event|user|LOGID_EVENT_RAD_STAT_ACCT_EVENT|RADIUS accounting event
+0102038667|Notice|Event|user|LOGID_EVENT_RAD_STAT_OTHER|RADIUS other accounting event
+0102038668|Notice|Event|user|LOGID_EVENT_RAD_STAT_EP_BLK|RADIUS endpoint block event
+0101039424|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_USER_TUNNEL_UP|SSL VPN tunnel up
+0101039425|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_USER_TUNNEL_DOWN|SSL VPN tunnel down
+0101039426|Alert|Event|vpn|LOG_ID_EVENT_SSL_VPN_USER_SSL_LOGIN_FAIL|SSL VPN login fail
+0101039936|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_WEB_TUNNEL_STATS|SSL VPN statistics
+0101039937|Warning|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_WEBAPP_DENY|SSL VPN deny
+0101039938|Warning|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_WEBAPP_PASS|SSL VPN pass
+0101039939|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_WEBAPP_TIMEOUT|SSL VPN timeout
+0101039940|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_WEBAPP_CLOSE|SSL VPN close
+0101039941|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_SYS_BUSY|SSL VPN system busy
+0101039942|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_CERT_OK|SSL VPN certificate OK
+0101039943|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_NEW_CON|SSL VPN new connection
+0101039944|Error|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_ALERT|SSL VPN alert
+0101039945|Error|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_EXIT_FAIL|SSL VPN exit fail
+0101039946|Error|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_EXIT_ERR|SSL VPN exit error
+0101039947|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_TUNNEL_UP|SSL VPN tunnel up
+0101039948|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_TUNNEL_DOWN|SSL VPN tunnel down
+0101039949|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_TUNNEL_STATS|SSL VPN statistics
+0101039950|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_TUNNEL_UNKNOWNTAG|SSL VPN unknown tag
+0101039951|Error|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_TUNNEL_ERROR|SSL VPN tunnel error
+0101039952|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_ENTER_CONSERVE_MODE|SSL VPN enter conserve mode
+0101039953|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SESSION_LEAVE_CONSERVE_MODE|SSL VPN leave conserve mode
+0101040001|Information|Event|vpn|LOG_ID_PPTP_TUNNEL_UP|PPTP tunnel up
+0101040002|Information|Event|vpn|LOG_ID_PPTP_TUNNEL_DOWN|PPTP tunnel down
+0101040003|Information|Event|vpn|LOG_ID_PPTP_TUNNEL_STAT|PPTP tunnel status
+0101040014|Warning|Event|vpn|LOG_ID_PPTP_REACH_MAX_CON|PPTP client connection limit reached
+0101040017|Warning|Event|vpn|LOG_ID_L2TPD_CLIENT_CON_FAIL|L2TP client connection failed
+0101040019|Information|Event|vpn|LOG_ID_L2TPD_CLIENT_DISCON|L2TP client disconnected
+0101040021|Debug|Event|vpn|LOG_ID_PPTP_NOT_CONIG|PPTP not configured in VDOM
+0101040022|Warning|Event|vpn|LOG_ID_PPTP_NO_IP_AVAIL|PPTP IP addresses unavailable
+0101040024|Warning|Event|vpn|LOG_ID_PPTP_OUT_MEM|PPTP config list insufficient memory
+0101040034|Notice|Event|vpn|LOG_ID_PPTP_START|PPTP daemon started
+0101040035|Error|Event|vpn|LOG_ID_PPTP_START_FAIL|PPTP daemon failed to start
+0101040036|Notice|Event|vpn|LOG_ID_PPTP_EXIT|PPTP daemon exited
+0101040037|Information|Event|vpn|LOG_ID_PPTPD_SVR_DISCON|PPTP daemon disconnected
+0101040038|Information|Event|vpn|LOG_ID_PPTPD_CLIENT_CON|PPTP client connected
+0101040039|Information|Event|vpn|LOG_ID_PPTPD_CLIENT_DISCON|PPTP client disconnected
+0101040101|Information|Event|vpn|LOG_ID_L2TP_TUNNEL_UP|L2TP tunnel up
+0101040102|Information|Event|vpn|LOG_ID_L2TP_TUNNEL_DOWN|L2TP tunnel down
+0101040103|Information|Event|vpn|LOG_ID_L2TP_TUNNEL_STAT|L2TP tunnel status
+0101040114|Notice|Event|vpn|LOG_ID_L2TPD_START|L2TP daemon started
+0101040115|Notice|Event|vpn|LOG_ID_L2TPD_EXIT|L2TP daemon exited
+0101040118|Information|Event|vpn|LOG_ID_L2TPD_CLIENT_CON|L2TP client connected
+0100040704|Notice|Event|system|LOG_ID_EVENT_SYS_PERF|System performance statistics
+0100040705|Notice|Event|system|LOG_ID_EVENT_SYS_CPU_USAGE|CPU usage statistics
+0100040706|Notice|Event|system|LOG_ID_EVENT_SYS_BROKEN_SYMBOLIC_LINK|Delete broken symbolic link
+0100040707|Notice|Event|system|LOG_ID_EVENT_SYS_CPU_USAGE_SINGLE_CORE|CPU single core usage statistics
+0117040960|Notice|Event|webproxy|LOGID_EVENT_WEBPROXY_FWD_SRV_ERROR|Web proxy forward server error
+0117040961|Notice|Event|webproxy|LOGID_EVENT_ICAP_REMOTE_SRV_STAT|Icap remote server stat
+0100041000|Notice|Event|system|LOG_ID_UPD_FGT_SUCC|FortiGate update succeeded
+0100041001|Critical|Event|system|LOG_ID_UPD_FGT_FAIL|FortiGate update failed
+0100041002|Notice|Event|system|LOG_ID_UPD_SRC_VIS|Source visibility signature package updated
+0100041006|Notice|Event|system|LOG_ID_UPD_FSA_VIRDB|FortiSandbox AV database updated
+0100041007|Notice|Event|system|LOG_ID_UPD_MANUAL_LICENSE_SUCC|FortiGate Manual License update
+0100041008|Warning|Event|system|LOG_ID_UPD_MANUAL_LICENSE_FAIL|FortiGate Manual License is invalid
+0100041009|Critical|Event|system|LOG_ID_UPD_DB_SIGN_INVALID|FortiGate database signature invalid
+0100041011|Warning|Event|system|LOG_ID_UPD_DB_UNSIGNED_INSTALLED|FortiGate database without signature installed
+0101041984|Information|Event|vpn|LOG_ID_EVENT_VPN_CERT_LOAD|Certificate loaded
+0101041985|Information|Event|vpn|LOG_ID_EVENT_VPN_CERT_REMOVAL|Certificate removed
+0101041986|Information|Event|vpn|LOG_ID_EVENT_VPN_CERT_REGEN|Certificate regenerated
+0101041987|Information|Event|vpn|LOG_ID_EVENT_VPN_CERT_UPDATE|Certificate updated
+0101041988|Information|Event|vpn|LOG_ID_EVENT_SSL_VPN_SETTING_UPDATE|SSL setting changed
+0101041989|Information|Event|vpn|LOG_ID_EVENT_VPN_CERT_ERR|Certificate error
+0101041990|Information|Event|vpn|LOG_ID_EVENT_VPN_CERT_UPDATE_FAILED|Certificate update failed
+0101041991|Information|Event|vpn|LOG_ID_EVENT_VPN_CERT_EXPORT|Certificate exported
+0101041992|Information|Event|vpn|LOG_ID_EVENT_VPN_CERT_CRL_EXPIRED|CRL certificate file is expired
+0102043008|Notice|Event|user|LOG_ID_EVENT_AUTH_SUCCESS|Authentication success
+0102043009|Notice|Event|user|LOG_ID_EVENT_AUTH_FAILED|Authentication failed
+0102043010|Warning|Event|user|LOG_ID_EVENT_AUTH_LOCKOUT|Authentication lockout
+0102043011|Notice|Event|user|LOG_ID_EVENT_AUTH_TIME_OUT|Authentication timed out
+0102043014|Notice|Event|user|LOG_ID_EVENT_AUTH_FSAE_LOGON|FSSO logon authentication status
+0102043015|Notice|Event|user|LOG_ID_EVENT_AUTH_FSAE_LOGOFF|FSSO log off authentication status
+0102043016|Notice|Event|user|LOG_ID_EVENT_AUTH_NTLM_AUTH_SUCCESS|NTLM authentication successful
+0102043017|Notice|Event|user|LOG_ID_EVENT_AUTH_NTLM_AUTH_FAIL|NTLM authentication failed
+0102043018|Warning|Event|user|LOG_ID_EVENT_AUTH_FGOVRD_FAIL|FortiGuard override failed
+0102043020|Notice|Event|user|LOG_ID_EVENT_AUTH_FGOVRD_SUCCESS|FortiGuard override successful
+0102043025|Notice|Event|user|LOG_ID_EVENT_AUTH_PROXY_SUCCESS|Explicit proxy authentication successful
+0102043026|Notice|Event|user|LOG_ID_EVENT_AUTH_PROXY_FAILED|Explicit proxy authentication failed
+0102043027|Notice|Event|user|LOG_ID_EVENT_AUTH_PROXY_TIME_OUT|Explicit proxy authentication timed out
+0102043028|Notice|Event|user|LOG_ID_EVENT_AUTH_PROXY_GROUP_INFO_FAILED|Explicit proxy user group query failed
+0102043029|Notice|Event|user|LOG_ID_EVENT_AUTH_WARNING_SUCCESS|FortiGuard authentication override successful
+0102043030|Warning|Event|user|LOG_ID_EVENT_AUTH_WARNING_TBL_FULL|FortiGuard authentication override failed
+0102043032|Notice|Event|user|LOG_ID_EVENT_AUTH_PROXY_USER_LIMIT_REACHED|Explicit proxy authentication user limit reached
+0102043033|Notice|Event|user|LOG_ID_EVENT_AUTH_PROXY_MULTIPLE_LOGIN|Explicit proxy authentication user concurrent check failed
+0102043034|Notice|Event|user|LOG_ID_EVENT_AUTH_PROXY_NO_RESP|Explicit proxy authentication no response
+0102043037|Notice|Event|user|LOG_ID_EVENT_AUTH_IPV4_FLUSH|Authentication IPv4 logon flush
+0102043038|Notice|Event|user|LOG_ID_EVENT_AUTH_IPV6_FLUSH|Authentication IPv6 logon flush
+0102043039|Notice|Event|user|LOG_ID_EVENT_AUTH_LOGON|Authentication logon
+0102043040|Notice|Event|user|LOG_ID_EVENT_AUTH_LOGOUT|Authentication logout
+0102043041|Notice|Event|user|LOG_ID_EVENT_AUTH_DISCLAIMER_ACCEPT|Disclaimer accepted
+0102043042|Notice|Event|user|LOG_ID_EVENT_AUTH_DISCLAIMER_DECLINE|Disclaimer declined
+0102043043|Notice|Event|user|LOG_ID_EVENT_AUTH_EMAIL_COLLECTING_SUCCESS|Email collecting succeeded
+0102043044|Notice|Event|user|LOG_ID_EVENT_AUTH_EMAIL_COLLECTING_FAIL|Email collecting failed
+0102043045|Notice|Event|user|LOG_ID_EVENT_AUTH_8021X_SUCCESS|802.1x authentication succeeded
+0102043046|Notice|Event|user|LOG_ID_EVENT_AUTH_8021X_FAIL|802.1x authentication failed
+0102043050|Notice|Event|user|LOG_ID_EVENT_AUTH_FSAE_CONNECT|FSSO server connected
+0102043051|Notice|Event|user|LOG_ID_EVENT_AUTH_FSAE_DISCONNECT|FSSO server disconnected
+0102043052|Notice|Event|user|LOG_ID_EVENT_AUTH_BACKUP_SUCCESS|Auth backup succeeded
+0102043053|Warning|Event|user|LOG_ID_EVENT_AUTH_BACKUP_FAILED|Auth backup failed
+0102043054|Notice|Event|user|LOG_ID_EVENT_AUTH_RESTORE_SUCCESS|Auth restore succeeded
+0102043055|Warning|Event|user|LOG_ID_EVENT_AUTH_RESTORE_FAILED|Auth restore failed
+0102043056|Notice|Event|user|LOG_ID_EVENT_AUTH_SERVER_REACHABILITY_UPDATE|Auth server reachability update
+0104043520|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SYS|Wireless system activity
+0104043521|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE|Rogue AP activity
+0104043522|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP|Physical AP activity
+0104043524|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA|Wireless client activity
+0104043525|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_ONWIRE|Rogue AP on wire
+0104043526|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR|Physical AP radio activity
+0104043527|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_CFG|Rogue AP status configured
+0104043528|Error|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_ERROR|Physical AP radio error activity
+0104043529|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_CLB|Wireless client load balancing
+0104043530|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_WL_BRIDGE|Wireless bridge intrusion detected
+0104043531|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_BR_DEAUTH|Wireless broadcasting deauthentication detected
+0104043532|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_NL_PBRESP|Wireless null SSID probe response detected
+0104043533|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_MAC_OUI|Wireless invalid MAC OUI detected
+0104043534|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_LONG_DUR|Wireless long duration attack detected
+0104043535|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_WEP_IV|Wireless Weak WEP IV detected
+0104043536|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_GENERAL|Wireless threat detected
+0104043537|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_RISKY_ENCRYPTION|Wireless risky_encryption detected
+0104043538|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_VALID_STA_MISASSOC|Wireless valid_client_misassoc detected
+0104043542|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_EAPOL_FLOOD|Wireless EAPOL packet flooding detected
+0104043544|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_MGMT_FLOOD|Wireless management flooding detected
+0104043546|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_SPOOF_DEAUTH|Wireless spoofed deauthentication detected
+0104043548|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WIDS_ASLEAP|Wireless Asleap attack detected
+0104043550|Information|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_LOCATE|Wireless station presence detection
+0104043551|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_JOIN|Physical AP join
+0104043552|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_LEAVE|Physical AP leave
+0104043553|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_FAIL|Physical AP fail
+0104043554|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_UPDATE|Physical AP update
+0104043555|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_RESET|Physical AP reset
+0104043556|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_KICK|Physical AP kick
+0104043557|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_ADD_FAILURE|Physical AP add failure
+0104043558|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_CFG_ERR|Physical AP config error
+0104043559|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_SN_MISMATCH|Physical AP SN mismatch
+0104043560|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SYS_AC_RESTARTED|Wireless system restarted
+0104043561|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SYS_AC_HOSTAPD_UP|Wireless system hostapd up
+0104043562|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SYS_AC_HOSTAPD_DOWN|Wireless system hostapd down
+0104043563|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_DETECT|Rogue AP detected
+0104043564|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_OFFAIR|Rogue AP off air
+0104043565|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_ONAIR|Rogue AP on air
+0104043566|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_OFFWIRE|Rogue AP off wire
+0104043567|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_FAKEAP_DETECT|Fake AP detected
+0104043568|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_FAKEAP_ONAIR|Fake AP on air
+0104043569|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_SUPPRESSED|Rogue AP suppressed
+0104043570|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_UNSUPPRESSED|Rogue AP unsuppressed
+0104043571|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_DETECT_CHG|Rogue AP change detected
+0104043572|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_ASSO|Wireless client associated
+0104043573|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_AUTH|Wireless client authenticated
+0104043574|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DASS|Wireless client disassociated
+0104043575|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DAUT|Wireless client deauthenticated
+0104043576|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_IDLE|Wireless client idle
+0104043577|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DENY|Wireless client denied
+0104043578|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_KICK|Wireless client kicked
+0104043579|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_IP|Wireless client IP assigned
+0104043580|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_LEAVE_WTP|Wireless client left WTP
+0104043581|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WTP_DISCONN|Wireless client disconnected by WTP
+0104043582|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_CFG_UNCLASSIFIED|Rogue AP status configured as unclassified
+0104043583|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_CFG_ACCEPTED|Rogue AP status configured as accepted
+0104043584|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_CFG_ROGUE|Rogue AP status configured as rogue
+0104043585|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ROGUE_CFG_SUPPRESSED|Rogue AP status configured as suppressed
+0104043586|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_DARRP_CHAN|Physical AP radio DARRP channel change
+0104043587|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_DARRP_START|Physical AP radio DARRP enable
+0104043588|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_OPER_CHAN|Physical AP radio operation channel change
+0104043589|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_RADAR|Physical AP radio radar detected
+0104043590|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_NOL|Physical AP radio channel removed from NOL
+0104043591|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_COUNTRY_CFG_SUCCESS|Physical AP radio country config success
+0104043592|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_OPER_COUNTRY|Physical AP radio operation country
+0104043593|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_CFG_TXPOWER|Physical AP radio config TX power
+0104043594|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_OPER_TXPOWER|Physical AP radio operation TX power
+0104043595|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_CLB_DENY|Wireless client load balancing denied
+0104043596|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_CLB_RETRY|Wireless client load balancing retry
+0104043597|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_ADD|Physical AP add
+0104043598|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_ADD_XSS|Physical AP add XSS
+0104043599|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_DEL|Physical AP delete
+0104043600|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_DARRP_STOP|Physical AP radio DARRP disable
+0104043601|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_SIGNON|Wireless station sign on
+0104043602|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_SIGNON_SUCCESS|Wireless station sign on success
+0104043603|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_SIGNON_FAILURE|Wireless station sign on failed
+0104043604|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_EMAIL_REQUEST|Captive-portal VAP e-mail collect request sent
+0104043605|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_EMAIL_SUCCESS|Captive-portal VAP e-mail collect success
+0104043606|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_EMAIL_FAILURE|Captive-portal VAP e-mail collect failed
+0104043607|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_DISCLAIMER_CHECK|Captive-portal VAP disclaimer agreed
+0104043608|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_DISCLAIMER_DECLINE|Captive-portal VAP disclaimer declined
+0104043609|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_DARRP_OPTIMIZATION_START|DARRP optimization start
+0104043610|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_DARRP_OPTIMIZATION_STOP|DARRP optimization stop
+0104043611|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SYS_AC_UP|Wireless controller start
+0104043612|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SYS_AC_CFG_LOADED|Wireless controller configuration loaded
+0104043613|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_ERR|Physical AP error
+0104043614|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_DHCP_STAVATION|DHCP Starvation detected
+0104043615|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SYS_AC_IPSEC_FAIL|Wireless controller IPsec setup failed
+0104043616|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_NOL_ADD|Physical AP radio NOL added
+0104043618|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_IMAGE_RC_SUCCESS|Physical AP image receive success
+0104043619|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_OFFENDINGAP_DETECT|Offending AP detected
+0104043620|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_OFFENDINGAP_ONAIR|Offending AP on air
+0104043621|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_DATA_CHAN_CHG|Wireless wtp data channel changed
+0104043622|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_VLAN_PROBE|WTP is probing vlan
+0104043623|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_VLAN_MISSING|VLAN not detected
+0104043624|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_VLAN_DETECTED|VLAN detected
+0104043625|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_CMCC_SUCCESS|Wireless station CMCC sign on success
+0104043626|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_CMCC_FAILURE|Wireless station CMCC sign on failed
+0104043627|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_CMCC_TIMEOUT|Wireless station CMCC sign on timeout
+0104043628|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_CAP_CMCC_MAC_AUTH_SUCCESS|Wireless station CMCC MAC auth success
+0104043629|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_RADIUS_AUTH_FAILURE|Wireless client RADIUS authentication failure
+0104043630|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_RADIUS_AUTH_SUCCESS|Wireless client RADIUS authentication success
+0104043631|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_RADIUS_AUTH_NO_RESP|Wireless client RADIUS authentication server not responding
+0104043632|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_RADIUS_MAC_AUTH_FAILURE|Wireless client RADIUS MAC authentication failure
+0104043633|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_RADIUS_MAC_AUTH_SUCCESS|Wireless client RADIUS MAC authentication success
+0104043634|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_RADIUS_MAC_AUTH_NO_RESP|Wireless client RADIUS MAC authentication server not responding
+0104043635|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_OKC_NO_MATCH|Wireless client authenticates through OKC failed with no match
+0104043636|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_OKC_LOCAL_MATCH|Wireless client authenticates through local OKC success
+0104043637|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_OKC_INTER_AC_MATCH|Wireless client authenticates through inter AC OKC success
+0104043638|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_OKC_INTER_AP_MATCH|Wireless client authenticates through inter AP OKC success
+0104043639|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_INVALID_ACTION_REQ|Wireless client sent invalid FT action request
+0104043640|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_INVALID_AUTH_REQ|Wireless client sent invalid FT auth request
+0104043641|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_INVALID_REASSOC_REQ|Wireless client sent invalid FT reassociation request
+0104043642|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_ACTION_REQ|Wireless client sent FT action reqeust
+0104043643|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_ACTION_RESP|FT action response was sent to wireless client
+0104043644|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_AUTH_REQ|Wireless client sent FT auth request
+0104043645|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_AUTH_RESP|FT auth response was sent to wireless client
+0104043646|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_REASSOC_REQ|Wireless client sent FT reassociation request
+0104043647|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_FT_REASSOC_RESP|FT reassociation response was sent to wireless client
+0104043648|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_INVALID_SECOND_MSG|Wireless client 4 way handshake failed with invalid 2/4 message
+0104043649|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_INVALID_FOURTH_MSG|Wireless client 4 way handshake failed with invalid 4/4 message
+0104043650|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_FIRST_MSG|AP sent 1/4 message of 4 way handshake to wireless client
+0104043651|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_SECOND_MSG|Wireless client sent 2/4 message of 4 way handshake
+0104043652|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_THIRD_MSG|AP sent 3/4 message of 4 way handshake to wireless client
+0104043653|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_FOURTH_MSG|Wireless client sent 4/4 message of 4 way handshake
+0104043654|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_FIRST_GROUP_MSG|AP sent 1/2 message of group key handshake to wireless client
+0104043655|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_SECOND_GROUP_MSG|Wireless client sent 2/2 message of group key handshake
+0104043656|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_MAX_STA_CNT|Max sta count limit for the PSK was reached
+0104043657|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_ASSOC_FAIL|Wireless station association failed
+0104043658|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_NO_RESP|Wireless station DHCP process failed with no server response
+0104043659|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_DIFF_OFFER|Another DHCP server sent DHCP offer to wireless station
+0104043660|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_NO_ACK|No DHCP ACK from server
+0104043661|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_NAK|DHCP server sent DHCP NAK
+0104043662|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_DUP_IP|IP offered has been used by another wireless station
+0104043663|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_DISCOVER|Wireless station sent DHCP DISCOVER
+0104043664|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_OFFER|DHCP server sent DHCP OFFER
+0104043665|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_DECLINE|Wireless station sent DHCP DECLINE
+0104043666|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_REQUEST|Wireless station sent DHCP REQUEST
+0104043667|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_ACK|DHCP server sent DHCP ACK
+0104043668|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_RELEASE|Wireless station sent DHCP RELEASE
+0104043669|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_INFORM|Wireless station sent DHCP INFORM
+0104043670|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_SELF_ASSIGNED|Wireless station is using self-assigned IP
+0104043671|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DNS_NO_RESP|Wireless station DNS process failed with no server response
+0104043672|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DNS_SERVER_FAILURE|Wireless station DNS process failed due to server failure
+0104043673|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DNS_NO_DOMAIN|Wireless station DNS process failed due to non-existing domain
+0104043674|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_KRACK_FT_REASSOC|Wireless station WPA key reinstallation attack on FT reassociation
+0104043675|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_AUTH_REQ|Authentication request from wireless station
+0104043676|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_AUTH_RESP|Authentication response to wireless station
+0104043677|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_ASSOC_REQ|Association request from wireless station
+0104043678|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_REASSOC_REQ|Reassociation request from wireless station
+0104043679|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_ASSOC_RESP|Association response to wireless station
+0104043680|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_REASSOC_RESP|Reassociation response to wireless station
+0104043681|Information|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_PROBE_REQ|Probe request from wireless station
+0104043682|Information|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_PROBE_RESP|Probe response to wireless station
+0104043683|Information|Event|wireless|LOG_ID_EVENT_WIRELESS_BLE_DEV_LOCATE|Wireless ble dev detection
+0104043684|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ADDRGRP_DUPLICATE_MAC|Wireless addrgrp duplicate mac
+0104043685|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_ADDRGRP_ADDR_APPLY|Wireless addrgrp address apply
+0104043686|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_INVALID_SCHEDULE|PSK is out of any valid schedules
+0104043687|Information|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WL_BRIDGE_TRAFFIC_STATS|Traffic stats for station with bridge wlan
+0104043688|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_APCFG_RECEIVE|FortiAP receives the apcfg
+0104043689|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_APCFG_VALIDATING|FortiAP is validating the apcfg
+0104043690|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_APCFG_APPLY|FortiAP applies the apcfg
+0104043691|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_APCFG_REJECT|FortiAP rejects the apcfg
+0104043692|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_ANTENNA_DEFECT_DETECT|Defect antenna detection
+0104043693|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WNM_ACTION_BSTM_REQ|AP sent WNM action BSTM request
+0104043694|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WNM_ACTION_BSTM_RESP_ACCEPT|Wireless client sent WNM action BSTM response accept
+0104043695|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WNM_ACTION_BSTM_RESP_REJECT|Wireless client sent WNM action BSTM response reject
+0104043696|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_DRMA_START|Physical AP radio DRMA start
+0104043697|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_DRMA_STOP|Physical AP radio DRMA stop
+0104043698|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_DRMA_MODE|Physical AP radio DRMA mode
+0104043699|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP6_SOLICIT|Wireless station sent DHCP6 SOLICIT
+0104043700|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP6_ADVERTISE|DHCP6 server sent DHCP6 ADVERTISE
+0104043701|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP6_REQUEST|Wireless station sent DHCP6 REQUEST
+0104043702|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP6_CONFIRM|Wireless station sent DHCP6 CONFIRM
+0104043703|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP6_RENEW|Wireless station sent DHCP6 RENEW
+0104043704|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP6_REPLY|DHCP6 server sent DHCP6 REPLY
+0104043705|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP6_RELEASE|Wireless station sent DHCP6 RELEASE
+0104043706|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP6_RECONFIGURE|DHCP6 server sent DHCP6 RECONFIGURE
+0104043707|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_SSID_UP|Physical AP radio ssid up
+0104043708|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_SSID_DOWN|Physical AP radio ssid down
+0104043709|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_DHCP_ENFORCEMENT|Wireless client denied by DHCP enforcement for using static IP address
+0104043710|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SAM_IPERF|SAM iperf test result
+0104043711|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SAM_PING|SAM ping test result
+0104043712|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SAM_AUTH_FAILED|AP as station failed in SAM authentication
+0104043713|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SAM_CWP_AUTH_FAILED|AP as station failed in SAM CWP authentication
+0104043714|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_PARTIAL_PASSWD|AP received partial login password
+0104043715|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_BSS_COLOR_COLLISION|AP radio BSS color collision detected.
+0104043716|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_ADDRGRP_MAX_FW_ADDR|Wireless addrgrp reached firewal address maximum number
+0104043717|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_L3R_REHOME|Wireless client layer3 roaming rehome
+0104043719|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_PROBE_LOW_RSSI|Probe request from wireless station failed due to low rssi
+0104043720|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_FIPS|Physical AP FIPS activity
+0104043721|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_WPA_MSG_EXT_MPSK_RESULT|External MPSK authentication result
+0104043723|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_SYS_AC_DOWN|Wireless controller down
+0104043724|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_SKIP_CAC|AP radio DFS Channel CAC skip, Zero-Wait-DFS.
+0104043725|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_AI_DARRP_SUPPORT_START|Physical AP radio AI DARRP support enable
+0104043726|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_AI_DARRP_SUPPORT_STOP|Physical AP radio AI DARRP support disable
+0104043727|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_AI_DARRP_CHAN|Physical AP radio DARRP channel change from AI
+0104043728|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTPR_AI_DARRP_OPTIMIZATION_TRIGGER|DARRP optimization request from AI start
+0104043729|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_AUTO_GEN_CERT_SUCC|Wireless controller certificate auto generation succeed
+0104043730|Warning|Event|wireless|LOG_ID_EVENT_WIRELESS_WTP_AUTO_GEN_CERT_FAIL|Wireless controller certificate auto generation failed
+0104043731|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_USERGROUP_UPDATE|Wireless station usergroup updated
+0104043732|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_AUTH_RESP_DROPPED|Authentication response to wireless station dropped by AP
+0104043733|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_ASSOC_RESP_DROPPED|Association response to wireless station dropped by AP
+0104043734|Notice|Event|wireless|LOG_ID_EVENT_WIRELESS_STA_REASSOC_RESP_DROPPED|Reassociation response to wireless station dropped by AP
+0100043776|Notice|Event|system|LOG_ID_EVENT_NAC_QUARANTINE|NAC quarantine
+0100043777|Notice|Event|system|LOG_ID_EVENT_NAC_ANOMALY_QUARANTINE|NAC anomaly quarantine
+0100043778|Notice|Event|system|LOG_ID_EVENT_NAC_QUARANTINE_EXPIRY|NAC quarantine expiry
+0100043800|Critical|Event|system|LOG_ID_EVENT_ELBC_BLADE_JOIN|Blade ready to process traffic
+0100043801|Critical|Event|system|LOG_ID_EVENT_ELBC_BLADE_LEAVE|Blade not ready to process traffic
+0100043802|Critical|Event|system|LOG_ID_EVENT_ELBC_MASTER_BLADE_FOUND|Primary blade found
+0100043803|Critical|Event|system|LOG_ID_EVENT_ELBC_MASTER_BLADE_LOST|Primary blade lost
+0100043804|Critical|Event|system|LOG_ID_EVENT_ELBC_MASTER_BLADE_CHANGE|Primary blade changed
+0100043805|Critical|Event|system|LOG_ID_EVENT_ELBC_ACTIVE_CHANNEL_FOUND|ELBC channel active
+0100043806|Critical|Event|system|LOG_ID_EVENT_ELBC_ACTIVE_CHANNEL_LOST|ELBC channel inactive
+0100043807|Critical|Event|system|LOG_ID_EVENT_ELBC_ACTIVE_CHANNEL_CHANGE|ELBC channel failover
+0100043808|Critical|Event|system|LOG_ID_EVENT_ELBC_CHASSIS_ACTIVE|ELBC chassis active
+0100043809|Critical|Event|system|LOG_ID_EVENT_ELBC_CHASSIS_INACTIVE|ELBC chassis inactive
+0100044544|Information|Event|system|LOGID_EVENT_CONFIG_PATH|Path configured
+0100044545|Information|Event|system|LOGID_EVENT_CONFIG_OBJ|Object configured
+0100044546|Information|Event|system|LOGID_EVENT_CONFIG_ATTR|Attribute configured
+0100044547|Information|Event|system|LOGID_EVENT_CONFIG_OBJATTR|Object attribute configured
+0100044548|Information|Event|system|LOGID_EVENT_CONFIG_EXEC|Action performed
+0100044555|Critical|Event|system|LOGID_EVENT_CMDB_DEADLOCK_DETECTED|CMDB lock deadlock is detected.
+0100044557|Information|Event|system|LOGID_EVENT_CONFIG_REQUEST_DENIED|CMDB denied request for restricted table
+0100044558|Warning|Event|system|LOGID_EVENT_NEWCLI_SPAWN_ATTEMPT|Attempt to spawn a new cli instance
+0100044559|Information|Event|system|LOGID_EVENT_INSTALL_IPROPE|Firewall policy installation
+0100044560|Notice|Event|system|LOGID_EVENT_CONFIG_ACCPROFILE_SUPER_ADMIN|Configure admin accprofile as super_admin
+0100044561|Warning|Event|system|LOGID_EVENT_CONFIG_REQUEST_UNAUTH|CMDB denied request from unauthenticated admin session
+0100044562|Warning|Event|system|LOGID_EVENT_CONFIG_SENSITIVE_INFO|CMDB get request for sensitive information table
+0107045071|Notice|Event|endpoint|LOG_ID_FCC_VULN_SCAN|FortiClient Vulnerability Scan
+0107045101|Notice|Event|endpoint|LOG_ID_EC_REG_SUCCEED|FortiClient registered
+0107045114|Notice|Event|endpoint|LOG_ID_EC_REG_QUARANTINE|FortiClient endpoint quarantined
+0107045115|Notice|Event|endpoint|LOG_ID_EC_REG_UNQUARANTINE|FortiClient endpoint quarantine removed
+0107045121|Notice|Event|endpoint|LOG_ID_EC_EMS_WS_NOTIFICATION|EMS WebSocket notification
+0107045122|Warning|Event|endpoint|LOG_ID_EC_EMS_REST_API_ERROR|EMS REST API error
+0107045123|Warning|Event|endpoint|LOG_ID_EC_EMS_WS_CONN_ERROR|EMS WebSocket connection error
+0107045124|Warning|Event|endpoint|LOG_ID_EC_VPND_CONNECT|FortiClient VPN connected
+0107045125|Warning|Event|endpoint|LOG_ID_EC_VPND_DISCONNECT|FortiClient VPN disconnected
+0107045126|Warning|Event|endpoint|LOG_ID_EC_CLOUD_ENTITLEMENT_LOST|EMS Cloud entitlement lost and connection dropped
+0107045128|Information|Event|endpoint|LOG_ID_EC_EMS_REST_API_NEW_SUCCESS|EMS REST API recovered from an error
+0107045129|Information|Event|endpoint|LOG_ID_EC_EMS_EMS_VERIFY|FCEMS entry has been verified
+0107045130|Warning|Event|endpoint|LOG_ID_EC_EMS_EMS_VERIFY_FAILED|FCEMS entry has failed to be verified
+0107045131|Information|Event|endpoint|LOG_ID_EC_EMS_EMS_UNVERIFY|FCEMS entry has been unverified
+0107045133|Warning|Event|endpoint|LOG_ID_EC_SHM_MISSING_QUERY|FCEMS shared memory missing query statistics
+0107045134|Information|Event|endpoint|LOG_ID_EC_SHM_ENDPOINT_UPDATE|Endpoint ZTNA information has been updated
+0107045135|Information|Event|endpoint|LOG_ID_EC_SHM_ENDPOINT_DELETE|Endpoint has been deleted
+0100046000|Notice|Event|system|LOG_ID_VIP_REAL_SVR_ENA|VIP real server enabled
+0100046001|Alert|Event|system|LOG_ID_VIP_REAL_SVR_DISA|VIP real server disabled
+0100046002|Notice|Event|system|LOG_ID_VIP_REAL_SVR_UP|VIP real server up
+0100046003|Alert|Event|system|LOG_ID_VIP_REAL_SVR_DOWN|VIP real server down
+0100046004|Notice|Event|system|LOG_ID_VIP_REAL_SVR_ENT_HOLDDOWN|VIP real server entered hold-down
+0100046005|Alert|Event|system|LOG_ID_VIP_REAL_SVR_FAIL_HOLDDOWN|VIP real server health check failed during hold-down
+0100046006|Debug|Event|system|LOG_ID_VIP_REAL_SVR_FAIL|VIP real server health check failed
+0111046400|Notice|Event|fortiextender|LOG_ID_EVENT_EXT_SYS|FortiExtender system activity
+0111046401|Notice|Event|fortiextender|LOG_ID_EVENT_EXT_LOCAL|FortiExtender controller activity
+0111046402|Error|Event|fortiextender|LOG_ID_EVENT_EXT_LOCAL_ERROR|FortiExtender controller activity error
+0111046403|Emergency|Event|fortiextender|LOG_ID_EVENT_EXT_REMOTE_EMERG|Remote FortiExtender emergency activity
+0111046404|Alert|Event|fortiextender|LOG_ID_EVENT_EXT_REMOTE_ALERT|Remote FortiExtender alert activity
+0111046405|Critical|Event|fortiextender|LOG_ID_EVENT_EXT_REMOTE_CRITICAL|Remote FortiExtender critical activity
+0111046406|Error|Event|fortiextender|LOG_ID_EVENT_EXT_REMOTE_ERROR|Remote FortiExtender error activity
+0111046407|Warning|Event|fortiextender|LOG_ID_EVENT_EXT_REMOTE_WARNING|Remote FortiExtender warning activity
+0111046408|Notice|Event|fortiextender|LOG_ID_EVENT_EXT_REMOTE_NOTIF|Remote FortiExtender notify activity
+0111046409|Information|Event|fortiextender|LOG_ID_EVENT_EXT_REMOTE_INFO|Remote FortiExtender info activity
+0111046410|Debug|Event|fortiextender|LOG_ID_EVENT_EXT_REMOTE_DEBUG|Remote FortiExtender debug activity
+0100046501|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_DETECTION|LTE modem detection
+0100046502|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_GPSD|LTE modem GPS daemon started or stopped
+0100046503|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_GPS_LOC_ACQUISITION|LTE modem GPS location acquisition
+0100046504|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_BILLD|LTE modem billing daemon started or stopped
+0100046505|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_BILLING_PURGED|LTE billing data purged
+0100046507|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_FW_UPGRADE|LTE modem firmware upgrade event
+0100046508|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_QDL_DETECTION|LTE modem QDL device detection event
+0100046509|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_REBOOT|LTE modem reboot event
+0100046510|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_OP_MODE|LTE modem operation mode
+0100046511|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_POWER_ON_OFF|LTE modem powered on or powered off
+0100046512|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_SIM_STATE|LTE modem SIM card state event
+0100046513|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_LINK_CONNECTION|LTE modem data link connection event
+0100046514|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_MANUAL_HANDOVER|LTE modem manual handover event
+0100046515|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_IP_ADDR|LTE modem ip address event
+0100046516|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_BEARER_TECH_CHANGE|LTE modem bearer event
+0100046517|Warning|Event|system|LOG_ID_INTERNAL_LTE_MODEM_WRONG_PIN|LTE unlock SIM PIN failed.
+0100046518|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_SIM_SWITCH|LTE modem active SIM card switch event
+0100046519|Notice|Event|system|LOG_ID_INTERNAL_LTE_MODEM_SIM_SWITCH_CONNECTION_STATE|LTE modem active SIM card switched: modem disconnection detected
+0100046520|Notice|Event|system|LOG_ID_INTERNAL_LTE_MODEM_SIM_SWITCH_LINK_MONITOR|LTE modem active SIM card switched: link monitor probe failure detected
+0100046521|Warning|Event|system|LOG_ID_INTERNAL_LTE_MODEM_SIM_FLIP|LTE modem active SIM card slot flipped back and forth in short time
+0100046522|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_BILLING_DATA_ALERT|LTE billing data usage reached configured threshold
+0100046523|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_BILLING_TIME_REFRESH|LTE billing time passed, refresh billing date counter
+0100046524|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_SIM_SWITCH_DATA_PLAN|LTE modem active SIM card switched: data plan reached
+0100046525|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_BILLING_STOP_NETWORK|LTE modem stop network due to data plan reached
+0100046526|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_BILLING_DATA_PLAN_OVER|LTE billing data usage reached data limit
+0100046527|Information|Event|system|LOG_ID_INTERNAL_LTE_MODEM_SIM_SWITCH_SIM_STATE|LTE modem active SIM card switched: SIM state empty or error
+0100046600|Notice|Event|system|LOG_ID_EVENT_AUTOMATION_TRIGGERED|Automation stitch triggered
+0100046703|Information|Event|system|LOG_ID_INTERNAL_5G_MODEM_IPV4_LINK_STATE|Cellular modem IPV4 link state changed
+0100046705|Information|Event|system|LOG_ID_INTERNAL_5G_MODEM_FW_UPGRADE|Cellular modem firmware upgrade event
+0100046708|Information|Event|system|LOG_ID_INTERNAL_5G_MODEM_MODE|Cellular modem changed operation mode
+0100046709|Information|Event|system|LOG_ID_INTERNAL_5G_MODEM_SIM_STATE|Cellular modem active sim card state changed
+0100046710|Information|Event|system|LOG_ID_INTERNAL_5G_MODEM_SIM_SWITCH|Cellular modem sim switched
+0100046711|Information|Event|system|LOG_ID_INTERNAL_5G_MODEM_AUTO_SIM_SWITCH_REASON|Cellular modem auto sim switch triggered
+0100046713|Information|Event|system|LOG_ID_INTERNAL_5G_MODEM_SIGNAL_MODE|Cellular modem signal mode changed
+0100046714|Information|Event|system|LOG_ID_INTERNAL_5G_MODEM_IPV6_LINK_STATE|Cellular modem IPV6 link state changed
+0100046900|Error|Event|system|LOG_ID_POE_STATUS_REPORT|PoE device status reported
+0100047000|Warning|Event|system|LOG_ID_MALWARE_LIST_TRUNCATED_ENTER|External blocklist list is truncated
+0100047001|Notice|Event|system|LOG_ID_MALWARE_LIST_TRUNCATED_EXIT|External blocklist list is no longer truncated
+0100047002|Warning|Event|system|LOG_ID_FILE_HASH_EMS_LIST_TRUNCATED_ENTER|EMS file-hash list is truncated
+0100047003|Notice|Event|system|LOG_ID_FILE_HASH_EMS_LIST_TRUNCATED_EXIT|EMS file-hash list is no longer truncated
+0100047004|Notice|Event|system|LOG_ID_FILE_HASH_EMS_LIST_LOAD|EMS file-hash list loaded
+0100047005|Warning|Event|system|LOG_ID_MALWARE_STREAM_TRUNCATED_ENTER|Malware stream hash list is truncated
+0100047006|Notice|Event|system|LOG_ID_MALWARE_STREAM_TRUNCATED_EXIT|Malware stream hash list is no longer truncated
+0100047203|Warning|Event|system|LOG_ID_ENTER_BYPASS|Bypass ports pair entered bypass mode
+0100047204|Warning|Event|system|LOG_ID_EXIT_BYPASS|Bypass ports pair exited bypass mode
+0116047301|Information|Event|rest-api|LOG_ID_EVENT_REST_API_OK|REST API request success
+0116047302|Error|Event|rest-api|LOG_ID_EVENT_REST_API_ERR|REST API request failed
+0120047400|Information|Event|web-svc|LOG_ID_WEB_SVC_MEMORY_PROFILE|Memory profiling for web-svc task.
+0120047401|Information|Event|web-svc|LOG_ID_WEB_SVC_RESTART|Daemon web-svc has restarted
+0105048040|Information|Event|wanopt|LOG_ID_WANOPT_TUNNEL_CREATE|WANOPT Tunnel successfully created
+0105048041|Information|Event|wanopt|LOG_ID_WANOPT_TUNNEL_CLOSED|WANOPT Tunnel closed
+0105048101|Error|Event|wanopt|LOG_ID_WANOPT_AUTH_FAIL_PSK|WAN Optimization peer PSK authentication failed
+0105048102|Error|Event|wanopt|LOG_ID_WANOPT_AUTH_FAIL_OTH|WAN Optimization peer authentication failed
+0105048301|Critical|Event|wanopt|LOG_ID_UNEXP_APP_TYPE|Unexpected application type for WAN Optimization
+0100049002|Information|Event|system|LOG_ID_VNP_DPDK_PRIMARY_RESTART|VNP Primary restarted
+0100049004|Information|Event|system|LOGID_EVENT_HYPERV_SRIOV_SHOW_UP|Hyper-V SR-IOV VF secondary is hot plugged
+0100049005|Information|Event|system|LOGID_EVENT_HYPERV_SRIOV_DISAPPEAR|Hyper-V SR-IOV VF secondary is hot unplugged
+0103051000|Information|Event|router|LOG_ID_NB_TBL_CHG|Neighbor table changed
+0110052000|Notice|Event|security-rating|LOG_ID_EVENT_SECURITY_AUDIT_FABRIC_SUMMARY|Security Rating summary
+0110052001|Notice|Event|security-rating|LOG_ID_EVENT_SECURITY_AUDIT_FABRIC_CHANGE|Security Rating result change
+0110052002|Notice|Event|security-rating|LOG_ID_EVENT_SECURITY_AUDIT_FABRIC_RESULT|Security Rating check result
+0100053000|Information|Event|system|LOG_ID_SDNC_CONNECTED|Connected to SDN server
+0100053001|Information|Event|system|LOG_ID_SDNC_DISCONNECTED|Disconnected from SDN server
+0100053002|Information|Event|system|LOG_ID_SDNC_SUBSCRIBE|Dynamic SDN address channel opened
+0100053003|Information|Event|system|LOG_ID_SDNC_UNSUBSCRIBE|Dynamic SDN address channel closed
+0100053010|Information|Event|system|LOG_ID_INTERNAL_FDS_FTC|FortiToken-Cloud data received
+0100053050|Information|Event|system|LOG_ID_FTC_AUTH_FAILED|FortiToken-Cloud authentication failure
+0112053200|Information|Event|connector|LOG_ID_CONNECTOR_OBJECT_ADD|Dynamic address added
+0112053201|Information|Event|connector|LOG_ID_CONNECTOR_OBJECT_REMOVE|Dynamic address removed
+0112053202|Error|Event|connector|LOG_ID_CONNECTOR_API_FAILED|SDN Connector API failed
+0112053203|Information|Event|connector|LOG_ID_CONNECTOR_OBJECT_UPDATE|Dynamic address updated.
+0112053204|Warning|Event|connector|LOG_ID_CONNECTOR_OBJECT_CANT_ADD|Dynamic address can't be added
+0112053205|Warning|Event|connector|LOG_ID_CONNECTOR_OBJECT_CANT_REMOVE|Dynamic address can't be removed
+0100053300|Information|Event|system|LOG_ID_VNE_PRO_UPDATE_COMPLETED|VNE provision server update completed
+0100053301|Information|Event|system|LOG_ID_VNE_PRO_UPDATE_FAILED|VNE provision server update failed
+0100053311|Notice|Event|system|LOG_ID_NPU_PER_MAPPING_ALLOCATION|Resource per mapping allocation
+0100053312|Notice|Event|system|LOG_ID_NPD_INFO|NPD INFO
+0100053313|Warning|Event|system|LOG_ID_NPD_WARNING|NPD WARNING MSG
+0100053314|Error|Event|system|LOG_ID_NPD_ERROR|NPD ERROR MSG
+0100053315|Error|Event|system|LOG_ID_LPM_ERROR|LPM ERROR MSG
+0100053316|Notice|Event|system|LOG_ID_LPM_INFO|LPM INFO MSG
+0100053320|Notice|Event|system|LOG_ID_FORTICONVERTER_RESULT_READY|FortiConverter ticket has a result file ready
+0100053321|Notice|Event|system|LOG_ID_FORTICONVERTER_CONFIG_UPLOADED|Uploaded local config to a FortiConverter ticket
+0100053326|Information|Event|system|LOG_ID_NPU_HEALTH_INFO|NPU health info event
+0100053327|Warning|Event|system|LOG_ID_NPU_HEALTH_WARNING|NPU health warning event
+0100053328|Error|Event|system|LOG_ID_NPU_HEALTH_ERROR|NPU health error event
+0100053400|Notice|Event|system|LOG_ID_FMG_TUNNEL_UP|Central Management connectivity is active
+0100053401|Warning|Event|system|LOG_ID_FMG_TUNNEL_DOWN|Central Management connectivity is inactive
+0100053402|Warning|Event|system|LOG_ID_FGFM_RECOVERY|FGFM recovery is triggered
+0100053407|Information|Event|system|LOG_ID_FABRIC_VPN_PSK_SECRET_UPG_SET|Fabric VPN settings changed during upgrade
+0100053408|Information|Event|system|LOG_ID_CSF_UPSTREAM_WILDCARD_CREATE_UPG|Upstream wildcard authorization is created
+0100053409|Information|Event|system|LOG_ID_CSF_TRUSTED_LIST_REMOVED|A system.csf.trusted-list entry was deleted during the upgrade
+0100053410|Information|Event|system|LOG_ID_CSF_TRUSTED_LIST_UPGRADED|A system.csf.trusted-list entry was changed during the upgrade
+0118053412|Information|Event|telemetry|LOG_ID_EVENT_TELEMETRY_AGENT_ONLINE|Agent online
+0118053413|Information|Event|telemetry|LOG_ID_EVENT_TELEMETRY_AGENT_OFFLINE|Agent offline
+0118053414|Information|Event|telemetry|LOG_ID_EVENT_TELEMETRY_AGENT_ADD|Agent added
+0118053415|Information|Event|telemetry|LOG_ID_EVENT_TELEMETRY_AGENT_DELETE|Agent deleted
+0114063002|Warning|Event|cifs-auth-fail|LOG_ID_CIFS_CONN_FAIL|Unable to connect to the CIFS Domain Controller
+0114063003|Warning|Event|cifs-auth-fail|LOG_ID_CIFS_AUTH_FAIL|Unable to authenticate with the CIFS Domain Controller
+0114063004|Warning|Event|cifs-auth-fail|LOG_ID_CIFS_AUTH_INTERNAL_ERROR|An error occurred in processing CIFS authentication
+0114063005|Warning|Event|cifs-auth-fail|LOG_ID_CIFS_AUTH_KRB_ERROR|An error occurred in processing CIFS authentication.
+1900064000|Warning|FILE-FILTER|file-filter|LOG_ID_FILE_FILTER_BLOCK|File was blocked by file filter
+1900064001|Notice|FILE-FILTER|file-filter|LOG_ID_FILE_FILTER_LOG|File was detected by file filter
+2300056001|Information|FORTI-SWITCH|fsw-flow|LOG_ID_FSW_FLOW|(null)
+1400041216|Information|GTP|gtp-all|LOGID_GTP_FORWARD|GTP forward
+1400041217|Information|GTP|gtp-all|LOGID_GTP_DENY|GTP deny
+1400041218|Information|GTP|gtp-all|LOGID_GTP_RATE_LIMIT|GTP rate limit
+1400041219|Information|GTP|gtp-all|LOGID_GTP_STATE_INVALID|GTP state invalid
+1400041220|Information|GTP|gtp-all|LOGID_GTP_TUNNEL_LIMIT|Tunnel limit GTP message. These messages occur only when the maximum number of GTP
+1400041221|Information|GTP|gtp-all|LOGID_GTP_TRAFFIC_COUNT|Statistic summary information when the GTP tunnel is being torn down
+1400041222|Information|GTP|gtp-all|LOGID_GTP_USER_DATA|GTP user data
+1400041223|Information|GTP|gtp-all|LOGID_GTPV2_FORWARD|GTPv2 forward message
+1400041224|Information|GTP|gtp-all|LOGID_GTPV2_DENY|GTPv2 deny message
+1400041225|Information|GTP|gtp-all|LOGID_GTPV2_RATE_LIMIT|GTPv2 rate limit message
+1400041226|Information|GTP|gtp-all|LOGID_GTPV2_STATE_INVALID|GTPv2 state invalid message
+1400041227|Information|GTP|gtp-all|LOGID_GTPV2_TUNNEL_LIMIT|Tunnel limit GTP (version 2) message
+1400041228|Information|GTP|gtp-all|LOGID_GTPV2_TRAFFIC_COUNT|Statistic summary information when the GTPv2 tunnel is being torn down
+1400041229|Information|GTP|gtp-all|LOGID_GTPU_FORWARD|GTPU forward message
+1400041230|Information|GTP|gtp-all|LOGID_GTPU_DENY|GTPU deny message
+1401041231|Information|GTP|pfcp-all|LOGID_PFCP_FORWARD|PFCP forward message
+1401041232|Information|GTP|pfcp-all|LOGID_PFCP_DENY|PFCP deny message
+1401041233|Information|GTP|pfcp-all|LOGID_PFCP_TRAFFIC_COUNT|Statistic summary information when the PFCP session is being torn down
+2000060000|Warning|ICAP|icap|LOG_ID_ICAP_SERVER_ERROR|Traffic blocked as it cannot be forwarded to ICAP Server.
+2000060001|Warning|ICAP|icap|LOG_ID_ICAP_INFECTION_BLOCK|Traffic blocked as ICAP server found infection.
+2000060002|Warning|ICAP|icap|LOG_ID_ICAP_CONN_ERROR|Traffic dropped as ICAP connection is closed.
+0419016384|Alert|IPS|signature|LOGID_ATTCK_SIGNATURE_TCP_UDP|Attack detected by UDP/TCP signature
+0419016385|Alert|IPS|signature|LOGID_ATTCK_SIGNATURE_ICMP|Attack detected by ICMP signature
+0419016386|Alert|IPS|signature|LOGID_ATTCK_SIGNATURE_OTHERS|Attack detected by other signature
+0421016399|Warning|IPS|malicious-url|LOGID_ATTACK_MALICIOUS_URL|Attack detected by a malicious URL
+0422016400|Warning|IPS|botnet|LOGID_ATTACK_BOTNET_WARNING|Botnet C&amp;C Communication (warning)
+0422016401|Notice|IPS|botnet|LOGID_ATTACK_BOTNET_NOTIF|Botnet C&amp;C Communication (notice)
+0419016402|Warning|IPS|signature|LOGID_ATTACK_SIGNATURE_L2|Ethernet protocols detection
+2700011000|Warning|LLM|llm|LOG_ID_LLM_ACCESS_BLOCKED|LLM Proxy
+2700011001|Information|LLM|llm|LOG_ID_LLM_ACCESS_BYPASS|LLM Proxy
+2700011002|Information|LLM|llm|LOG_ID_LLM_ACCESS_MONITOR|LLM Proxy
+1600061000|Warning|SSH|ssh-command|LOG_ID_SSH_COMMAND_BLOCK|SSH shell command is blocked
+1600061001|Alert|SSH|ssh-command|LOG_ID_SSH_COMMAND_BLOCK_ALERT|SSH shell command is blocked
+1600061002|Notice|SSH|ssh-command|LOG_ID_SSH_COMMAND_PASS|SSH shell command is detected
+1600061003|Alert|SSH|ssh-command|LOG_ID_SSH_COMMAND_PASS_ALERT|SSH shell command is detected
+1601061010|Warning|SSH|ssh-channel|LOG_ID_SSH_CHANNEL_BLOCK|SSH channel is blocked
+1601061011|Notice|SSH|ssh-channel|LOG_ID_SSH_CHANNEL_PASS|SSH channel is detected
+1602061012|Warning|SSH|ssh-hostkey|LOG_ID_SSH_HOST_KEY_WARNING|SSH connection is blocked, because host-key is not trust
+1602061013|Notice|SSH|ssh-hostkey|LOG_ID_SSH_HOST_KEY_NOTIF|SSH host-key is not trust
+1603061014|Warning|SSH|ssh-unsupport-proto|LOG_ID_SSH_UNSUPPORT_PROTO_BLOCK|SSH connection is blocked, because unsupported SSH protocol
+1603061015|Notice|SSH|ssh-unsupport-proto|LOG_ID_SSH_UNSUPPORT_PROTO_PASS|Unsupported SSH protocol is detected
+1701062004|Notice|SSL|ssl-exempt|LOG_ID_SSL_EXEMPT_ADDR|SSL connection is exempted based on address
+1701062006|Notice|SSL|ssl-exempt|LOG_ID_SSL_EXEMPT_ALLOWLIST|SSL connection is exempted based on allowlist
+1701062007|Notice|SSL|ssl-exempt|LOG_ID_SSL_EXEMPT_FTGD_CATEGORY|SSL connection is exempted based on FortiGuard category rating
+1701062008|Notice|SSL|ssl-exempt|LOG_ID_SSL_EXEMPT_LOCAL_CATEGORY|SSL connection is exempted based on local category rating
+1701062009|Notice|SSL|ssl-exempt|LOG_ID_SSL_EXEMPT_USER_CATEGORY|SSL connection is exempted based on user category rating
+1702062100|Notice|SSL|ssl-negotiation|LOG_ID_SSL_NEGOTIATION_INSPECT|Continue inspect the SSL connection
+1702062101|Warning|SSL|ssl-negotiation|LOG_ID_SSL_NEGOTIATION_BLOCK|SSL connection is blocked due to its SSL negotiation
+1702062102|Notice|SSL|ssl-negotiation|LOG_ID_SSL_NEGOTIATION_BYPASS|SSL connection is bypassed due to its SSL negotiation
+1702062103|Information|SSL|ssl-negotiation|LOG_ID_SSL_NEGOTIATION_INFO|SSL connection information
+1703062200|Information|SSL|ssl-server-cert-info|LOG_ID_SSL_SERVER_CERT_INFO|SSL server certificate information
+1704062220|Information|SSL|ssl-handshake|LOG_ID_SSL_HANDSHAKE_INFO|SSL handshake information
+1700062300|Warning|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_SVR_CERT_BLOCKLISTED|SSL connection is blocked due to the server certificate is blocklisted
+1700062301|Notice|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CERT_RESIGN_TRUSTED|Server certificate has security problem
+1700062302|Notice|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CERT_RESIGN_UNTRUSTED|Re-signed server certificate as untrusted due to security problem
+1700062303|Warning|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CERT_BLOCKED|SSL connection is blocked due to server certificate security problem
+1700062304|Warning|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CERT_SNI_MISMATCHED|SSL connection is blocked due to server certificate and SNI mismatched
+1700062305|Warning|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CERT_PROBE_FAILURE_BLOCK|SSL connection is blocked due to unable to retrieve server's certificate
+1700062306|Notice|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CERT_PROBE_FAILURE_PASS|SSL connection is bypassed due to unable to retrieve server's certificate
+1700062307|Information|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CERT_SNI_MISMATCHED_INFO|Server certificate and SNI mismatched
+1700062308|Information|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_HANDSHAKE_FAILURE|Error occured during SSL handshake.
+1700062309|Notice|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CERT_INVALID|Server certificate has security problem
+1700062310|Warning|SSL|ssl-anomaly|LOG_ID_SSL_ANOMALY_CLT_CERT_BLOCKLISTED|SSL connection is blocked due to the client certificate is blocklisted
+0000000002|Notice|Traffic|forward|LOG_ID_TRAFFIC_ALLOW|Allowed traffic
+0000000003|Warning|Traffic|forward|LOG_ID_TRAFFIC_DENY|Traffic violation
+0000000004|Notice|Traffic|forward|LOG_ID_TRAFFIC_OTHER_START|Traffic other session start
+0000000005|Notice|Traffic|forward|LOG_ID_TRAFFIC_OTHER_ICMP_ALLOW|Traffic allowed ICMP
+0000000006|Warning|Traffic|forward|LOG_ID_TRAFFIC_OTHER_ICMP_DENY|Traffic denied ICMP
+0000000007|Warning|Traffic|forward|LOG_ID_TRAFFIC_OTHER_INVALID|Traffic other invalid
+0000000008|Notice|Traffic|forward|LOG_ID_TRAFFIC_WANOPT|WAN optimization traffic
+0000000009|Notice|Traffic|forward|LOG_ID_TRAFFIC_WEBCACHE|Web cache traffic
+0000000010|Notice|Traffic|forward|LOG_ID_TRAFFIC_EXPLICIT_PROXY|Explicit proxy traffic
+0000000011|Warning|Traffic|forward|LOG_ID_TRAFFIC_FAIL_CONN|Failed connection attempts
+0002000012|Notice|Traffic|multicast|LOG_ID_TRAFFIC_MULTICAST|Multicast traffic
+0000000013|Notice|Traffic|forward|LOG_ID_TRAFFIC_END_FORWARD|Forward traffic
+0001000014|Notice|Traffic|local|LOG_ID_TRAFFIC_END_LOCAL|Local traffic
+0000000015|Notice|Traffic|forward|LOG_ID_TRAFFIC_START_FORWARD|Forward traffic session start
+0001000016|Notice|Traffic|local|LOG_ID_TRAFFIC_START_LOCAL|Local traffic session start
+0004000017|Notice|Traffic|sniffer|LOG_ID_TRAFFIC_SNIFFER|Sniffer traffic
+0002000019|Notice|Traffic|multicast|LOG_ID_TRAFFIC_BROADCAST|Broadcast traffic
+0000000020|Notice|Traffic|forward|LOG_ID_TRAFFIC_STAT|Forward traffic statistics
+0004000021|Notice|Traffic|sniffer|LOG_ID_TRAFFIC_SNIFFER_STAT|Sniffer traffic statistics
+0000000022|Notice|Traffic|forward|LOG_ID_TRAFFIC_UTM_CORRELATION|Forward traffic for UTM correlation
+0005000024|Notice|Traffic|ztna|LOG_ID_TRAFFIC_ZTNA|ZTNA traffic
+0000000025|Notice|Traffic|forward|LOG_ID_TRAFFIC_SFLOW|Sflow sample
+0006000026|Notice|Traffic|http-transaction|LOG_ID_TRAFFIC_HTTP_TRANSACTION|HTTP transaction
+2400064600|Warning|virtual-patch|ot-vpatch|LOG_ID_OT_VPATCH_BLOCK|Traffic was blocked by OT virtual patch
+2400064601|Notice|virtual-patch|ot-vpatch|LOG_ID_OT_VPATCH_LOG|Traffic was detected by OT virtual patch
+2401064610|Warning|virtual-patch|localin-vpatch|LOG_ID_LOCALIN_VPATCH_BLOCK|Traffic was blocked by local-in virtual patch
+2401064611|Notice|virtual-patch|localin-vpatch|LOG_ID_LOCALIN_VPATCH_LOG|Traffic was detected by local-in virtual patch
+0211008192|Warning|Virus|infected|MESGID_INFECT_WARNING|Infected file detected by the FortiGate unit and blocked
+0211008193|Notice|Virus|infected|MESGID_INFECT_NOTIF|Infected file detected by the FortiGate unit and it passed
+0211008194|Warning|Virus|infected|MESGID_INFECT_MIME_WARNING|MIME header detected to have a virus and blocked
+0211008195|Notice|Virus|infected|MESGID_INFECT_MIME_NOTIF|MIME header infected and passed
+0203008200|Warning|Virus|filetype-executable|MESGID_MIME_FILETYPE_EXE_WARNING|File is an executable (warning)
+0203008201|Notice|Virus|filetype-executable|MESGID_MIME_FILETYPE_EXE_NOTIF|File is an executable (notice)
+0204008202|Warning|Virus|outbreak-prevention|MESGID_AVQUERY_WARNING|File reported infected by Outbreak Prevention (warning)
+0204008203|Notice|Virus|outbreak-prevention|MESGID_AVQUERY_NOTIF|File reported infected by Outbreak Prevention (notice)
+0204008204|Warning|Virus|outbreak-prevention|MESGID_MIME_AVQUERY_WARNING|MIME data reported infected by Outbreak Prevention (warning)
+0204008205|Notice|Virus|outbreak-prevention|MESGID_MIME_AVQUERY_NOTIF|MIME data reported infected by Outbreak Prevention (notice)
+0202008206|Notice|Virus|exempt-hash|MESGID_AV_EXEMPT_NOTIF|File reported matched AV exempt list (notice)
+0202008207|Notice|Virus|exempt-hash|MESGID_MIME_AV_EXEMPT_NOTIF|MIME data reported matched AV exempt list (notice)
+0207008212|Warning|Virus|malware-list|MESGID_MALWARE_LIST_WARNING|File reported infected by external malware list (warning)
+0207008213|Notice|Virus|malware-list|MESGID_MALWARE_LIST_NOTIF|File reported infected by external malware list (notice)
+0207008214|Warning|Virus|malware-list|MESGID_MIME_MALWARE_LIST_WARNING|MIME data reported infected by external malware list (warning)
+0207008215|Notice|Virus|malware-list|MESGID_MIME_MALWARE_LIST_NOTIF|MIME data reported infected by external malware list (notice)
+0208008216|Warning|Virus|ems-threat-feed|MESGID_FILE_HASH_EMS_WARNING|File reported infected by EMS threat feed (warning)
+0208008217|Notice|Virus|ems-threat-feed|MESGID_FILE_HASH_EMS_NOTIF|File reported infected by EMS threat feed (notice)
+0208008218|Warning|Virus|ems-threat-feed|MESGID_MIME_FILE_HASH_EMS_WARNING|MIME data reported infected by EMS threat feed (warning)
+0208008219|Notice|Virus|ems-threat-feed|MESGID_MIME_FILE_HASH_EMS_NOTIF|MIME data reported infected by EMS threat feed (notice)
+0209008220|Warning|Virus|inline-block|MESGID_ICB_WARNING|File reported infected by Inline Block (warning)
+0209008221|Notice|Virus|inline-block|MESGID_ICB_NOTIF|File reported infected by Inline Block (notice)
+0209008222|Warning|Virus|inline-block|MESGID_MIME_ICB_WARNING|MIME data reported infected by Inline Block (warning)
+0209008223|Notice|Virus|inline-block|MESGID_MIME_ICB_NOTIF|MIME data reported infected by Inline Block (notice)
+0209008224|Warning|Virus|inline-block|MESGID_ICB_TIMEOUT_WARNING|Inline Block scan timeout (warning)
+0209008225|Notice|Virus|inline-block|MESGID_ICB_TIMEOUT_NOTIF|Inline Block scan timeout (notice)
+0209008226|Warning|Virus|inline-block|MESGID_MIME_ICB_TIMEOUT_WARNING|MIME data reported Inline Block scan timeout (warning)
+0209008227|Notice|Virus|inline-block|MESGID_MIME_ICB_TIMEOUT_NOTIF|MIME data reported Inline Block scan timeout (notice)
+0209008228|Warning|Virus|inline-block|MESGID_ICB_ERROR_WARNING|Inline Block scan error (warning)
+0209008229|Notice|Virus|inline-block|MESGID_ICB_ERROR_NOTIF|Inline Block scan error (notice)
+0209008230|Warning|Virus|inline-block|MESGID_MIME_ICB_ERROR_WARNING|MIME data reported Inline Block scan error (warning)
+0209008231|Notice|Virus|inline-block|MESGID_MIME_ICB_ERROR_NOTIF|MIME data reported Inline Block scan error (notice)
+0210008244|Warning|Virus|0-day-malware-stream|MESGID_MALWARE_STREAM_WARNING|File reported infected by 0-day malware stream (warning)
+0210008245|Notice|Virus|0-day-malware-stream|MESGID_MALWARE_STREAM_NOTIF|File reported infected by 0-day malware stream (notice)
+0210008246|Warning|Virus|0-day-malware-stream|MESGID_MIME_MALWARE_STREAM_WARNING|MIME data reported infected by 0-day malware stream (warning)
+0210008247|Notice|Virus|0-day-malware-stream|MESGID_MIME_MALWARE_STREAM_NOTIF|MIME data reported infected by 0-day malware stream (notice)
+0212008448|Warning|Virus|filename|MESGID_BLOCK_WARNING|FortiGate unit blocked a file because it contains a virus
+0261008450|Warning|Virus|mimefragmented|MESGID_BLOCK_MIME_WARNING|FortiGate unit blocked a file because it contains a virus (MIME)
+0261008451|Notice|Virus|mimefragmented|MESGID_BLOCK_MIME_NOTIF|FortiGate unit blocked a file because it contains a virus (MIME)
+0206008452|Warning|Virus|command-blocked|MESGID_BLOCK_COMMAND|FortiGate unit blocked a virus command
+0213008704|Warning|Virus|oversize|MESGID_OVERSIZE_WARNING|Defined file size limit was exceeded
+0213008705|Notice|Virus|oversize|MESGID_OVERSIZE_NOTIF|File size limit was exceeded
+0213008708|Warning|Virus|oversize|MESGID_OVERSIZE_STREAM_UNCOMP_WARNING|Stream-based uncompression reached size limit.
+0213008709|Notice|Virus|oversize|MESGID_OVERSIZE_STREAM_UNCOMP_NOTIF|Stream-based uncompression reached size limit.
+0263008720|Warning|Virus|switchproto|MESGID_SWITCH_PROTO_WARNING|Switching protocols request (warning)
+0263008721|Notice|Virus|switchproto|MESGID_SWITCH_PROTO_NOTIF|Switching protocols request (notice)
+0262008960|Warning|Virus|scanerror|MESGID_SCAN_UNCOMPSIZELIMIT_WARNING|File reached the uncompressed nested limit
+0262008961|Notice|Virus|scanerror|MESGID_SCAN_UNCOMPSIZELIMIT_NOTIF|File reached the uncompressed size limit
+0262008962|Warning|Virus|scanerror|MESGID_SCAN_ARCHIVE_ENCRYPTED_WARNING|Archived file is corrupted
+0262008963|Notice|Virus|scanerror|MESGID_SCAN_ARCHIVE_ENCRYPTED_NOTIF|Archived file is encrypted
+0262008964|Warning|Virus|scanerror|MESGID_SCAN_ARCHIVE_CORRUPTED_WARNING|Corrupted archive (warning)
+0262008965|Notice|Virus|scanerror|MESGID_SCAN_ARCHIVE_CORRUPTED_NOTIF|Corrupted archive (notice)
+0262008966|Warning|Virus|scanerror|MESGID_SCAN_ARCHIVE_MULTIPART_WARNING|File is a multipart archive or contains multiple files within the archive
+0262008967|Notice|Virus|scanerror|MESGID_SCAN_ARCHIVE_MULTIPART_NOTIF|File is a multipart archive or contains multiple files within the archive
+0262008968|Warning|Virus|scanerror|MESGID_SCAN_ARCHIVE_NESTED_WARNING|File is a nested archived file
+0262008969|Notice|Virus|scanerror|MESGID_SCAN_ARCHIVE_NESTED_NOTIF|File is an archived type unhandled
+0262008970|Warning|Virus|scanerror|MESGID_SCAN_ARCHIVE_OVERSIZE_WARNING|Archived file is oversized
+0262008971|Notice|Virus|scanerror|MESGID_SCAN_ARCHIVE_OVERSIZE_NOTIF|Archived file is oversized
+0262008972|Warning|Virus|scanerror|MESGID_SCAN_ARCHIVE_UNHANDLED_WARNING|Unhandled archive (warning)
+0262008973|Notice|Virus|scanerror|MESGID_SCAN_ARCHIVE_UNHANDLED_NOTIF|Unhandled archive (notice)
+0262008974|Error|Virus|scanerror|MESGID_SCAN_AV_ENGINE_LOAD_FAILED_ERROR|AV Engine load failed
+0262008975|Warning|Virus|scanerror|MESGID_SCAN_ARCHIVE_PARTIALLYCORRUPTED_WARNING|Partially corrupted archive (warning)
+0262008976|Notice|Virus|scanerror|MESGID_SCAN_ARCHIVE_PARTIALLYCORRUPTED_NOTIF|Partially corrupted archive (notice)
+0262008979|Warning|Virus|scanerror|MESGID_SCAN_ARCHIVE_TIMEOUT_WARNING|Archive scan timeout (warning)
+0262008980|Notice|Virus|scanerror|MESGID_SCAN_ARCHIVE_TIMEOUT_NOTIF|Archive scan timeout (notice)
+0262008981|Error|Virus|scanerror|MESGID_SCAN_AV_CDR_INTERNAL_ERROR|AV CDR engine internal error
+0262008982|Error|Virus|scanerror|MESGID_SCAN_AV_MAX_MEMORY_REACHED_ERROR|Exceeded max AV memory
+0214008983|Warning|Virus|outbreak-prevention-error|MESGID_MIME_AVQUERY_ERROR_WARNING|Mime data Outbreak Prevention service error (warning)
+0214008984|Warning|Virus|outbreak-prevention-error|MESGID_MIME_AVQUERY_TIMEOUT_WARNING|Mime data Outbreak Prevention service timeout (warning)
+0214008985|Warning|Virus|outbreak-prevention-error|MESGID_AVQUERY_ERROR_WARNING|Outbreak Prevention service error (warning)
+0214008986|Warning|Virus|outbreak-prevention-error|MESGID_AVQUERY_TIMEOUT_WARNING|Outbreak Prevention service timeout (warning)
+0214008987|Notice|Virus|outbreak-prevention-error|MESGID_MIME_AVQUERY_ERROR_NOTIF|Mime data Outbreak Prevention service error (notice)
+0214008988|Notice|Virus|outbreak-prevention-error|MESGID_MIME_AVQUERY_TIMEOUT_NOTIF|Mime data Outbreak Prevention service timeout (notice)
+0214008989|Notice|Virus|outbreak-prevention-error|MESGID_AVQUERY_ERROR_NOTIF|Outbreak Prevention service error (notice)
+0214008990|Notice|Virus|outbreak-prevention-error|MESGID_AVQUERY_TIMEOUT_NOTIF|Outbreak Prevention service timeout (notice)
+0201009233|Information|Virus|analytics|MESGID_ANALYTICS_SUBMITTED|File submitted to Sandbox
+0211009234|Warning|Virus|infected|MESGID_ANALYTICS_INFECT_WARNING|File reported infected by FortiSandbox (warning)
+0211009235|Notice|Virus|infected|MESGID_ANALYTICS_INFECT_NOTIF|File reported infected by FortiSandbox (notice)
+0211009236|Warning|Virus|infected|MESGID_ANALYTICS_INFECT_MIME_WARNING|File reported infected by FortiSandbox (warning)
+0211009237|Notice|Virus|infected|MESGID_ANALYTICS_INFECT_MIME_NOTIF|File reported infected by FortiSandbox (notice)
+0201009238|Notice|Virus|analytics|MESGID_ANALYTICS_FSA_RESULT|File verdict returned from FortiSandbox
+0205009239|Notice|Virus|content-disarm|MESGID_CONTENT_DISARM_NOTIF|Active content detected by Content Disarm engine
+0205009240|Warning|Virus|content-disarm|MESGID_CONTENT_DISARM_WARNING|File was disarmed by Content Disarm engine
+0249009241|Warning|Virus|unknown-ce|LOG_ID_UNKNOWN_CE_BLOCK|Unknown content-encoding detected and blocked
+0249009242|Notice|Virus|unknown-ce|LOG_ID_UNKNOWN_CE_BYPASS|Scan is bypassed due to unknown content-encoding
+0814044032|Information|VoIP|voip|LOGID_EVENT_VOIP_SIP|VoIP SIP
+0814044033|Notice|VoIP|voip|LOGID_EVENT_VOIP_SIP_BLOCK|VoIP SIP blocked
+0814044034|Information|VoIP|voip|LOGID_EVENT_VOIP_SIP_FUZZING|VoIP SIP fuzzing
+0814044035|Information|VoIP|voip|LOGID_EVENT_VOIP_SCCP_REGISTER|VoIP SCCP registered
+0814044036|Information|VoIP|voip|LOGID_EVENT_VOIP_SCCP_UNREGISTER|VoIP SCCP unregistered
+0814044037|Information|VoIP|voip|LOGID_EVENT_VOIP_SCCP_CALL_BLOCK|VoIP SCCP call blocked
+0814044038|Information|VoIP|voip|LOGID_EVENT_VOIP_SCCP_CALL_INFO|VoIP SCCP call information
+1200030248|Warning|WAF|waf-signature|LOGID_WAF_SIGNATURE_BLOCK|Web application firewall blocked application by signature
+1200030249|Warning|WAF|waf-signature|LOGID_WAF_SIGNATURE_PASS|Web application firewall passed application by signature
+1200030250|Warning|WAF|waf-signature|LOGID_WAF_SIGNATURE_ERASE|Web application firewall erased application by signature
+1201030251|Warning|WAF|waf-custom-signature|LOGID_WAF_CUSTOM_SIGNATURE_BLOCK|Web application firewall blocked application by custom signature
+1201030252|Warning|WAF|waf-custom-signature|LOGID_WAF_CUSTOM_SIGNATURE_PASS|Web application firewall allowed application by custom signature
+1202030253|Warning|WAF|waf-http-method|LOGID_WAF_METHOD_BLOCK|Web application firewall blocked application by HTTP method
+1204030255|Warning|WAF|waf-address-list|LOGID_WAF_ADDRESS_LIST_BLOCK|Web application firewall blocked application by address list
+1203030257|Warning|WAF|waf-http-constraint|LOGID_WAF_CONSTRAINTS_BLOCK|Web application firewall blocked application by HTTP constraints
+1203030258|Warning|WAF|waf-http-constraint|LOGID_WAF_CONSTRAINTS_PASS|Web application firewall allowed application by HTTP constraints
+1205030259|Warning|WAF|waf-url-access|LOGID_WAF_URL_ACCESS_PERMIT|Web application firewall allowed application by URL access permit
+1205030260|Warning|WAF|waf-url-access|LOGID_WAF_URL_ACCESS_BYPASS|Web application firewall allowed application by URL access bypass
+1205030261|Warning|WAF|waf-url-access|LOGID_WAF_URL_ACCESS_BLOCK|Web application firewall blocked application by URL access
+0314012288|Warning|Webfilter|content|LOG_ID_WEB_CONTENT_BANWORD|Web content banned word found
+0314012290|Notice|Webfilter|content|LOG_ID_WEB_CONTENT_EXEMPTWORD|Web content exempt word found
+0314012292|Notice|Webfilter|content|LOG_ID_WEB_CONTENT_KEYWORD|Message contained a key word in the profile list
+0314012293|Notice|Webfilter|content|LOG_ID_WEB_CONTENT_SEARCH|Search phrase detected
+0315012544|Warning|Webfilter|urlfilter|LOG_ID_URL_FILTER_BLOCK|URL address was blocked because it was found in the URL filter list
+0315012545|Information|Webfilter|urlfilter|LOG_ID_URL_FILTER_EXEMPT|URL address was exempted because it was found in the URL filter list
+0315012546|Information|Webfilter|urlfilter|LOG_ID_URL_FILTER_ALLOW|URL address was allowed because it was found in the URL filter list
+0315012547|Notice|Webfilter|urlfilter|LOG_ID_URL_FILTER_INVALID_HOSTNAME_HTTP_BLK|The request contained an invalid domain name
+0315012548|Notice|Webfilter|urlfilter|LOG_ID_URL_FILTER_INVALID_HOSTNAME_HTTPS_BLK|HTTP certificate request contained an invalid domain name
+0315012549|Information|Webfilter|urlfilter|LOG_ID_URL_FILTER_INVALID_HOSTNAME_HTTP_PASS|HTTP request contained an invalid name so the session has been filtered by IP only
+0315012550|Information|Webfilter|urlfilter|LOG_ID_URL_FILTER_INVALID_HOSTNAME_HTTPS_PASS|HTTPS request contained an invalid name so the session has been filtered by IP only
+0315012551|Notice|Webfilter|urlfilter|LOG_ID_URL_FILTER_INVALID_HOSTNAME_SNI_BLK|Insufficient resources
+0315012552|Information|Webfilter|urlfilter|LOG_ID_URL_FILTER_INVALID_HOSTNAME_SNI_PASS|Getting the host name failed
+0315012553|Notice|Webfilter|urlfilter|LOG_ID_URL_FILTER_INVALID_CERT|Server certificate validation failed
+0315012554|Notice|Webfilter|urlfilter|LOG_ID_URL_FILTER_INVALID_SESSION|SSL session blocked because its identification number was unknown
+0315012555|Notice|Webfilter|urlfilter|LOG_ID_URL_FILTER_SRV_CERT_ERR_BLK|SSL session blocked
+0315012556|Notice|Webfilter|urlfilter|LOG_ID_URL_FILTER_SRV_CERT_ERR_PASS|SSL session ignored
+0315012557|Critical|Webfilter|urlfilter|LOG_ID_URL_FILTER_FAMS_NOT_ACTIVE|The FortiGuard Analysis and Management Service is not active. You must enable this
+0315012558|Information|Webfilter|urlfilter|LOG_ID_URL_FILTER_RATING_ERR|Rating error occurred
+0315012559|Information|Webfilter|urlfilter|LOG_ID_URL_FILTER_PASS|URL passed because it was in the URL filter list
+0315012560|Warning|Webfilter|urlfilter|LOG_ID_URL_WISP_BLOCK|URL blocked by Websense service
+0315012561|Warning|Webfilter|urlfilter|LOG_ID_URL_WISP_REDIR|URL blocked with redirect message by Websense service
+0315012562|Information|Webfilter|urlfilter|LOG_ID_URL_WISP_ALLOW|URL allowed by Websense service
+0345012688|Information|Webfilter|ssl-exempt|LOG_ID_WEB_SSL_EXEMPT|URL address was exempted because it was found in the ssl-exempt
+0318012800|Error|Webfilter|ftgd_err|LOG_ID_WEB_FTGD_ERR|Rating error occurred (error)
+0318012801|Warning|Webfilter|ftgd_err|LOG_ID_WEB_FTGD_WARNING|Rating error occurred (warning)
+0340012802|Information|Webfilter|ftgd_quota|LOG_ID_WEB_FTGD_QUOTA|Daily FortiGuard quota status
+0316013056|Warning|Webfilter|ftgd_blk|LOG_ID_WEB_FTGD_CAT_BLK|URL belongs to an blocked category within the firewall policy
+0316013057|Warning|Webfilter|ftgd_blk|LOG_ID_WEB_FTGD_CAT_WARN|URL belongs to a category with warnings enabled
+0316013058|Warning|Webfilter|ftgd_blk|LOG_ID_WEB_FTGD_RISK_BLK|URL belongs to an blocked risk-level within the firewall policy
+0317013312|Notice|Webfilter|ftgd_allow|LOG_ID_WEB_FTGD_CAT_ALLOW|URL belongs to an allowed category within the firewall policy
+0317013313|Notice|Webfilter|ftgd_allow|LOG_ID_WEB_FTGD_RISK_ALLOW|URL belongs to an allowed risk-level within the firewall policy
+0338013315|Notice|Webfilter|ftgd_quota_counting|LOG_ID_WEB_FTGD_QUOTA_COUNTING|FortiGuard web filter category quota counting log message
+0339013316|Warning|Webfilter|ftgd_quota_expired|LOG_ID_WEB_FTGD_QUOTA_EXPIRED|FortiGuard web filter category quota expired log message
+0319013317|Notice|Webfilter|urlmonitor|LOG_ID_WEB_URL|URL has been visited
+0320013318|Notice|Webfilter|domain-fronting|LOG_ID_WEB_DOMAIN_FRONTING|Domain fronting detected
+0335013568|Notice|Webfilter|activexfilter|LOG_ID_WEB_SCRIPTFILTER_ACTIVEX|ActiveX script removed
+0336013573|Notice|Webfilter|cookiefilter|LOG_ID_WEB_SCRIPTFILTER_COOKIE|Cookie removed
+0337013584|Notice|Webfilter|appletfilter|LOG_ID_WEB_SCRIPTFILTER_APPLET|Java applet removed
+0341013600|Notice|Webfilter|scriptfilter|LOG_ID_WEB_SCRIPTFILTER_OTHER|Script entity removed
+0336013601|Notice|Webfilter|cookiefilter|LOG_ID_WEB_WF_COOKIE|Cookie removed entirely
+0336013602|Notice|Webfilter|cookiefilter|LOG_ID_WEB_WF_REFERER|Referrer removed from request
+0343013603|Warning|Webfilter|webfilter_command_block|LOG_ID_WEB_WF_COMMAND_BLOCK|Command blocked
+0314013616|Warning|Webfilter|content|LOG_ID_CONTENT_TYPE_BLOCK|Blocked by HTTP header content type
+0314013617|Information|Webfilter|content|LOG_ID_CONTENT_TYPE_EXEMPT|Exempted by HTTP header content type
+0344013632|Notice|Webfilter|http_header_change|LOGID_HTTP_HDR_CHG_REQ|Depends on info in msg field
+0344013633|Notice|Webfilter|http_header_change|LOGID_HTTP_HDR_CHG_RESP|Depends on info in msg field
+0346013648|Warning|Webfilter|antiphishing|LOG_ID_WEB_WF_ANTIPHISH_MATCH_URL_ALLOW|Antiphishing matched a URL filter rule without blocking the request.
+0346013649|Warning|Webfilter|antiphishing|LOG_ID_WEB_WF_ANTIPHISH_MATCH_FTGD_ALLOW|Antiphishing matched a Fortiguard category rule without blocking the request.
+0346013650|Warning|Webfilter|antiphishing|LOG_ID_WEB_WF_ANTIPHISH_MATCH_DEFAULT_ALLOW|Antiphishing reached default action without blocking the request.
+0346013651|Warning|Webfilter|antiphishing|LOG_ID_WEB_WF_ANTIPHISH_MATCH_URL_BLOCK|Antiphishing matched a URL filter rule and blocked the request.
+0346013652|Warning|Webfilter|antiphishing|LOG_ID_WEB_WF_ANTIPHISH_MATCH_FTGD_BLOCK|Antiphishing matched a Fortiguard category rule and blocked the request.
+0346013653|Warning|Webfilter|antiphishing|LOG_ID_WEB_WF_ANTIPHISH_MATCH_DEFAULT_BLOCK|Antiphishing reached default action and blocked the request.
+0347013664|Warning|Webfilter|videofilter-category|LOG_ID_VIDEOFILTER_CATEGORY_BLOCK|Video category is blocked.
+0347013665|Notice|Webfilter|videofilter-category|LOG_ID_VIDEOFILTER_CATEGORY_MONITOR|Video category is monitored
+0347013666|Notice|Webfilter|videofilter-category|LOG_ID_VIDEOFILTER_CATEGORY_ALLOW|Video category is allowed
+0348013680|Warning|Webfilter|videofilter-channel|LOG_ID_VIDEOFILTER_CHANNEL_BLOCK|Video channel is blocked.
+0348013681|Notice|Webfilter|videofilter-channel|LOG_ID_VIDEOFILTER_CHANNEL_MONITOR|Video channel is monitored
+0348013682|Notice|Webfilter|videofilter-channel|LOG_ID_VIDEOFILTER_CHANNEL_ALLOW|Video channel is allowed
+0350013712|Warning|Webfilter|videofilter-title|LOG_ID_VIDEOFILTER_TITLE_BLOCK|Video title is blocked.
+0350013713|Notice|Webfilter|videofilter-title|LOG_ID_VIDEOFILTER_TITLE_MONITOR|Video title is monitored
+0350013714|Notice|Webfilter|videofilter-title|LOG_ID_VIDEOFILTER_TITLE_ALLOW|Video title is allowed
+0351013728|Warning|Webfilter|videofilter-description|LOG_ID_VIDEOFILTER_DESCRIPTION_BLOCK|Video description is blocked.
+0351013729|Notice|Webfilter|videofilter-description|LOG_ID_VIDEOFILTER_DESCRIPTION_MONITOR|Video description is monitored
+0351013730|Notice|Webfilter|videofilter-description|LOG_ID_VIDEOFILTER_DESCRIPTION_ALLOW|Video description is allowed
