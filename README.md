@@ -4,108 +4,78 @@ A Wazuh detection ruleset for Fortinet FortiGate firewalls running FortiOS 8.0.0
 
 ## Overview
 
-FortiGate devices can emit logs in JSON format over syslog. Wazuh's built-in `json` decoder processes these logs and promotes all JSON keys to top-level decoded fields. This ruleset anchors on the `devid` field (which always begins with `FG` on FortiGate hardware and VMs) to fingerprint FortiGate events among all JSON sources, then builds a structured detection hierarchy from there.
+FortiGate devices can emit logs in JSON format over syslog. Wazuh's built-in `json` decoder processes these logs and promotes all JSON keys to top-level decoded fields. This ruleset anchors on the presence of a numeric `logid`, then keeps detection rules flat and based solely on exact `logid` values.
 
-**Rule ID range:** 118100 – 118299  
-**Total rules:** 149  
+**Rule ID range:** 118100 - 118299
+**Total rules:** 173
 **Target firmware:** FortiOS 8.0.0 (log format is broadly compatible with 6.4 and 7.x)
 
 ## Files
 
 ```
-decoders/
-  fortigate-json_decoders.xml   # Optional custom decoder (not required when using built-in JSON decoder)
-
 rules/
-  fortigate-json_rules.xml      # 149 detection rules
+  fortigate-json_rules.xml      # 173 logid-based detection, suppression, and correlation rules
 
 references/
   fortios_8_0_log_ids.csv       # FortiOS 8.0.0 log ID reference with pre-assigned Wazuh rule IDs
   fortiguard_web_filter_categories.csv  # FortiGuard URL category number-to-name mapping
+  forti_master_reference.txt    # Pipe-delimited FortiOS 8.0.0 master log ID reference
+  FortiOS_8.0.0_Log_Reference.md # Full FortiOS 8.0.0 log reference
 ```
 
 ## Decoder Notes
 
-The rules rely on **Wazuh's built-in `json` decoder**, not the custom decoder in this repo. Wazuh automatically selects the built-in decoder when a log event is valid JSON. No custom decoder installation is required.
+The rules rely on **Wazuh's built-in `json` decoder**. Wazuh automatically selects the built-in decoder when a log event is valid JSON. No custom decoder installation is required.
 
-The included `fortigate-json_decoders.xml` is provided for environments that route FortiGate syslog through a specific program name (`devname`), but the rules do not depend on it.
+## Detection Model
+
+Rule `118100` anchors decoded JSON logs that contain a numeric `logid`. Every detection rule below it uses `if_sid=118100` and matches exact `logid` values. Fields such as `devid`, `type`, `subtype`, `action`, `level`, `status`, `catdesc`, `apprisk`, `srcip`, `remip`, and `user` are used only in descriptions or as frequency correlation keys. The only field-based exceptions are level-0 noise suppressors for selected allowed infrastructure traffic under `118102`.
 
 ## Rule Coverage
 
-### Traffic (118101 – 118108)
-| Rule | Description |
-|------|-------------|
-| 118101 | Traffic log parent (anchor) |
-| 118102 | Traffic allowed (`action: accept/allow`) |
-| 118103 | Traffic denied/dropped by policy |
-| 118104 | Connection reset by client or server |
-| 118105 | Failed connection attempts (`logid: 0000000011`) |
-| 118106 | Forward traffic statistics (`logid: 0000000020`) |
-| 118107 | Local traffic (management plane) |
-| 118108 | ZTNA traffic (`logid: 0005000024`) |
+### Traffic
+Allowed, denied/invalid, failed connection, local traffic, forward statistics, and ZTNA traffic log IDs.
 
-### UTM — Antivirus (118110 – 118118)
-Malware blocked/passed, FortiSandbox verdicts, Outbreak Prevention, EMS threat feed, Content Disarm & Reconstruction (CDR), 0-day malware stream, oversize file.
+Allowed traffic rule `118102` has level-0 suppressors for noisy syslog, DNS, SNMP, and ICMP traffic by `service`, ICMP `proto=1`, and common source/destination ports `53`, `161`, `162`, and `514`.
 
-### UTM — IPS / Anomaly (118119 – 118128)
-IPS attack signatures (alert/warning/notice), Botnet C&C blocked and detected, malicious URL, L2 protocol attacks, anomaly attack (alert/warning).
+### UTM and Security
+Antivirus, FortiSandbox, Outbreak Prevention, EMS threat feed, CDR, IPS, anomaly/DoS, web filter, application control, DLP, WAF, email/spam, and CASB log IDs.
 
-### UTM — Web Filter (118129 – 118144)
-URL filter list blocked, FortiGuard category blocked (including targeted rules for Malicious Websites, Phishing, Hacking, Proxy Avoidance), FortiGuard risk-level blocked, antiphishing, domain fronting, command blocked, rating errors, quota expiry, video filter, FortiGuard unreachable.
+### Management Authentication
+Admin login success/failure, login disabled, logout, disconnect, password expiry, VDOM access, FortiToken/MFA lifecycle and failure, FNBAM, SNMP auth query failure, unauthenticated CMDB requests, sensitive CMDB table requests, PPP auth, and admin GUI/log access actions.
 
-### UTM — Application Control (118145 – 118150)
-Application blocked, high/critical/elevated risk application, port enforcement violation, protocol enforcement violation.
+### User Authentication
+Firewall user auth success/failure, lockout, timeout, explicit proxy auth, NTLM auth, FortiGuard override auth, 802.1x auth, FSSO status, and auth backup/restore/server reachability events.
 
-### UTM — DLP (118151 – 118154)
-Data loss blocked, data loss detected (monitor mode), fingerprint source error.
+### VPN
+IPsec tunnel up/down/statistics, IPsec negotiation and ESP errors, SSL VPN login/tunnel/session activity, SSL VPN session errors, VPN certificate and SSL setting changes, PPTP, L2TP, and FortiClient VPN endpoint connect/disconnect events.
 
-### UTM — WAF (118155 – 118159)
-Request blocked (signature, custom signature, address list), WAF anomaly blocked.
+### System and Infrastructure
+Configuration changes, system lifecycle, resource exhaustion, IPS fail-open, interface changes, hardware health, routing, SD-WAN, licensing, FortiAnalyzer connectivity, integrity violations, DHCP, Security Fabric, IoC traffic, and log upload failures.
 
-### UTM — Email / Spam (118160)
-Spam / MIME spam notification.
-
-### UTM — CASB (118161)
-SaaS application activity blocked.
-
-### Event — Admin Authentication (118162 – 118170)
-Login success, login failure, account locked, logout, session dropped, password expired, VDOM enter/leave, FortiToken push failed.
-
-### Event — Configuration Changes (118171 – 118182)
-CLI and GUI config changes, global setting changes, config backup, config restore, system start/shutdown/reboot/factory-reset, firmware upgrade, image load failure, invalid/tampered firmware, application crash.
-
-### Event — VPN (118183 – 118185)
-IPsec tunnel up, tunnel down, VPN statistics.
-
-### Event — System Health (118186 – 118213)
-Memory conserve mode, extreme low memory, IPS fail-open, interface link/admin changes, kernel errors, socket pool exhaustion, IP pool exhaustion, power supply failure/redundancy, thermal alerts, fan anomaly, disk unavailable, log disk failure, SSD spare blocks, disk log full/corrupted.
-
-### Event — Routing (118214 – 118218)
-BGP/OSPF neighbor state change, routing information changed, routing log critical.
-
-### Event — SD-WAN (118219 – 118222)
-Link quality change, quality degraded, fail detect, neighbor status.
-
-### Event — Licensing (118223 – 118232)
-AV/IPS/webfilter license expiring and expired, VM license expired, license status change, duplicate license, certificate expiring, CRL expired.
-
-### Event — Security Fabric / CSF (118233 – 118236)
-FortiAnalyzer connection up/down/failed, write permission violation, hard link violation, kernel/firmware load violation, executable hash missing/mismatch.
-
-### Event — Miscellaneous (118237 – 118242)
-DHCP pool full/high, Security Fabric loop, upstream SN changed, locally-generated traffic to IoC, FNBAM auth error, log upload error.
-
-### Frequency / Correlation (118250 – 118257)
+### Frequency / Correlation
 | Rule | Trigger | Threshold |
 |------|---------|-----------|
 | 118250 | Admin brute force | 5 failures / 60 s (same srcip) |
-| 118251 | Admin brute force escalation | 10 failures / 120 s |
-| 118252 | Firewall deny flood (port scan / attack) | 10 denies / 30 s (same srcip) |
-| 118253 | IPS attack campaign | 5 IPS alerts / 60 s (same srcip) |
+| 118251 | Admin brute force escalation | 10 failures / 120 s (same srcip) |
+| 118252 | Firewall deny flood (port scan / attack) | 15 denies / 60 s (same srcip) |
+| 118253 | IPS attack campaign | 5 IPS alerts / 120 s (same srcip) |
 | 118254 | Malware spread from infected host | 3 detections / 120 s (same srcip) |
-| 118255 | Connection flood / scan | 15 failed connections / 30 s (same srcip) |
-| 118256 | Data exfiltration attempt | 5 DLP violations / 300 s (same srcip) |
-| 118257 | Web attack campaign | 10 WAF blocks / 60 s (same srcip) |
+| 118255 | Connection flood / scan | 20 failed connections / 60 s (same srcip) |
+| 118256 | Data exfiltration attempt | 3 DLP violations / 300 s (same srcip) |
+| 118257 | Web attack campaign | 5 WAF blocks / 60 s (same srcip) |
+| 118283 | SSL VPN brute force | 5 failures / 300 s (same remip) |
+| 118284 | SSL VPN brute force escalation | 10 failures / 600 s (same remip) |
+| 118285 | User auth failure burst | 8 failures / 300 s (same srcip) |
+| 118286 | User auth targeted failures | 5 failures / 300 s (same user) |
+| 118287 | IPsec tunnel flapping | 3 disconnects / 600 s (same remip) |
+| 118288 | SSL VPN tunnel flapping | 3 disconnects / 600 s (same user) |
+| 118289 | IPsec negotiation error burst | 5 errors / 300 s (same remip) |
+| 118290 | MFA/FortiToken failure burst | 3 failures / 300 s (same user) |
+| 118291 | Unauthenticated management CMDB burst | 5 events / 300 s (same devid) |
+| 118292 | FNBAM auth error burst | 5 events / 300 s (same devid) |
+| 118293 | PPP auth failure burst | 5 failures / 300 s (same user) |
+| 118294 | Auth lockout/timeout burst | 3 events / 300 s (same user) |
 
 ## Severity Mapping
 
@@ -124,17 +94,17 @@ DHCP pool full/high, Security Fabric loop, upstream SN changed, locally-generate
 
 Rules are tagged for the following frameworks where applicable:
 
-- **PCI DSS** (1.3.4, 5.1, 6.5, 6.6, 10.2.x, 10.5.5, 11.4)
-- **GDPR** (IV 35.7.d)
-- **HIPAA** (164.312.a, 164.312.b)
+- **PCI DSS** (1.3.4, 5.1, 6.5, 6.6, 8.x, 10.2.x, 10.5.x, 10.6.x, 10.7, 11.4)
+- **GDPR** (IV 30.1.g, IV 32.2, IV 35.7.d)
+- **HIPAA** (164.312.b)
 - **NIST 800-53** (AC, AU, CM, IA, SC, SI)
-- **GPG13** (4.13)
+- **GPG13** (4.13, 7.1, 10.3)
 
 ## MITRE ATT&CK Coverage
 
 Selected technique IDs mapped in rules:
 
-`T1048` `T1059` `T1071` `T1078` `T1098` `T1102` `T1110.001` `T1133` `T1190` `T1204.002` `T1486` `T1499` `T1505` `T1531` `T1543` `T1562` `T1571`
+`T1014` `T1046` `T1048` `T1059` `T1071` `T1078` `T1087` `T1090.004` `T1102` `T1110` `T1110.001` `T1133` `T1190` `T1204.002` `T1485` `T1498` `T1499` `T1529` `T1542` `T1542.001` `T1557` `T1562` `T1562.001` `T1566` `T1566.002` `T1571`
 
 ## Installation
 
@@ -142,7 +112,7 @@ Selected technique IDs mapped in rules:
 
 Configure FortiGate to send JSON-format syslog to Wazuh:
 
-```
+```bash
 config log syslogd setting
     set status enable
     set server <WAZUH_MANAGER_IP>
@@ -153,33 +123,26 @@ end
 
 > **Note:** When using JSON format, the syslog header `program_name` field is set to the device name (`devname` value). Wazuh receives the raw JSON payload after the syslog prefix.
 
-### 2. Deploy decoder (optional)
-
-Only needed if your FortiGate syslog is tagged with `devname` as the program name and you want explicit decoder chaining:
-
-```bash
-cp decoders/fortigate-json_decoders.xml /var/ossec/etc/decoders/
-```
-
-### 3. Deploy rules
+### 2. Deploy rules
 
 ```bash
 cp rules/fortigate-json_rules.xml /var/ossec/etc/rules/
 ```
 
-### 4. Restart Wazuh manager
+### 3. Restart Wazuh manager
 
 ```bash
 systemctl restart wazuh-manager
 ```
 
-### 5. Verify with wazuh-logtest
+### 4. Verify with wazuh-logtest
 
 ```bash
 /var/ossec/bin/wazuh-logtest
 ```
 
 Paste a sample FortiGate JSON log line and confirm:
+
 - **Phase 2** decoder: `name: 'json'`
 - **Phase 3** rule: one of the 118xxx rules fires
 
